@@ -110,22 +110,19 @@ QMap<DockerContainer, QString> ContainerProps::containerDescriptions()
                QObject::tr("OpenVPN is the most popular VPN protocol, with flexible configuration options. It uses its "
                            "own security protocol with SSL/TLS for key exchange.") },
              { DockerContainer::ShadowSocks,
-               QObject::tr("Shadowsocks - masks VPN traffic, making it similar to normal web traffic, but it "
-                           "may be recognized by analysis systems in some highly censored regions.") },
+               QObject::tr("Shadowsocks masks VPN traffic, making it resemble normal web traffic, but it may still be detected by certain analysis systems.") },
              { DockerContainer::Cloak,
                QObject::tr("OpenVPN over Cloak - OpenVPN with VPN masquerading as web traffic and protection against "
-                           "active-probing detection. Ideal for bypassing blocking in regions with the highest levels "
-                           "of censorship.") },
+                           "active-probing detection. It is very resistant to detection, but offers low speed.") },
              { DockerContainer::WireGuard,
-               QObject::tr("WireGuard - New popular VPN protocol with high performance, high speed and low power "
-                           "consumption. Recommended for regions with low levels of censorship.") },
+               QObject::tr("WireGuard - popular VPN protocol with high performance, high speed and low power "
+                           "consumption.") },
              { DockerContainer::Awg,
-               QObject::tr("AmneziaWG - Special protocol from Amnezia, based on WireGuard. It's fast like WireGuard, "
-                           "but very resistant to blockages. "
-                           "Recommended for regions with high levels of censorship.") },
+               QObject::tr("AmneziaWG is a special protocol from Amnezia based on WireGuard. "
+                           "It provides high connection speed and ensures stable operation even in the most challenging network conditions.") },
              { DockerContainer::Xray,
-               QObject::tr("XRay with REALITY - Suitable for countries with the highest level of internet censorship. "
-                           "Traffic masking as web traffic at the TLS level, and protection against detection by active probing methods.") },
+               QObject::tr("XRay with REALITY masks VPN traffic as web traffic and protects against active probing. "
+                           "It is highly resistant to detection and offers high speed.") },
              { DockerContainer::Ipsec,
                QObject::tr("IKEv2/IPsec -  Modern stable protocol, a bit faster than others, restores connection after "
                            "signal loss. It has native support on the latest versions of Android and iOS.") },
@@ -144,20 +141,20 @@ QMap<DockerContainer, QString> ContainerProps::containerDetailedDescriptions()
     return {
         { DockerContainer::OpenVpn,
           QObject::tr(
-                      "OpenVPN stands as one of the most popular and time-tested VPN protocols available.\n"
-                      "It employs its unique security protocol, "
-                      "leveraging the strength of SSL/TLS for encryption and key exchange. "
-                      "Furthermore, OpenVPN's support for a multitude of authentication methods makes it versatile and adaptable, "
-                      "catering to a wide range of devices and operating systems. "
-                      "Due to its open-source nature, OpenVPN benefits from extensive scrutiny by the global community, "
-                      "which continually reinforces its security. "
-                      "With a strong balance of performance, security, and compatibility, "
-                      "OpenVPN remains a top choice for privacy-conscious individuals and businesses alike.\n\n"
-                      "* Available in the AmneziaVPN across all platforms\n"
-                      "* Normal power consumption on mobile devices\n"
-                      "* Flexible customisation to suit user needs to work with different operating systems and devices\n"
-                      "* Recognised by DPI analysis systems and therefore susceptible to blocking\n"
-                      "* Can operate over both TCP and UDP network protocols.") },
+                  "OpenVPN stands as one of the most popular and time-tested VPN protocols available.\n"
+                  "It employs its unique security protocol, "
+                  "leveraging the strength of SSL/TLS for encryption and key exchange. "
+                  "Furthermore, OpenVPN's support for a multitude of authentication methods makes it versatile and adaptable, "
+                  "catering to a wide range of devices and operating systems. "
+                  "Due to its open-source nature, OpenVPN benefits from extensive scrutiny by the global community, "
+                  "which continually reinforces its security. "
+                  "With a strong balance of performance, security, and compatibility, "
+                  "OpenVPN remains a top choice for privacy-conscious individuals and businesses alike.\n\n"
+                  "* Available in the AmneziaVPN across all platforms\n"
+                  "* Normal power consumption on mobile devices\n"
+                  "* Flexible customisation to suit user needs to work with different operating systems and devices\n"
+                  "* Recognised by DPI systems and therefore susceptible to blocking\n"
+                  "* Can operate over both TCP and UDP network protocols.") },
         { DockerContainer::ShadowSocks,
           QObject::tr("Shadowsocks, inspired by the SOCKS5 protocol, safeguards the connection using the AEAD cipher. "
                       "Although Shadowsocks is designed to be discreet and challenging to identify, it isn't identical to a standard HTTPS connection."
@@ -169,28 +166,26 @@ QMap<DockerContainer, QString> ContainerProps::containerDetailedDescriptions()
                       "* Works over TCP network protocol.") },
         { DockerContainer::Cloak,
           QObject::tr("This is a combination of the OpenVPN protocol and the Cloak plugin designed specifically for "
-                      "protecting against blocking.\n\n"
+                      "protecting against detection.\n\n"
                       "OpenVPN provides a secure VPN connection by encrypting all internet traffic between the client "
                       "and the server.\n\n"
-                      "Cloak protects OpenVPN from detection and blocking. \n\n"
+                      "Cloak protects OpenVPN from detection. \n\n"
                       "Cloak can modify packet metadata so that it completely masks VPN traffic as normal web traffic, "
                       "and also protects the VPN from detection by Active Probing. This makes it very resistant to "
                       "being detected\n\n"
                       "Immediately after receiving the first data packet, Cloak authenticates the incoming connection. "
                       "If authentication fails, the plugin masks the server as a fake website and your VPN becomes "
                       "invisible to analysis systems.\n\n"
-                      "If there is a extreme level of Internet censorship in your region, we advise you to use only "
-                      "OpenVPN over Cloak from the first connection\n\n"
                       "* Available in the AmneziaVPN across all platforms\n"
                       "* High power consumption on mobile devices\n"
                       "* Flexible settings\n"
-                      "* Not recognised by DPI analysis systems\n"
+                      "* Not recognised by detection systems\n"
                       "* Works over TCP network protocol, 443 port.\n") },
         { DockerContainer::WireGuard,
           QObject::tr("A relatively new popular VPN protocol with a simplified architecture.\n"
                       "WireGuard provides stable VPN connection and high performance on all devices. It uses hard-coded encryption "
                       "settings. WireGuard compared to OpenVPN has lower latency and better data transfer throughput.\n"
-                      "WireGuard is very susceptible to blocking due to its distinct packet signatures. "
+                      "WireGuard is very susceptible to detection and blocking due to its distinct packet signatures. "
                       "Unlike some other VPN protocols that employ obfuscation techniques, "
                       "the consistent signature patterns of WireGuard packets can be more easily identified and "
                       "thus blocked by advanced Deep Packet Inspection (DPI) systems and other network monitoring tools.\n\n"
@@ -213,18 +208,18 @@ QMap<DockerContainer, QString> ContainerProps::containerDetailedDescriptions()
                       "* Available in the AmneziaVPN across all platforms\n"
                       "* Low power consumption\n"
                       "* Minimum number of settings\n"
-                      "* Not recognised by DPI analysis systems, resistant to blocking\n"
+                      "* Not recognised by traffic analysis systems\n"
                       "* Works over UDP network protocol.") },
         { DockerContainer::Xray,
-          QObject::tr("The REALITY protocol, a pioneering development by the creators of XRay, "
-                      "is specifically designed to counteract the highest levels of internet censorship through its novel approach to evasion.\n"
-                      "It uniquely identifies censors during the TLS handshake phase, seamlessly operating as a proxy for legitimate clients while diverting censors to genuine websites like google.com, "
-                      "thus presenting an authentic TLS certificate and data. \n"
-                      "This advanced capability differentiates REALITY from similar technologies by its ability to disguise web traffic as coming from random, "
-                      "legitimate sites without the need for specific configurations. \n"
-                      "Unlike older protocols such as VMess, VLESS, and the XTLS-Vision transport, "
-                      "REALITY's innovative \"friend or foe\" recognition at the TLS handshake enhances security and circumvents detection by sophisticated DPI systems employing active probing techniques. "
-                      "This makes REALITY a robust solution for maintaining internet freedom in environments with stringent censorship.")
+                QObject::tr("The REALITY protocol, a pioneering development by the creators of XRay, "
+                            "is designed to provide the highest level of protection against detection through its innovative approach to security and privacy.\n"
+                            "It uniquely identifies attackers during the TLS handshake phase, seamlessly operating as a proxy for legitimate clients while diverting attackers to genuine websites, "
+                            "thus presenting an authentic TLS certificate and data. \n"
+                            "This advanced capability differentiates REALITY from similar technologies by its ability to disguise web traffic as coming from random, "
+                            "legitimate sites without the need for specific configurations. \n"
+                            "Unlike older protocols such as VMess, VLESS, and the XTLS-Vision transport, "
+                            "REALITY's innovative \"friend or foe\" recognition at the TLS handshake enhances security. "
+                            "This makes REALITY a robust solution for maintaining internet freedom.")
         },
         { DockerContainer::Ipsec,
           QObject::tr("IKEv2, paired with the IPSec encryption layer, stands as a modern and stable VPN protocol.\n"
@@ -332,9 +327,7 @@ QStringList ContainerProps::fixedPortsForContainer(DockerContainer c)
 bool ContainerProps::isEasySetupContainer(DockerContainer container)
 {
     switch (container) {
-    case DockerContainer::WireGuard: return true;
     case DockerContainer::Awg: return true;
-    // case DockerContainer::Cloak: return true;
     default: return false;
     }
 }
@@ -342,9 +335,7 @@ bool ContainerProps::isEasySetupContainer(DockerContainer container)
 QString ContainerProps::easySetupHeader(DockerContainer container)
 {
     switch (container) {
-    case DockerContainer::WireGuard: return tr("Low");
-    case DockerContainer::Awg: return tr("High");
-    // case DockerContainer::Cloak: return tr("Extreme");
+    case DockerContainer::Awg: return tr("Automatic");
     default: return "";
     }
 }
@@ -352,10 +343,8 @@ QString ContainerProps::easySetupHeader(DockerContainer container)
 QString ContainerProps::easySetupDescription(DockerContainer container)
 {
     switch (container) {
-    case DockerContainer::WireGuard: return tr("I just want to increase the level of my privacy.");
-    case DockerContainer::Awg: return tr("I want to bypass censorship. This option recommended in most cases.");
-    // case DockerContainer::Cloak:
-    //     return tr("Most VPN protocols are blocked. Recommended if other options are not working.");
+    case DockerContainer::Awg: return tr("AmneziaWG protocol will be installed. "
+                                         "It provides high connection speed and ensures stable operation even in the most challenging network conditions.");
     default: return "";
     }
 }
@@ -363,9 +352,7 @@ QString ContainerProps::easySetupDescription(DockerContainer container)
 int ContainerProps::easySetupOrder(DockerContainer container)
 {
     switch (container) {
-    case DockerContainer::WireGuard: return 3;
-    case DockerContainer::Awg: return 2;
-    // case DockerContainer::Cloak: return 1;
+    case DockerContainer::Awg: return 1;
     default: return 0;
     }
 }
@@ -384,9 +371,9 @@ bool ContainerProps::isShareable(DockerContainer container)
 QJsonObject ContainerProps::getProtocolConfigFromContainer(const Proto protocol, const QJsonObject &containerConfig)
 {
     QString protocolConfigString = containerConfig.value(ProtocolProps::protoToString(protocol))
-                                           .toObject()
-                                           .value(config_key::last_config)
-                                           .toString();
+    .toObject()
+            .value(config_key::last_config)
+            .toString();
 
     return QJsonDocument::fromJson(protocolConfigString.toUtf8()).object();
 }

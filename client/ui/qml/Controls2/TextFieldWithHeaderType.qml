@@ -22,11 +22,9 @@ Item {
     property var clickedFunc
 
     property alias textField: textField
-    property alias textFieldText: textField.text
     property string textFieldTextColor: AmneziaStyle.color.paleGray
     property string textFieldTextDisabledColor: AmneziaStyle.color.mutedGray
 
-    property string textFieldPlaceholderText
     property bool textFieldEditable: true
 
     property string borderColor: AmneziaStyle.color.slateGray
@@ -40,6 +38,7 @@ Item {
     implicitHeight: content.implicitHeight
 
     property FlickableType parentFlickable
+
     Connections {
         target: textField
         function onFocusChanged() {
@@ -84,14 +83,22 @@ Item {
 
                     TextField {
                         id: textField
-                        activeFocusOnTab: false
+
+                        property bool isFocusable: true
+
+                        Keys.onTabPressed: {
+                            FocusController.nextKeyTabItem()
+                        }
+
+                        Keys.onBacktabPressed: {
+                            FocusController.previousKeyTabItem()
+                        }
 
                         enabled: root.textFieldEditable
                         color: root.enabled ? root.textFieldTextColor : root.textFieldTextDisabledColor
 
                         inputMethodHints: Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData | Qt.ImhNoPredictiveText
 
-                        placeholderText: root.textFieldPlaceholderText
                         placeholderTextColor: AmneziaStyle.color.charcoalGray
 
                         selectionColor:  AmneziaStyle.color.richBrown
@@ -119,8 +126,8 @@ Item {
                         }
 
                         onActiveFocusChanged: {
-                            if (checkEmptyText && textFieldText === "") {
-                                errorText = qsTr("The field can't be empty")
+                            if (root.checkEmptyText && text === "") {
+                                root.errorText = qsTr("The field can't be empty")
                             }
                         }
 
@@ -209,9 +216,9 @@ Item {
             clickedFunc()
         }
 
-        if (KeyNavigation.tab) {
-            KeyNavigation.tab.forceActiveFocus();
-        }
+        // if (KeyNavigation.tab) {
+        //     KeyNavigation.tab.forceActiveFocus();
+        // }
     }
 
     Keys.onReturnPressed: {
@@ -219,8 +226,8 @@ Item {
             clickedFunc()
         }
 
-        if (KeyNavigation.tab) {
-            KeyNavigation.tab.forceActiveFocus();
-        }
+        // if (KeyNavigation.tab) {
+        //     KeyNavigation.tab.forceActiveFocus();
+        // }
     }
 }

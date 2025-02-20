@@ -65,28 +65,29 @@ QVariant ApiServicesModel::data(const QModelIndex &index, int role) const
     case CardDescriptionRole: {
         auto speed = apiServiceData.serviceInfo.speed;
         if (serviceType == serviceType::amneziaPremium) {
-            return tr("Classic VPN for comfortable work, downloading large files and watching videos. "
-                      "Works for any sites. Speed up to %1 MBit/s")
+            return tr("Amnezia Premium is VPN for comfortable work, downloading large files and watching videos in 8K resolution. "
+                      "Works for any sites with no restrictions. Speed up to %1 MBit/s. Unlimited traffic.")
                     .arg(speed);
-        } else if (serviceType == serviceType::amneziaFree){
-            QString description = tr("VPN to access blocked sites in regions with high levels of Internet censorship. ");
-            if (isServiceAvailable) {
-                description += tr("<p><a style=\"color: #EB5757;\">Not available in your region. If you have VPN enabled, disable it, return to the previous screen, and try again.</a>");
+        } else if (serviceType == serviceType::amneziaFree) {
+            QString description = tr("AmneziaFree provides free unlimited access to a basic set of web sites, such as Facebook, Instagram, Twitter (X), Discord, Telegram, and others. YouTube is not included in the free plan.");
+            if (!isServiceAvailable) {
+                description += tr("<p><a style=\"color: #EB5757;\">Not available in your region. If you have VPN enabled, disable it, "
+                                  "return to the previous screen, and try again.</a>");
             }
             return description;
         }
     }
     case ServiceDescriptionRole: {
         if (serviceType == serviceType::amneziaPremium) {
-            return tr("Amnezia Premium - A classic VPN for comfortable work, downloading large files, and watching videos in high resolution. "
-                      "It works for all websites, even in countries with the highest level of internet censorship.");
+            return tr("Amnezia Premium is VPN for comfortable work, downloading large files and watching videos in 8K resolution. "
+                      "Works for any sites with no restrictions.");
         } else {
-            return tr("Amnezia Free is a free VPN to bypass blocking in countries with high levels of internet censorship");
+            return tr("AmneziaFree provides free unlimited access to a basic set of web sites, such as Facebook, Instagram, Twitter (X), Discord, Telegram, and others. YouTube is not included in the free plan.");
         }
     }
     case IsServiceAvailableRole: {
         if (serviceType == serviceType::amneziaFree) {
-            if (isServiceAvailable) {
+            if (!isServiceAvailable) {
                 return false;
             }
         }
@@ -143,7 +144,8 @@ void ApiServicesModel::updateModel(const QJsonObject &data)
         m_selectedServiceIndex = 0;
     } else {
         for (const auto &service : services) {
-            m_services.push_back(getApiServicesData(service.toObject()));
+            auto serviceObject = service.toObject();
+            m_services.push_back(getApiServicesData(serviceObject));
         }
     }
 
@@ -228,7 +230,7 @@ QHash<int, QByteArray> ApiServicesModel::roleNames() const
 
 ApiServicesModel::ApiServicesData ApiServicesModel::getApiServicesData(const QJsonObject &data)
 {
-    auto serviceInfo =  data.value(configKey::serviceInfo).toObject();
+    auto serviceInfo = data.value(configKey::serviceInfo).toObject();
     auto serviceType = data.value(configKey::serviceType).toString();
     auto serviceProtocol = data.value(configKey::serviceProtocol).toString();
     auto availableCountries = data.value(configKey::availableCountries).toArray();
@@ -245,9 +247,9 @@ ApiServicesModel::ApiServicesData ApiServicesModel::getApiServicesData(const QJs
     serviceData.type = serviceType;
     serviceData.protocol = serviceProtocol;
 
-    serviceData.storeEndpoint = serviceInfo.value(configKey::storeEndpoint).toString();
+    serviceData.storeEndpoint = data.value(configKey::storeEndpoint).toString();
 
-    if (serviceInfo.value(configKey::isAvailable).isBool()) {
+    if (data.value(configKey::isAvailable).isBool()) {
         serviceData.isServiceAvailable = data.value(configKey::isAvailable).toBool();
     } else {
         serviceData.isServiceAvailable = true;

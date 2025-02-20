@@ -15,8 +15,6 @@ import "../Components"
 PageType {
     id: root
 
-    defaultActiveFocusItem: focusItem
-
     FlickableType {
         id: fl
         anchors.top: parent.top
@@ -32,15 +30,9 @@ PageType {
 
             spacing: 0
 
-            Item {
-                id: focusItem
-                KeyNavigation.tab: backButton
-            }
-
             BackButtonType {
                 id: backButton
                 Layout.topMargin: 20
-//                KeyNavigation.tab: fileButton.rightButton
             }
 
             HeaderType {
@@ -78,7 +70,7 @@ PageType {
 
                 imageSource: "qrc:/images/controls/history.svg"
                 leftText: qsTr("Work period")
-                rightText: ApiServicesModel.getSelectedServiceData("workPeriod")
+                rightText: ApiServicesModel.getSelectedServiceData("timeLimit")
 
                 visible: rightText !== ""
             }

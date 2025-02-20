@@ -96,11 +96,6 @@ configure_file(${CMAKE_CURRENT_LIST_DIR}/translations/translations.qrc.in ${CMAK
 qt6_add_resources(QRC ${I18NQRC} ${CMAKE_CURRENT_BINARY_DIR}/translations.qrc)
 # -- i18n end
 
-if(IOS)
-    execute_process(COMMAND bash ${CMAKE_CURRENT_LIST_DIR}/ios/scripts/openvpn.sh args
-        WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
-endif()
-
 set(IS_CI ${CI})
 if(IS_CI)
     message("Detected CI env")
@@ -146,6 +141,7 @@ set(HEADERS ${HEADERS}
     ${CMAKE_CURRENT_LIST_DIR}/core/serialization/transfer.h
     ${CMAKE_CURRENT_LIST_DIR}/core/enums/apiEnums.h
     ${CMAKE_CURRENT_LIST_DIR}/../common/logger/logger.h
+    ${CMAKE_CURRENT_LIST_DIR}/utils/qmlUtils.h
 )
 
 # Mozilla headres
@@ -197,6 +193,7 @@ set(SOURCES ${SOURCES}
     ${CMAKE_CURRENT_LIST_DIR}/core/serialization/vmess.cpp
     ${CMAKE_CURRENT_LIST_DIR}/core/serialization/vmess_new.cpp
     ${CMAKE_CURRENT_LIST_DIR}/../common/logger/logger.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/utils/qmlUtils.cpp
 )
 
 # Mozilla sources

@@ -15,68 +15,100 @@ import "../Components"
 PageType {
     id: root
 
-    defaultActiveFocusItem: focusItem
+    property list<QtObject> labelsModel: [
+        regionObject,
+        priceObject,
+        endDateObject,
+        speedObject
+    ]
 
-    FlickableType {
-        id: fl
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        contentHeight: content.height
+    QtObject {
+        id: regionObject
 
-        ColumnLayout {
-            id: content
+        readonly property string title: qsTr("For the region")
+        readonly property string contentKey: "region"
+        readonly property string objectImageSource: "qrc:/images/controls/map-pin.svg"
+    }
 
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.right: parent.right
+    QtObject {
+        id: priceObject
 
+        readonly property string title: qsTr("Price")
+        readonly property string contentKey: "price"
+        readonly property string objectImageSource: "qrc:/images/controls/tag.svg"
+    }
+
+    QtObject {
+        id: endDateObject
+
+        readonly property string title: qsTr("Valid until")
+        readonly property string contentKey: "endDate"
+        readonly property string objectImageSource: "qrc:/images/controls/history.svg"
+    }
+
+    QtObject {
+        id: speedObject
+
+        readonly property string title: qsTr("Speed")
+        readonly property string contentKey: "speed"
+        readonly property string objectImageSource: "qrc:/images/controls/gauge.svg"
+    }
+
+    ListView {
+        id: listView
+        anchors.fill: parent
+
+        property bool isFocusable: true
+
+        Keys.onTabPressed: {
+            FocusController.nextKeyTabItem()
+        }
+
+        Keys.onBacktabPressed: {
+            FocusController.previousKeyTabItem()
+        }
+
+        Keys.onUpPressed: {
+            FocusController.nextKeyUpItem()
+        }
+
+        Keys.onDownPressed: {
+            FocusController.nextKeyDownItem()
+        }
+
+        Keys.onLeftPressed: {
+            FocusController.nextKeyLeftItem()
+        }
+
+        Keys.onRightPressed: {
+            FocusController.nextKeyRightItem()
+        }
+
+        ScrollBar.vertical: ScrollBarType {}
+
+        model: labelsModel
+        clip: true
+        reuseItems: true
+
+        delegate: ColumnLayout {
+            width: listView.width
             spacing: 0
 
-            Item {
-                id: focusItem
-//                KeyNavigation.tab: backButton
-            }
-
             LabelWithImageType {
                 Layout.fillWidth: true
                 Layout.margins: 16
 
-                imageSource: "qrc:/images/controls/map-pin.svg"
-                leftText: qsTr("For the region")
-                rightText: ApiServicesModel.getSelectedServiceData("region")
-            }
-
-            LabelWithImageType {
-                Layout.fillWidth: true
-                Layout.margins: 16
-
-                imageSource: "qrc:/images/controls/tag.svg"
-                leftText: qsTr("Price")
-                rightText: ApiServicesModel.getSelectedServiceData("price")
-            }
-
-            LabelWithImageType {
-                property bool showSubscriptionEndDate: ServersModel.getProcessedServerData("isCountrySelectionAvailable")
-
-                Layout.fillWidth: true
-                Layout.margins: 16
-
-                imageSource: "qrc:/images/controls/history.svg"
-                leftText: showSubscriptionEndDate ? qsTr("Valid until") : qsTr("Work period")
-                rightText: showSubscriptionEndDate ? ApiServicesModel.getSelectedServiceData("endDate")
-                                                   : ApiServicesModel.getSelectedServiceData("workPeriod")
+                imageSource: objectImageSource
+                leftText: title
+                rightText: ApiServicesModel.getSelectedServiceData(contentKey)
 
                 visible: rightText !== ""
             }
+        }
 
-            LabelWithImageType {
-                Layout.fillWidth: true
-                Layout.margins: 16
-
-                imageSource: "qrc:/images/controls/gauge.svg"
-                leftText: qsTr("Speed")
-                rightText: ApiServicesModel.getSelectedServiceData("speed")
-            }
+        footer: ColumnLayout {
+            width: listView.width
+            spacing: 0
 
             ParagraphTextType {
                 Layout.fillWidth: true
@@ -95,6 +127,8 @@ PageType {
                     return text.replace("%1", LanguageModel.getCurrentSiteUrl())
                 }
 
+                visible: text !== ""
+
                 MouseArea {
                     anchors.fill: parent
                     acceptedButtons: Qt.NoButton
@@ -110,9 +144,6 @@ PageType {
                 descriptionText: SettingsController.getInstallationUuid()
 
                 descriptionOnTop: true
-
-//                parentFlickable: fl
-//                KeyNavigation.tab: passwordLabel.eyeButton
 
                 rightImageSource: "qrc:/images/controls/copy.svg"
                 rightImageColor: AmneziaStyle.color.paleGray
@@ -140,8 +171,6 @@ PageType {
                 textColor: AmneziaStyle.color.vibrantRed
 
                 text: qsTr("Reload API config")
-
-//                Keys.onTabPressed: lastItemTabClicked(focusItem)
 
                 clickedFunc: function() {
                     var headerText = qsTr("Reload API config?")
@@ -180,8 +209,6 @@ PageType {
                 textColor: AmneziaStyle.color.vibrantRed
 
                 text: qsTr("Remove from application")
-
-//                Keys.onTabPressed: lastItemTabClicked(focusItem)
 
                 clickedFunc: function() {
                     var headerText = qsTr("Remove from application?")

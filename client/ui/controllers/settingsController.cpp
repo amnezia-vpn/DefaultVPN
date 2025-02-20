@@ -131,12 +131,8 @@ void SettingsController::backupAppConfig(const QString &fileName)
 
 void SettingsController::restoreAppConfig(const QString &fileName)
 {
-    QFile file(fileName);
-
-    file.open(QIODevice::ReadOnly);
-
-    QByteArray data = file.readAll();
-
+    QByteArray data;
+    SystemController::readFile(fileName, data);
     restoreAppConfigFromData(data);
 }
 
@@ -324,4 +320,15 @@ bool SettingsController::isOnTv()
 #else
     return false;
 #endif
+}
+
+bool SettingsController::isHomeAdLabelVisible()
+{
+    return m_settings->isHomeAdLabelVisible();
+}
+
+void SettingsController::disableHomeAdLabel()
+{
+    m_settings->disableHomeAdLabel();
+    emit isHomeAdLabelVisibleChanged(false);
 }

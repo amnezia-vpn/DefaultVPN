@@ -13,14 +13,6 @@ import "../Config"
 PageType {
     id: root
 
-    defaultActiveFocusItem: textKey.textField
-
-
-    Item {
-        id: focusItem
-        KeyNavigation.tab: backButton
-    }
-
     FlickableType {
         id: fl
         anchors.top: parent.top
@@ -39,7 +31,6 @@ PageType {
             BackButtonType {
                 id: backButton
                 Layout.topMargin: 20
-                KeyNavigation.tab: textKey.textField
             }
 
             HeaderType {
@@ -60,15 +51,13 @@ PageType {
                 Layout.leftMargin: 16
 
                 headerText: qsTr("Key")
-                textFieldPlaceholderText: "vpn://"
+                textField.placeholderText: "vpn://"
                 buttonText: qsTr("Insert")
 
                 clickedFunc: function() {
                     textField.text = ""
                     textField.paste()
                 }
-
-                KeyNavigation.tab: continueButton
             }
         }
     }
@@ -84,10 +73,9 @@ PageType {
         anchors.bottomMargin: 32
 
         text: qsTr("Continue")
-        Keys.onTabPressed: lastItemTabClicked(focusItem)
 
         clickedFunc: function() {
-            if (ImportController.extractConfigFromData(textKey.textFieldText)) {
+            if (ImportController.extractConfigFromData(textKey.textField.text)) {
                 PageController.goToPage(PageEnum.PageSetupWizardViewConfig)
             }
         }

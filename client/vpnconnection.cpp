@@ -215,10 +215,9 @@ ErrorCode VpnConnection::lastError() const
 void VpnConnection::connectToVpn(int serverIndex, const ServerCredentials &credentials, DockerContainer container,
                                  const QJsonObject &vpnConfiguration)
 {
-    qDebug() << QString("ConnectToVpn, Server index is %1, container is %2, route mode is")
+    qDebug() << QString("Trying to connect to VPN, server index is %1, container is %2")
                         .arg(serverIndex)
-                        .arg(ContainerProps::containerToString(container))
-             << m_settings->routeMode();
+                        .arg(ContainerProps::containerToString(container));
 #if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
     if (!m_IpcClient) {
         m_IpcClient = new IpcClient(this);
@@ -341,26 +340,26 @@ void VpnConnection::appendSplitTunnelingConfig()
         }
     }
 
-    Settings::RouteMode routeMode = Settings::RouteMode::VpnAllSites;
+    Settings::RouteMode sitesRouteMode = Settings::RouteMode::VpnAllSites;
     QJsonArray sitesJsonArray;
     if (m_settings->isSitesSplitTunnelingEnabled()) {
-        routeMode = m_settings->routeMode();
+        sitesRouteMode = m_settings->routeMode();
 
         if (allowSiteBasedSplitTunneling) {
-            auto sites = m_settings->getVpnIps(routeMode);
+            auto sites = m_settings->getVpnIps(sitesRouteMode);
             for (const auto &site : sites) {
                 sitesJsonArray.append(site);
             }
 
             // Allow traffic to Amnezia DNS
-            if (routeMode == Settings::VpnOnlyForwardSites) {
+            if (sitesRouteMode == Settings::VpnOnlyForwardSites) {
                 sitesJsonArray.append(m_vpnConfiguration.value(config_key::dns1).toString());
                 sitesJsonArray.append(m_vpnConfiguration.value(config_key::dns2).toString());
             }
         }
     }
 
-    m_vpnConfiguration.insert(config_key::splitTunnelType, routeMode);
+    m_vpnConfiguration.insert(config_key::splitTunnelType, sitesRouteMode);
     m_vpnConfiguration.insert(config_key::splitTunnelSites, sitesJsonArray);
 
     Settings::AppsRouteMode appsRouteMode = Settings::AppsRouteMode::VpnAllApps;
@@ -376,6 +375,13 @@ void VpnConnection::appendSplitTunnelingConfig()
 
     m_vpnConfiguration.insert(config_key::appSplitTunnelType, appsRouteMode);
     m_vpnConfiguration.insert(config_key::splitTunnelApps, appsJsonArray);
+
+    qDebug() << QString("Site split tunneling is %1, route mode is %2")
+                        .arg(m_settings->isSitesSplitTunnelingEnabled() ? "enabled" : "disabled")
+                        .arg(sitesRouteMode);
+    qDebug() << QString("App split tunneling is %1, route mode is %2")
+                        .arg(m_settings->isAppsSplitTunnelingEnabled() ? "enabled" : "disabled")
+                        .arg(appsRouteMode);
 }
 
 #ifdef Q_OS_ANDROID

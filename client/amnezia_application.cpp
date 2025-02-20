@@ -2,6 +2,8 @@
 
 #include <QClipboard>
 #include <QFontDatabase>
+#include <QLocalServer>
+#include <QLocalSocket>
 #include <QMimeData>
 #include <QQuickItem>
 #include <QQuickStyle>
@@ -10,8 +12,6 @@
 #include <QTextDocument>
 #include <QTimer>
 #include <QTranslator>
-#include <QLocalSocket>
-#include <QLocalServer>
 
 #include "logger.h"
 #include "ui/models/installedAppsModel.h"
@@ -282,16 +282,17 @@ bool AmneziaApplication::parseCommands()
 }
 
 #if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
-void AmneziaApplication::startLocalServer() {
+void AmneziaApplication::startLocalServer()
+{
     const QString serverName("AmneziaVPNInstance");
     QLocalServer::removeServer(serverName);
 
-    QLocalServer* server = new QLocalServer(this);
+    QLocalServer *server = new QLocalServer(this);
     server->listen(serverName);
 
     QObject::connect(server, &QLocalServer::newConnection, this, [server, this]() {
         if (server) {
-            QLocalSocket* clientConnection = server->nextPendingConnection();
+            QLocalSocket *clientConnection = server->nextPendingConnection();
             clientConnection->deleteLater();
         }
         emit m_pageController->raiseMainWindow();
@@ -404,6 +405,9 @@ void AmneziaApplication::initControllers()
     m_pageController.reset(new PageController(m_serversModel, m_settings));
     m_engine->rootContext()->setContextProperty("PageController", m_pageController.get());
 
+    m_focusController.reset(new FocusController(m_engine, this));
+    m_engine->rootContext()->setContextProperty("FocusController", m_focusController.get());
+
     m_installController.reset(new InstallController(m_serversModel, m_containersModel, m_protocolsModel, m_clientManagementModel,
                                                     m_apiServicesModel, m_settings));
     m_engine->rootContext()->setContextProperty("InstallController", m_installController.get());
@@ -415,7 +419,9 @@ void AmneziaApplication::initControllers()
             &ConnectionController::onCurrentContainerUpdated);
 
     connect(m_installController.get(), &InstallController::updateServerFromApiFinished, this, [this]() {
-        disconnect(m_reloadConfigErrorOccurredConnection);
+        if (m_reloadConfigErrorOccurredConnection) {
+            disconnect(m_reloadConfigErrorOccurredConnection);
+        }
         emit m_connectionController->configFromApiUpdated();
     });
 
@@ -423,7 +429,7 @@ void AmneziaApplication::initControllers()
         m_reloadConfigErrorOccurredConnection = connect(
                 m_installController.get(), qOverload<ErrorCode>(&InstallController::installationErrorOccurred), this,
                 [this]() { emit m_vpnConnection->connectionStateChanged(Vpn::ConnectionState::Disconnected); },
-                static_cast<Qt::ConnectionType>(Qt::AutoConnection || Qt::SingleShotConnection));
+                static_cast<Qt::ConnectionType>(Qt::AutoConnection | Qt::SingleShotConnection));
         m_installController->updateServiceFromApi(m_serversModel->getDefaultServerIndex(), "", "");
     });
 
@@ -431,7 +437,7 @@ void AmneziaApplication::initControllers()
         m_reloadConfigErrorOccurredConnection = connect(
                 m_installController.get(), qOverload<ErrorCode>(&InstallController::installationErrorOccurred), this,
                 [this]() { emit m_vpnConnection->connectionStateChanged(Vpn::ConnectionState::Disconnected); },
-                static_cast<Qt::ConnectionType>(Qt::AutoConnection || Qt::SingleShotConnection));
+                static_cast<Qt::ConnectionType>(Qt::AutoConnection | Qt::SingleShotConnection));
         m_serversModel->removeApiConfig(m_serversModel->getDefaultServerIndex());
         m_installController->updateServiceFromTelegram(m_serversModel->getDefaultServerIndex());
     });

@@ -16,8 +16,6 @@ import "../Components"
 PageType {
     id: root
 
-    defaultActiveFocusItem: listview.currentItem.mtuTextField.textField
-
     Item {
         id: focusItem
         onFocusChanged: {
@@ -99,12 +97,12 @@ PageType {
                             Layout.topMargin: 40
 
                             headerText: qsTr("MTU")
-                            textFieldText: clientMtu
+                            textField.text: clientMtu
                             textField.validator: IntValidator { bottom: 576; top: 65535 }
 
                             textField.onEditingFinished: {
-                                if (textFieldText !== clientMtu) {
-                                    clientMtu = textFieldText
+                                if (textField.text !== clientMtu) {
+                                    clientMtu = textField.text
                                 }
                             }
                             checkEmptyText: true
@@ -126,7 +124,7 @@ PageType {
                             enabled: false
 
                             headerText: qsTr("Port")
-                            textFieldText: port
+                            textField.text: port
                         }
                     }
                 }
@@ -149,8 +147,6 @@ PageType {
         enabled: listview.currentItem.isSaveButtonEnabled
 
         text: qsTr("Save")
-
-        Keys.onTabPressed: lastItemTabClicked(focusItem)
 
         clickedFunc: function() {
             forceActiveFocus()

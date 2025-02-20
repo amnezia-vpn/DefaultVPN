@@ -16,13 +16,6 @@ import "../Components"
 PageType {
     id: root
 
-    defaultActiveFocusItem: listview
-
-    Item {
-        id: focusItem
-        KeyNavigation.tab: backButton
-    }
-
     ColumnLayout {
         id: backButtonLayout
 
@@ -34,7 +27,6 @@ PageType {
 
         BackButtonType {
             id: backButton
-            KeyNavigation.tab: listview
         }
     }
 
@@ -64,17 +56,10 @@ PageType {
 
                 model: WireGuardConfigModel
 
-                activeFocusOnTab: true
-                onActiveFocusChanged: {
-                    if (activeFocus) {
-                        listview.itemAtIndex(0)?.focusItemId.forceActiveFocus()
-                    }
-                }
-
                 delegate: Item {
                     id: delegateItem
 
-                    property alias focusItemId: portTextField.textField
+                    property alias focusItemId: vpnAddressSubnetTextField
                     property bool isEnabled: ServersModel.isProcessedServerHasWriteAccess()
 
                     implicitWidth: listview.width
@@ -98,22 +83,39 @@ PageType {
                         }
 
                         TextFieldWithHeaderType {
-                            id: portTextField
+                            id: vpnAddressSubnetTextField
                             Layout.fillWidth: true
                             Layout.topMargin: 40
 
                             enabled: delegateItem.isEnabled
 
+                            headerText: qsTr("VPN address subnet")
+                            textField.text: subnetAddress
+
+                            textField.onEditingFinished: {
+                                if (textField.text !== subnetAddress) {
+                                    subnetAddress = textField.text
+                                }
+                            }
+
+                            checkEmptyText: true
+                        }
+
+                        TextFieldWithHeaderType {
+                            id: portTextField
+                            Layout.fillWidth: true
+                            Layout.topMargin: 16
+
+                            enabled: delegateItem.isEnabled
+
                             headerText: qsTr("Port")
-                            textFieldText: port
+                            textField.text: port
                             textField.maximumLength: 5
                             textField.validator: IntValidator { bottom: 1; top: 65535 }
 
-                            KeyNavigation.tab: saveButton
-
                             textField.onEditingFinished: {
-                                if (textFieldText !== port) {
-                                    port = textFieldText
+                                if (textField.text !== port) {
+                                    port = textField.text
                                 }
                             }
 
@@ -126,11 +128,10 @@ PageType {
                             Layout.topMargin: 24
                             Layout.bottomMargin: 24
 
-                            enabled: portTextField.errorText === ""
+                            enabled: portTextField.errorText === "" &&
+                                     vpnAddressSubnetTextField.errorText === ""
 
                             text: qsTr("Save")
-
-                            Keys.onTabPressed: lastItemTabClicked(focusItem)
 
                             onClicked: function() {
                                 forceActiveFocus()

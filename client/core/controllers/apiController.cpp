@@ -308,6 +308,8 @@ void ApiController::updateServerConfigFromApi(const QString &installationUuid, c
                 if (reply->error() == QNetworkReply::NetworkError::OperationCanceledError
                     || reply->error() == QNetworkReply::NetworkError::TimeoutError) {
                     emit errorOccurred(ErrorCode::ApiConfigTimeoutError);
+                } else if (reply->error() == QNetworkReply::NetworkError::SslHandshakeFailedError) {
+                    emit errorOccurred(ErrorCode::ApiConfigSslError);
                 } else {
                     QString err = reply->errorString();
                     qDebug() << QString::fromUtf8(reply->readAll());
@@ -323,10 +325,8 @@ void ApiController::updateServerConfigFromApi(const QString &installationUuid, c
 
         QObject::connect(reply, &QNetworkReply::errorOccurred,
                          [this, reply](QNetworkReply::NetworkError error) { qDebug() << reply->errorString() << error; });
-        connect(reply, &QNetworkReply::sslErrors, [this, reply](const QList<QSslError> &errors) {
-            qDebug().noquote() << errors;
-            emit errorOccurred(ErrorCode::ApiConfigSslError);
-        });
+
+        connect(reply, &QNetworkReply::sslErrors, [this, reply](const QList<QSslError> &errors) { qDebug().noquote() << errors; });
     }
 }
 

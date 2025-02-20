@@ -35,10 +35,6 @@ int IpcServer::createPrivilegedProcess()
     qDebug() << "IpcServer::createPrivilegedProcess";
 #endif
 
-#ifdef Q_OS_WIN
-    WindowsFirewall::instance()->init();
-#endif
-
     m_localpid++;
 
     ProcessDescriptor pd(this);
@@ -195,7 +191,9 @@ void IpcServer::setLogsEnabled(bool enabled)
 bool IpcServer::enableKillSwitch(const QJsonObject &configStr, int vpnAdapterIndex)
 {
 #ifdef Q_OS_WIN
-    return WindowsFirewall::instance()->enableKillSwitch(vpnAdapterIndex);
+    auto firewallManager = WindowsFirewall::create(this);
+    Q_ASSERT(firewallManager != nullptr);
+    return firewallManager->enableInterface(vpnAdapterIndex);
 #endif
 
 #if defined(Q_OS_LINUX) || defined(Q_OS_MACOS)
@@ -228,6 +226,8 @@ bool IpcServer::enableKillSwitch(const QJsonObject &configStr, int vpnAdapterInd
 
 #ifdef Q_OS_LINUX
     // double-check + ensure our firewall is installed and enabled
+    if (!LinuxFirewall::isInstalled())
+        LinuxFirewall::install();
     LinuxFirewall::setAnchorEnabled(LinuxFirewall::Both, QStringLiteral("000.allowLoopback"), true);
     LinuxFirewall::setAnchorEnabled(LinuxFirewall::Both, QStringLiteral("100.blockAll"), blockAll);
     LinuxFirewall::setAnchorEnabled(LinuxFirewall::IPv4, QStringLiteral("110.allowNets"), allowNets);
@@ -282,7 +282,9 @@ bool IpcServer::enableKillSwitch(const QJsonObject &configStr, int vpnAdapterInd
 bool IpcServer::disableKillSwitch()
 {
 #ifdef Q_OS_WIN
-    return WindowsFirewall::instance()->disableKillSwitch();
+    auto firewallManager = WindowsFirewall::create(this);
+    Q_ASSERT(firewallManager != nullptr);
+    return firewallManager->disableKillSwitch();
 #endif
 
 #ifdef Q_OS_LINUX
@@ -347,7 +349,9 @@ bool IpcServer::enablePeerTraffic(const QJsonObject &configStr)
 
     // killSwitch toggle
     if (QVariant(configStr.value(amnezia::config_key::killSwitchOption).toString()).toBool()) {
-        WindowsFirewall::instance()->enablePeerTraffic(config);
+        auto firewallManager = WindowsFirewall::create(this);
+        Q_ASSERT(firewallManager != nullptr);
+        firewallManager->enablePeerTraffic(config);
     }
 
     WindowsDaemon::instance()->prepareActivation(config, inetAdapterIndex);

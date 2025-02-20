@@ -17,19 +17,12 @@ import "../Components"
 PageType {
     id: root
 
-    defaultActiveFocusItem: listview
-
     Connections {
         target: InstallController
 
         function onUpdateContainerFinished() {
             PageController.showNotificationMessage(qsTr("Settings updated successfully"))
         }
-    }
-
-    Item {
-        id: focusItem
-        KeyNavigation.tab: backButton
     }
 
     ColumnLayout {
@@ -43,7 +36,6 @@ PageType {
 
         BackButtonType {
             id: backButton
-            KeyNavigation.tab: listview
         }
     }
 
@@ -99,7 +91,6 @@ PageType {
                         Layout.topMargin: 32
 
                         parentFlickable: fl
-                        KeyNavigation.tab: portLabel.rightButton
 
                         text: qsTr("Host")
                         descriptionText: ServersModel.getProcessedServerData("hostName")
@@ -128,7 +119,6 @@ PageType {
                         descriptionOnTop: true
 
                         parentFlickable: fl
-                        KeyNavigation.tab: usernameLabel.rightButton
 
                         rightImageSource: "qrc:/images/controls/copy.svg"
                         rightImageColor: AmneziaStyle.color.paleGray
@@ -152,7 +142,6 @@ PageType {
                         descriptionOnTop: true
 
                         parentFlickable: fl
-                        KeyNavigation.tab: passwordLabel.eyeButton
 
                         rightImageSource: "qrc:/images/controls/copy.svg"
                         rightImageColor: AmneziaStyle.color.paleGray
@@ -176,8 +165,6 @@ PageType {
                         descriptionOnTop: true
 
                         parentFlickable: fl
-                        eyeButton.KeyNavigation.tab: passwordLabel.rightButton
-                        rightButton.KeyNavigation.tab: changeSettingsButton
 
                         rightImageSource: "qrc:/images/controls/copy.svg"
                         rightImageColor: AmneziaStyle.color.paleGray
@@ -200,13 +187,7 @@ PageType {
                         anchors.fill: parent
                         expandedHeight: root.height * 0.9
 
-                        onClosed: {
-                            if (!GC.isMobile()) {
-                                focusItem.forceActiveFocus()
-                            }
-                        }
-
-                        expandedContent: ColumnLayout {
+                        expandedStateContent: ColumnLayout {
                             property string tempPort: port
                             property string tempUsername: username
                             property string tempPassword: password
@@ -222,9 +203,6 @@ PageType {
                             Connections {
                                 target: changeSettingsDrawer
                                 function onOpened() {
-                                    if (!GC.isMobile()) {
-                                        drawerFocusItem.forceActiveFocus()
-                                    }
                                     tempPort = port
                                     tempUsername = username
                                     tempPassword = password
@@ -233,15 +211,10 @@ PageType {
                                     port = tempPort
                                     username = tempUsername
                                     password = tempPassword
-                                    portTextField.textFieldText = port
-                                    usernameTextField.textFieldText = username
-                                    passwordTextField.textFieldText = password
+                                    portTextField.textField.text = port
+                                    usernameTextField.textField.text = username
+                                    passwordTextField.textField.text = password
                                 }
-                            }
-
-                            Item {
-                                id: drawerFocusItem
-                                KeyNavigation.tab: portTextField.textField
                             }
 
                             HeaderType {
@@ -258,18 +231,16 @@ PageType {
                                 parentFlickable: fl
 
                                 headerText: qsTr("Port")
-                                textFieldText: port
+                                textField.text: port
                                 textField.maximumLength: 5
                                 textField.validator: IntValidator { bottom: 1; top: 65535 }
 
                                 textField.onEditingFinished: {
-                                    textFieldText = textField.text.replace(/^\s+|\s+$/g, '')
-                                    if (textFieldText !== port) {
-                                        port = textFieldText
+                                    textField.text = textField.text.replace(/^\s+|\s+$/g, '')
+                                    if (textField.text !== port) {
+                                        port = textField.text
                                     }
                                 }
-
-                                KeyNavigation.tab: usernameTextField.textField
                             }
 
                             TextFieldWithHeaderType {
@@ -280,18 +251,16 @@ PageType {
                                 parentFlickable: fl
 
                                 headerText: qsTr("Username")
-                                textFieldPlaceholderText: "username"
-                                textFieldText: username
+                                textField.placeholderText: "username"
+                                textField.text: username
                                 textField.maximumLength: 32
 
                                 textField.onEditingFinished: {
-                                    textFieldText = textField.text.replace(/^\s+|\s+$/g, '')
-                                    if (textFieldText !== username) {
-                                        username = textFieldText
+                                    textField.text = textField.text.replace(/^\s+|\s+$/g, '')
+                                    if (textField.text !== username) {
+                                        username = textField.text
                                     }
                                 }
-
-                                KeyNavigation.tab: passwordTextField.textField
                             }
 
                             TextFieldWithHeaderType {
@@ -304,12 +273,12 @@ PageType {
                                 parentFlickable: fl
 
                                 headerText: qsTr("Password")
-                                textFieldPlaceholderText: "password"
-                                textFieldText: password
+                                textField.placeholderText: "password"
+                                textField.text: password
                                 textField.maximumLength: 32
 
                                 textField.echoMode: hidePassword ? TextInput.Password : TextInput.Normal
-                                buttonImageSource: textFieldText !== "" ? (hidePassword ? "qrc:/images/controls/eye.svg" : "qrc:/images/controls/eye-off.svg")
+                                buttonImageSource: textField.text !== "" ? (hidePassword ? "qrc:/images/controls/eye.svg" : "qrc:/images/controls/eye-off.svg")
                                                                         : ""
 
                                 clickedFunc: function() {
@@ -317,13 +286,11 @@ PageType {
                                 }
 
                                 textField.onFocusChanged: {
-                                    textFieldText = textField.text.replace(/^\s+|\s+$/g, '')
-                                    if (textFieldText !== password) {
-                                        password = textFieldText
+                                    textField.text = textField.text.replace(/^\s+|\s+$/g, '')
+                                    if (textField.text !== password) {
+                                        password = textField.text
                                     }
                                 }
-
-                                KeyNavigation.tab: saveButton
                             }
 
                             BasicButtonType {
@@ -334,7 +301,6 @@ PageType {
                                 Layout.bottomMargin: 24
 
                                 text: qsTr("Change connection settings")
-                                Keys.onTabPressed: lastItemTabClicked(drawerFocusItem)
 
                                 clickedFunc: function() {
                                     forceActiveFocus()
@@ -343,20 +309,20 @@ PageType {
                                         portTextField.errorText = qsTr("The port must be in the range of 1 to 65535")
                                         return
                                     }
-                                    if (usernameTextField.textFieldText && passwordTextField.textFieldText === "") {
+                                    if (usernameTextField.textField.text && passwordTextField.textField.text === "") {
                                         passwordTextField.errorText = qsTr("Password cannot be empty")
                                         return
-                                    } else if (usernameTextField.textFieldText === "" && passwordTextField.textFieldText) {
+                                    } else if (usernameTextField.textField.text === "" && passwordTextField.textField.text) {
                                         usernameTextField.errorText = qsTr("Username cannot be empty")
                                         return
                                     }
 
                                     PageController.goToPage(PageEnum.PageSetupWizardInstalling)
                                     InstallController.updateContainer(Socks5ProxyConfigModel.getConfig())
-                                    tempPort = portTextField.textFieldText
-                                    tempUsername = usernameTextField.textFieldText
-                                    tempPassword = passwordTextField.textFieldText
-                                    changeSettingsDrawer.close()
+                                    tempPort = portTextField.textField.text
+                                    tempUsername = usernameTextField.textField.text
+                                    tempPassword = passwordTextField.textField.text
+                                    changeSettingsDrawer.closeTriggered()
                                 }
                             }
                         }
@@ -372,11 +338,10 @@ PageType {
                         Layout.rightMargin: 16
 
                         text: qsTr("Change connection settings")
-                        Keys.onTabPressed: lastItemTabClicked(focusItem)
 
                         clickedFunc: function() {
                             forceActiveFocus()
-                            changeSettingsDrawer.open()
+                            changeSettingsDrawer.openTriggered()
                         }
                     }
                 }

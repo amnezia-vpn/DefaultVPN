@@ -17,7 +17,6 @@ PageType {
     id: root
 
     property bool isEasySetup: true
-    defaultActiveFocusItem: focusItem
 
     SortFilterProxyModel {
         id: proxyContainersModel
@@ -34,14 +33,6 @@ PageType {
         }
     }
 
-    Item {
-        id: focusItem
-        implicitWidth: 1
-        implicitHeight: 54
-
-        KeyNavigation.tab: backButton
-    }
-
     BackButtonType {
         id: backButton
 
@@ -49,8 +40,6 @@ PageType {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.topMargin: 20
-
-        KeyNavigation.tab: continueButton
     }
 
     FlickableType {
@@ -76,7 +65,7 @@ PageType {
                 implicitWidth: parent.width
                 headerTextMaximumLineCount: 10
 
-                headerText: qsTr("What is the level of internet control in your region?")
+                headerText: qsTr("Choose Installation Type")
             }
 
             ButtonGroup {
@@ -97,6 +86,8 @@ PageType {
                 property int dockerContainer
                 property int containerDefaultPort
                 property int containerDefaultTransportProto
+
+                property bool isFocusable: true
 
                 delegate: Item {
                     implicitWidth: containers.width
@@ -148,7 +139,8 @@ PageType {
             CardType {
                 implicitWidth: parent.width
 
-                headerText: qsTr("Choose a VPN protocol")
+                headerText: qsTr("Manual")
+                bodyText: qsTr("Choose a VPN protocol")
 
                 ButtonGroup.group: buttonGroup
 
@@ -163,7 +155,7 @@ PageType {
                 implicitWidth: parent.width
 
                 text: qsTr("Continue")
-                KeyNavigation.tab: setupLaterButton
+                
                 parentFlickable: fl
 
                 clickedFunc: function() {

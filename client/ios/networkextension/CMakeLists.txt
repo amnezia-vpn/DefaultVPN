@@ -27,12 +27,7 @@ set_target_properties(networkextension PROPERTIES
 
     XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS "@executable_path/../../Frameworks"
 
-    XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "Apple Distribution"
-    XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY[variant=Debug] "Apple Development"
-
-    XCODE_ATTRIBUTE_CODE_SIGN_STYLE Manual
-    XCODE_ATTRIBUTE_PROVISIONING_PROFILE_SPECIFIER "match AppStore org.amnezia.AmneziaVPN.network-extension"
-    XCODE_ATTRIBUTE_PROVISIONING_PROFILE_SPECIFIER[variant=Debug] "match Development org.amnezia.AmneziaVPN.network-extension"
+    XCODE_ATTRIBUTE_CODE_SIGN_STYLE Automatic
 )
 
 set_target_properties(networkextension PROPERTIES

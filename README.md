@@ -13,13 +13,13 @@
 
 [![Image](https://github.com/amnezia-vpn/amnezia-client/blob/dev/metadata/img-readme/uipic4.png)](https://amnezia.org)
 
-### [Website](https://amnezia.org) | [Alt website link](https://storage.googleapis.com/kldscp/amnezia.org) | [Documentation](https://docs.amnezia.org) | [Troubleshooting](https://docs.amnezia.org/troubleshooting)
+### [Website](https://amnezia.org) | [Alt website link](https://storage.googleapis.com/amnezia/amnezia.org) | [Documentation](https://docs.amnezia.org) | [Troubleshooting](https://docs.amnezia.org/troubleshooting)
 
 > [!TIP]
-> If the [Amnezia website](https://amnezia.org) is blocked in your region, you can use an [Alternative website link](https://storage.googleapis.com/kldscp/amnezia.org).
+> If the [Amnezia website](https://amnezia.org) is blocked in your region, you can use an [Alternative website link](https://storage.googleapis.com/amnezia/amnezia.org ).
 
 <a href="https://amnezia.org/downloads"><img src="https://github.com/amnezia-vpn/amnezia-client/blob/dev/metadata/img-readme/download-website.svg" width="150" style="max-width: 100%; margin-right: 10px"></a>
-<a href="https://storage.googleapis.com/kldscp/amnezia.org/downloads"><img src="https://github.com/amnezia-vpn/amnezia-client/blob/dev/metadata/img-readme/download-alt.svg" width="150" style="max-width: 100%;"></a>
+<a href="https://storage.googleapis.com/amnezia/q9p19109"><img src="https://github.com/amnezia-vpn/amnezia-client/blob/dev/metadata/img-readme/download-alt.svg" width="150" style="max-width: 100%;"></a>
 
 [All releases](https://github.com/amnezia-vpn/amnezia-client/releases)
 
@@ -185,7 +185,7 @@ GPL v3.0
 
 Patreon: [https://www.patreon.com/amneziavpn](https://www.patreon.com/amneziavpn)
 
-Bitcoin: bc1q26eevjcg9j0wuyywd2e3uc9cs2w58lpkpjxq6p <br>
+Bitcoin: bc1qmhtgcf9637rl3kqyy22r2a8wa8laka4t9rx2mf <br>
 USDT BEP20: 0x6abD576765a826f87D1D95183438f9408C901bE4 <br>
 USDT TRC20: TELAitazF1MZGmiNjTcnxDjEiH5oe7LC9d <br>
 XMR: 48spms39jt1L2L5vyw2RQW6CXD6odUd4jFu19GZcDyKKQV9U88wsJVjSbL4CfRys37jVMdoaWVPSvezCQPhHXUW5UKLqUp3 <br> 

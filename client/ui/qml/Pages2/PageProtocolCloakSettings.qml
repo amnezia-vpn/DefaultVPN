@@ -16,13 +16,6 @@ import "../Components"
 PageType {
     id: root
 
-    defaultActiveFocusItem: listview.currentItem.trafficFromField.textField
-
-    Item {
-        id: focusItem
-        KeyNavigation.tab: backButton
-    }
-
     ColumnLayout {
         id: backButtonLayout
 
@@ -34,7 +27,6 @@ PageType {
 
         BackButtonType {
             id: backButton
-            KeyNavigation.tab: listview.currentItem.trafficFromField.textField
         }
     }
 
@@ -56,11 +48,13 @@ PageType {
             ListView {
                 id: listview
 
+                property int selectedIndex: 0
+
                 width: parent.width
                 height: listview.contentItem.height
 
                 clip: true
-                interactive: false
+                reuseItems: true
 
                 model: CloakConfigModel
 
@@ -95,23 +89,21 @@ PageType {
                             Layout.topMargin: 32
 
                             headerText: qsTr("Disguised as traffic from")
-                            textFieldText: site
+                            textField.text: site
 
                             textField.onEditingFinished: {
-                                if (textFieldText !== site) {
-                                    var tmpText = textFieldText
+                                if (textField.text !== site) {
+                                    var tmpText = textField.text
                                     tmpText = tmpText.toLocaleLowerCase()
 
                                     var indexHttps = tmpText.indexOf("https://")
                                     if (indexHttps === 0) {
-                                        tmpText = textFieldText.substring(8)
+                                        tmpText = textField.text.substring(8)
                                     } else {
-                                        site = textFieldText
+                                        site = textField.text
                                     }
                                 }
                             }
-
-                            KeyNavigation.tab: portTextField.textField
                         }
 
                         TextFieldWithHeaderType {
@@ -121,17 +113,15 @@ PageType {
                             Layout.topMargin: 16
 
                             headerText: qsTr("Port")
-                            textFieldText: port
+                            textField.text: port
                             textField.maximumLength: 5
                             textField.validator: IntValidator { bottom: 1; top: 65535 }
 
                             textField.onEditingFinished: {
-                                if (textFieldText !== port) {
-                                    port = textFieldText
+                                if (textField.text !== port) {
+                                    port = textField.text
                                 }
                             }
-
-                            KeyNavigation.tab: cipherDropDown
                         }
 
                         DropDownType {
@@ -143,7 +133,6 @@ PageType {
                             headerText: qsTr("Cipher")
 
                             drawerParent: root
-                            KeyNavigation.tab: saveRestartButton
 
                             listView: ListViewWithRadioButtonType {
                                 id: cipherListView
@@ -161,7 +150,7 @@ PageType {
                                 clickedFunction: function() {
                                     cipherDropDown.text = selectedText
                                     cipher = cipherDropDown.text
-                                    cipherDropDown.close()
+                                    cipherDropDown.closeTriggered()
                                 }
 
                                 Component.onCompleted: {
@@ -169,7 +158,7 @@ PageType {
 
                                     for (var i = 0; i < cipherListView.model.count; i++) {
                                         if (cipherListView.model.get(i).name === cipherDropDown.text) {
-                                            currentIndex = i
+                                            selectedIndex = i
                                         }
                                     }
                                 }
@@ -184,7 +173,6 @@ PageType {
                             Layout.bottomMargin: 24
 
                             text: qsTr("Save")
-                            Keys.onTabPressed: lastItemTabClicked(focusItem)
 
                             clickedFunc: function() {
                                 forceActiveFocus()
