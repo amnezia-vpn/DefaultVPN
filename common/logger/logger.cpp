@@ -19,7 +19,7 @@
 #endif
 
 #ifdef Q_OS_IOS
-    #include <AmneziaVPN-Swift.h>
+    #include <DefaultVPN-Swift.h>
 #endif
 
 QFile Logger::m_file;

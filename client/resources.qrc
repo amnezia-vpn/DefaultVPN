@@ -2,7 +2,7 @@
     <qresource prefix="/">
         <file>fonts/pt-root-ui_vf.ttf</file>
         <file>images/amneziaBigLogo.png</file>
-        <file>images/AmneziaVPN.png</file>
+        <file>images/DefaultVPN.png</file>
         <file>images/controls/alert-circle.svg</file>
         <file>images/controls/amnezia.svg</file>
         <file>images/controls/app.svg</file>
