@@ -101,7 +101,7 @@ class AmneziaTileService : TileService() {
             Log.d(TAG, "Start listening")
             vpnProto = VpnStateStore.getVpnState().vpnProto
             vpnProto.also { proto ->
-                if (proto != null && AmneziaVpnService.isRunning(applicationContext, proto.processName)) {
+                if (proto != null && DefaultVpnService.isRunning(applicationContext, proto.processName)) {
                     Log.d(TAG, "Vpn service is running")
                     doBindService()
                 } else {
