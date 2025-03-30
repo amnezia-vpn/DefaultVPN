@@ -58,6 +58,7 @@ Page {
 
         RowLayout {
             DropDownType {
+                id: defaultServerDropDown
                 Layout.fillWidth: true
 
                 text: ServersModel.defaultServerName
@@ -73,6 +74,24 @@ Page {
                 onClicked: function() {
                     PageController.goToPage(PageEnum.PageSetupWizardConfigSource)
                 }
+            }
+        }
+
+        DropDownType {
+            Layout.fillWidth: false
+            Layout.topMargin: 10
+            Layout.preferredWidth: defaultServerDropDown.width
+
+            visible: ServersModel.isDefaultServerFromApi
+
+            text: ApiCountryModel.countryName
+
+            onClicked: function() {
+                if (ConnectionController.isConnected) {
+                    PageController.showNotificationMessage(qsTr("Unable change server location while there is an active connection"))
+                    return
+                }
+                PageController.goToPage(PageEnum.PageCountrySelector)
             }
         }
 
