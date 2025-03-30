@@ -78,13 +78,16 @@ Page {
         }
 
         DropDownType {
+            id: countryDropDown
             Layout.fillWidth: false
             Layout.topMargin: 10
             Layout.preferredWidth: defaultServerDropDown.width
 
-            visible: ServersModel.isDefaultServerFromApi
+            visible: ServersModel.isDefaultServerFromApi && 
+                     ServersModel.defaultServerDescriptionCollapsed !== "" && 
+                     ServersModel.defaultServerDescriptionCollapsed !== ServersModel.defaultServerName
 
-            text: ApiCountryModel.countryName
+            text: ServersModel.defaultServerDescriptionCollapsed
 
             onClicked: function() {
                 if (ConnectionController.isConnected) {
