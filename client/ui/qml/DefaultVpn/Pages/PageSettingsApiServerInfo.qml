@@ -159,6 +159,7 @@ Page {
             PageController.showBusyIndicator(true)
             if (ApiConfigsController.deactivateDevice()) {
                 InstallController.removeProcessedServer()
+                PageController.closePage()
             }
             PageController.showBusyIndicator(false)
         }

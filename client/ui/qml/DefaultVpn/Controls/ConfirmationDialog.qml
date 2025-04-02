@@ -24,7 +24,8 @@ Popup {
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
     anchors.centerIn: parent
-    width: parent.width - 15
+    width: parent.width - 30
+    height: 310
     padding: 24
 
     background: Rectangle {
