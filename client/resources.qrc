@@ -244,6 +244,7 @@
         <file>ui/qml/DefaultVpn/Controls/ButtonType.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageSettingsServersList.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageCountrySelector.qml</file>
+        <file>ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml</file>
         <file>ui/qml/DefaultVpn/Controls/TextTypes/Header1TextType.qml</file>
         <file>ui/qml/DefaultVpn/Controls/TextTypes/Header3TextType.qml</file>
         <file>ui/qml/DefaultVpn/Config/Style.qml</file>
@@ -251,6 +252,7 @@
         <file>ui/qml/DefaultVpn/Components/WhiteButtonNoBorder.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageSetupWizardConfigSource.qml</file>
         <file>ui/qml/DefaultVpn/Components/BlueButtonNoBorder.qml</file>
+        <file>ui/qml/DefaultVpn/Controls/ConfirmationDialog.qml</file>
         <file>ui/qml/DefaultVpn/Controls/InputType.qml</file>
         <file>ui/qml/DefaultVpn/Controls/PopupType.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml</file>
