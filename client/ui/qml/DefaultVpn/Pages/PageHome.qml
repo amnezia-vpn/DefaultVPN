@@ -40,8 +40,9 @@ Page {
             }
 
             WhiteButtonNoBorder {
-                imageSource: "qrc:/images/controls/warning-info.svg"
-                onClicked: PageController.goToPage(PageEnum.PageAbout)
+                Layout.rightMargin: 8
+                imageSource: "qrc:/images/controls/default_settings.svg"
+                onClicked: PageController.goToPage(PageEnum.PageSettings)
             }
         }
 

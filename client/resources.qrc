@@ -18,6 +18,7 @@
         <file>images/controls/close.svg</file>
         <file>images/controls/copy.svg</file>
         <file>images/controls/delete.svg</file>
+        <file>images/controls/default_settings.svg</file>
         <file>images/controls/download.svg</file>
         <file>images/controls/edit-3.svg</file>
         <file>images/controls/eye-off.svg</file>
@@ -236,6 +237,8 @@
         <file>ui/qml/DefaultVpn/Controls/DropDownType.qml</file>
         <file>ui/qml/DefaultVpn/main.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageHome.qml</file>
+        <file>ui/qml/DefaultVpn/Pages/PageSettings.qml</file>
+        <file>ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageAbout.qml</file>
         <file>ui/qml/DefaultVpn/Controls/TextTypes/MediumTextType.qml</file>
         <file>ui/qml/DefaultVpn/Config/DeviceInfo.qml</file>
@@ -252,7 +255,7 @@
         <file>ui/qml/DefaultVpn/Components/WhiteButtonNoBorder.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageSetupWizardConfigSource.qml</file>
         <file>ui/qml/DefaultVpn/Components/BlueButtonNoBorder.qml</file>
-        <file>ui/qml/DefaultVpn/Controls/ConfirmationDialog.qml</file>
+        <file>ui/qml/DefaultVpn/Components/ConfirmationDialog.qml</file>
         <file>ui/qml/DefaultVpn/Controls/InputType.qml</file>
         <file>ui/qml/DefaultVpn/Controls/PopupType.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml</file>

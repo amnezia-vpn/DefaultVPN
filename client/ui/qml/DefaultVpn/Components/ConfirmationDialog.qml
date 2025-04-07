@@ -7,8 +7,8 @@ import Qt5Compat.GraphicalEffects
 
 import Config 1.0
 
-import "TextTypes"
-import "../Components"
+import "../Controls"
+import "../Controls/TextTypes"
 
 Popup {
     id: root
