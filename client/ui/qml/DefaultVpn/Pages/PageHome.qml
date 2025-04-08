@@ -40,8 +40,9 @@ Page {
             }
 
             WhiteButtonNoBorder {
-                Layout.rightMargin: 8
-                imageSource: "qrc:/images/controls/default_settings.svg"
+                Layout.rightMargin: -8
+                Layout.topMargin: -16
+                imageSource: "qrc:/images/controls/settings.svg"
                 onClicked: PageController.goToPage(PageEnum.PageSettings)
             }
         }
