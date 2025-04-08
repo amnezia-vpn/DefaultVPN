@@ -258,6 +258,7 @@
         <file>ui/qml/DefaultVpn/Components/ConfirmationDialog.qml</file>
         <file>ui/qml/DefaultVpn/Controls/InputType.qml</file>
         <file>ui/qml/DefaultVpn/Controls/PopupType.qml</file>
+        <file>ui/qml/DefaultVpn/Controls/SwitcherType.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml</file>
         <file>ui/qml/DefaultVpn/Controls/BusyIndicatorType.qml</file>
         <file>images/controls/connect-button.svg</file>
