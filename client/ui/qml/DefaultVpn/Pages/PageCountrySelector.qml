@@ -110,8 +110,8 @@ Page {
 
                             Image {
                                 Layout.rightMargin: 8
-                                implicitWidth: 32
-                                implicitHeight: 24
+                                width: 32
+                                height: 24
                                 source: "qrc:/countriesFlags/images/flagKit/" + countryImageCode + ".svg"
                             }
                         }
