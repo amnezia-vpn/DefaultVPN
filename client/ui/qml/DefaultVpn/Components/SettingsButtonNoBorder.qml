@@ -14,6 +14,9 @@ Button {
     id: settingsButton
     Layout.fillWidth: true
 
+    property alias buttonText: headerText.text
+    signal buttonClicked()
+
     background: Rectangle {
         anchors.fill: parent
         radius: 8
@@ -55,9 +58,6 @@ Button {
             }
         }
     }
-
-    property alias buttonText: headerText.text
-    signal buttonClicked()
 
     onClicked: buttonClicked()
 }
