@@ -63,6 +63,8 @@ Page {
                 width: languageListView.width
                 height: 60
 
+                visible: languageName === "English" || languageName === "Русский"
+
                 Rectangle {
                     anchors.fill: parent
                     color: radioButton.checked ? Style.color.gray1 : Style.color.transparent
@@ -93,5 +95,6 @@ Page {
                 }
             }
         }
+
     }
 }
