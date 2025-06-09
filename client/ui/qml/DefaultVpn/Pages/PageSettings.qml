@@ -43,9 +43,6 @@ Page {
         ColumnLayout {
             Layout.fillWidth: true
             Layout.topMargin: 24
-            Layout.leftMargin: 8
-            Layout.rightMargin: 8
-            spacing: 2
 
             SettingsButtonNoBorder {
                 buttonText: qsTr("Language")

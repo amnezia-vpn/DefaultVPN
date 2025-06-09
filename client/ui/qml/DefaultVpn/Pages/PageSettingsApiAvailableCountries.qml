@@ -57,7 +57,6 @@ Page {
             ScrollBar.vertical: ScrollBar {}
 
             delegate: Item {
-                id: menuContentDelegate
                 required property string countryName
                 required property string countryCode
                 required property string countryImageCode

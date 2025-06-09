@@ -30,30 +30,35 @@ Button {
         }
     }
 
-    contentItem: RowLayout {
-        anchors.fill: parent
-        implicitHeight: childrenRect.height
+    contentItem: Item {
+        implicitWidth: content.implicitWidth
+        implicitHeight: content.implicitHeight
 
-        Header3TextType {
-            id: headerText
-            Layout.fillWidth: true
-            Layout.leftMargin: 8
-            Layout.topMargin: 19
-            Layout.bottomMargin: 19
-            horizontalAlignment: Text.AlignLeft
-            text: buttonText
-            color: Style.color.black
-        }
+        RowLayout {
+            id: content
+            anchors.fill: parent
 
-        Item { Layout.fillWidth: true }
+            Header3TextType {
+                id: headerText
+                Layout.fillWidth: true
+                Layout.leftMargin: 8
+                Layout.topMargin: 19
+                Layout.bottomMargin: 19
+                horizontalAlignment: Text.AlignLeft
+                text: buttonText
+                color: Style.color.black
+            }
 
-        Image {
-            Layout.rightMargin: 8
-            source: "qrc:/images/controls/chevron-right.svg"
-            layer {
-                enabled: true
-                effect: ColorOverlay {
-                    color: Style.color.black
+            Item { Layout.fillWidth: true }
+
+            Image {
+                Layout.rightMargin: 8
+                source: "qrc:/images/controls/chevron-right.svg"
+                layer {
+                    enabled: true
+                    effect: ColorOverlay {
+                        color: Style.color.black
+                    }
                 }
             }
         }

@@ -50,51 +50,85 @@ Page {
 
             model: LanguageModel
             currentIndex: LanguageModel.currentLanguageIndex
-            spacing: 8
 
             ScrollBar.vertical: ScrollBar {}
 
             delegate: Item {
-                id: languageItem
                 required property string languageName
                 required property int languageIndex
                 required property int index
 
-                width: languageListView.width
-                height: 60
+                implicitWidth: languageListView.width
+                implicitHeight: languageItem.implicitHeight
 
                 visible: languageName === "English" || languageName === "Русский"
 
-                Rectangle {
+                RadioButton {
+                    id: languageItem
+
                     anchors.fill: parent
-                    color: radioButton.checked ? Style.color.gray1 : Style.color.transparent
-                    radius: 8
+                    anchors.rightMargin: 16
+                    anchors.leftMargin: 16
 
-                    RowLayout {
-                        anchors.fill: parent
-                        anchors.margins: 8
+                    ButtonGroup.group: languageButtonGroup
 
-                        RadioButton {
-                            id: radioButton
-                            ButtonGroup.group: languageButtonGroup
-                            checked: languageIndex === LanguageModel.currentLanguageIndex
+                    checked: languageIndex === LanguageModel.currentLanguageIndex
 
-                            text: languageName
-                            font.pixelSize: 18
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignVCenter
+                    indicator: Item { }
 
-                            onClicked: {
-                                if (languageIndex !== LanguageModel.currentLanguageIndex) {
-                                    LanguageModel.changeLanguage(languageIndex);
-                                    PageController.closePage();
-                                }
+                    contentItem: Item {
+                        id: contentContainer
+
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+
+                        implicitHeight: content.implicitHeight
+
+                        Rectangle {
+                            anchors.fill: parent
+                            radius: 8
+                            color: languageItem.checked ? Style.color.gray1 : Style.color.transparent
+                        }
+
+                        RowLayout {
+                            id: content
+                            anchors.fill: parent
+
+                            Header3TextType {
+                                Layout.fillWidth: true
+                                Layout.leftMargin: 8
+                                Layout.topMargin: 19
+                                Layout.bottomMargin: 19
+
+                                text: languageName
+
+                                color: languageItem.hovered ? Style.color.gray9 : Style.color.black
+                            }
+
+                            Image {
+                                Layout.rightMargin: 8
+                                width: 24
+                                height: 24
+                                source: "qrc:/images/controls/check.svg"
+                                visible: languageItem.checked
                             }
                         }
+                    }
+
+                    onClicked: {
+                        if (languageIndex !== LanguageModel.currentLanguageIndex) {
+                            LanguageModel.changeLanguage(languageIndex);
+                            PageController.closePage();
+                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: languageItem
+                        cursorShape: Qt.PointingHandCursor
+                        enabled: false
                     }
                 }
             }
         }
-
     }
 }
