@@ -41,7 +41,6 @@ Popup {
         anchors.margins: padding
 
         spacing: 40
-        width: parent.width
         height: implicitHeight
 
         ColumnLayout {
