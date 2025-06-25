@@ -25,7 +25,6 @@ Popup {
 
     anchors.centerIn: parent
     width: parent.width - 30
-    height: contentItem.implicitHeight + padding * 2
     padding: 24
 
     background: Rectangle {
@@ -36,8 +35,14 @@ Popup {
     }
 
     contentItem: ColumnLayout {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.margins: padding
+
         spacing: 40
         width: parent.width
+        height: implicitHeight
 
         ColumnLayout {
             Layout.fillWidth: true
