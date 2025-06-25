@@ -25,7 +25,7 @@ Popup {
 
     anchors.centerIn: parent
     width: parent.width - 30
-    height: 310
+    height: contentItem.implicitHeight + padding * 2
     padding: 24
 
     background: Rectangle {
