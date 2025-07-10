@@ -70,6 +70,8 @@ Page {
             }
 
             SwitcherType {
+                id: switcher
+
                 readonly property bool isVlessProtocol: ApiConfigsController.isVlessProtocol()
 
                 Layout.fillWidth: true
