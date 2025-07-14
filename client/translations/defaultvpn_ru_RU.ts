@@ -3305,10 +3305,6 @@ Thank you for staying with us!</source>
         <translation>У меня ничего нет</translation>
     </message>
     <message>
-        <source>Key as text</source>
-        <translation type="vanished">Ключ в виде текста</translation>
-    </message>
-    <message>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSetupWizardConfigSource.qml" line="65"/>
         <source>Adding a server to&#xa0;connect to</source>
         <translation>Добавление сервера для подключения</translation>
@@ -4360,7 +4356,7 @@ Thank you for staying with us!</source>
     <message>
         <location filename="../core/errorstrings.cpp" line="73"/>
         <source>Failed to decrypt response payload</source>
-        <translation></translation>
+        <translation>Не удалось расшифровать ответ полезной нагрузки</translation>
     </message>
     <message>
         <location filename="../core/errorstrings.cpp" line="74"/>
