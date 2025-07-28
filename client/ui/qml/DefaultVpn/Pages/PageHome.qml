@@ -85,7 +85,7 @@ Page {
             Layout.topMargin: 10
             Layout.preferredWidth: defaultServerDropDown.width
 
-            visible: ServersModel.defaultServerImagePathCollapsed !== ""
+            visible: (ServersModel.defaultServerImagePathCollapsed !== "") && drawer.isCollapsedStateActive
 
             text: ServersModel.defaultServerDescriptionCollapsed
 
