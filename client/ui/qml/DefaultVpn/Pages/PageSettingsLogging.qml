@@ -105,16 +105,28 @@ Page {
                 Layout.fillWidth: true
                 Layout.topMargin: 16
                 
-                text: qsTr("Open logs")
+                text: qsTr("Clear logs")
 
-                onClicked: function() {
-                    SettingsController.openLogsFolder()
-                }
+                onClicked: clearLogsConfirmationDialog.open()
             }
 
             Item {
                 Layout.fillHeight: true
             }
+        }
+    }
+
+    ConfirmationDialog {
+        id: clearLogsConfirmationDialog
+        title: qsTr("Clear logs?")
+        confirmButtonText: qsTr("Continue")
+        cancelButtonText: qsTr("No, keep it")
+
+        onConfirm: function() {
+            PageController.showBusyIndicator(true)
+            SettingsController.clearLogs()
+            PageController.showBusyIndicator(false)
+            PageController.showNotificationMessage(qsTr("Logs have been cleaned up"))
         }
     }
 } 
