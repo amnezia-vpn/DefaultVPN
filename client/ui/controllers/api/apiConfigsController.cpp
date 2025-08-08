@@ -253,10 +253,10 @@ bool ApiConfigsController::exportNativeConfig(const QString &serverCountryCode, 
                                             apiConfigObject.value(configKey::userCountryCode).toString(),
                                             serverCountryCode,
                                             apiConfigObject.value(configKey::serviceType).toString(),
-                                            m_apiServicesModel->getSelectedServiceProtocol(),
+                                            configKey::awg, // apiConfigObject.value(configKey::serviceProtocol).toString(),
                                             serverConfigObject.value(configKey::authData).toObject() };
 
-    QString protocol = apiConfigObject.value(configKey::serviceProtocol).toString();
+    QString protocol = gatewayRequestData.serviceProtocol;
     ProtocolData protocolData = generateProtocolData(protocol);
 
     QJsonObject apiPayload = gatewayRequestData.toJsonObject();
@@ -288,9 +288,8 @@ bool ApiConfigsController::revokeNativeConfig(const QString &serverCountryCode)
                                             apiConfigObject.value(configKey::userCountryCode).toString(),
                                             serverCountryCode,
                                             apiConfigObject.value(configKey::serviceType).toString(),
-                                            m_apiServicesModel->getSelectedServiceProtocol(),
-                                            serverConfigObject.value(configKey::authData).toObject(),
-                                            QString(APPLICATION_NAME) };
+                                            configKey::awg, // apiConfigObject.value(configKey::serviceProtocol).toString(),
+                                            serverConfigObject.value(configKey::authData).toObject() };
 
     QJsonObject apiPayload = gatewayRequestData.toJsonObject();
 
