@@ -314,15 +314,15 @@ jobs:
     - name: 'Upload installer artifact'
       uses: actions/upload-artifact@v4
       with:
-        name: AmneziaVPN_MacOS_old_installer
-        path: deploy/build/pkg/AmneziaVPN.pkg
+        name: DefaultVPN_MacOS_old_installer
+        path: deploy/build/pkg/DefaultVPN.pkg
         retention-days: 7
 
     - name: 'Upload unpacked artifact'
       uses: actions/upload-artifact@v4
       with:
-        name: AmneziaVPN_MacOS_old_unpacked
-        path: deploy/build/client/AmneziaVPN.app
+        name: DefaultVPN_MacOS_old_unpacked
+        path: deploy/build/client/DefaultVPN.app
         retention-days: 7
 
 # ------------------------------------------------------
