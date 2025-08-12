@@ -91,6 +91,20 @@ Page {
             Layout.topMargin: 24
             Layout.fillWidth: true
 
+            text: qsTr("Reset API Configuration")
+            defaultTextColor: Style.color.error
+            hoveredTextColor: Style.color.error
+            pressedTextColor: Style.color.error
+
+            onClicked: resetConfirmationDialog.open()
+        }
+
+        WhiteButtonWithBorder {
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
+            Layout.topMargin: 24
+            Layout.fillWidth: true
+
             text: qsTr("Delete server")
             defaultTextColor: Style.color.error
             hoveredTextColor: Style.color.error
@@ -101,6 +115,23 @@ Page {
 
         Item {
             Layout.fillHeight: true
+        }
+    }
+
+    ConfirmationDialog {
+        id: resetConfirmationDialog
+        title: qsTr("Do you want to reset API config?")
+        confirmButtonText: qsTr("Continue")
+        cancelButtonText: qsTr("Cancel")
+        
+        onConfirm: function() {
+            if (ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected) {
+                PageController.showNotificationMessage(qsTr("Cannot reset API config during active connection"))
+            } else {
+                PageController.showBusyIndicator(true)
+                InstallController.removeApiConfig(ServersModel.processedIndex)
+                PageController.showBusyIndicator(false)
+            }
         }
     }
 
