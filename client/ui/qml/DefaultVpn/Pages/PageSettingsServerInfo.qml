@@ -27,6 +27,14 @@ Page {
         }
     }
 
+    Connections {
+        target: InstallController
+    
+        function onApiConfigRemoved(message) {
+            PageController.showNotificationMessage(message)
+        }
+    }
+
     ColumnLayout {
         anchors.fill: parent
 
@@ -133,7 +141,6 @@ Page {
         onConfirm: function() {
             PageController.showBusyIndicator(true)
             InstallController.removeApiConfig(ServersModel.processedIndex)
-            PageController.showNotificationMessage(qsTr("API config removed"))
             PageController.showBusyIndicator(false)
         }
     }
