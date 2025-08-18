@@ -6,6 +6,7 @@ import QtQuick.Layouts
 
 import PageEnum 1.0
 import Config 1.0
+import ApiConfigsController 1.0
 
 import SortFilterProxyModel 0.2
 
