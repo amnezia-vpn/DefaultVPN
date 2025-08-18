@@ -29,7 +29,7 @@ Page {
     Connections {
         target: apiConfigsController
     
-        function onApiConfigReloaded(message) {
+        function onReloadServerFromApiFinished(message) {
             PageController.showNotificationMessage(message)
         }
     }

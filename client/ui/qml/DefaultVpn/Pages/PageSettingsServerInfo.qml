@@ -25,11 +25,7 @@ Page {
             }
             PageController.showNotificationMessage(finishedMessage)
         }
-    }
 
-    Connections {
-        target: InstallController
-    
         function onApiConfigRemoved(message) {
             PageController.showNotificationMessage(message)
         }
