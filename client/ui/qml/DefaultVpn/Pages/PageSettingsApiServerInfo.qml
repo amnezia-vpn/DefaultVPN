@@ -26,6 +26,14 @@ Page {
         }
     }
 
+    Connections {
+        target: ApiConfigsController
+    
+        function onReloadServerFromApiFinished(message) {
+            PageController.showNotificationMessage(message)
+        }
+    }
+
     SortFilterProxyModel {
         id: proxyServersModel
         objectName: "proxyServersModel"
