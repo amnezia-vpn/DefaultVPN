@@ -31,15 +31,6 @@ Rectangle {
     border.color: getBorderColor(borderNormalColor)
     radius: 16
 
-    property FlickableType parentFlickable: null
-    onFocusChanged: {
-        if (root.activeFocus) {
-            if (root.parentFlickable) {
-                root.parentFlickable.ensureVisible(root)
-            }
-        }
-    }
-
     MouseArea {
         id: parentMouse
         anchors.fill: parent
@@ -88,11 +79,23 @@ Rectangle {
 
                 wrapMode: Text.Wrap
 
+                MouseArea {
+                    id: textAreaMouse
+                    anchors.fill: parent
+                    acceptedButtons: Qt.RightButton
+                    hoverEnabled: true
+                    onClicked: {
+                        fl.interactive = true
+                        contextMenu.open()
+                    }
+                }
+
                 onFocusChanged: {
                     root.border.color = getBorderColor(borderNormalColor)
                 }
 
-                ContextMenu.menu: ContextMenuType {
+                ContextMenuType {
+                    id: contextMenu
                     textObj: textArea
                 }
             }
