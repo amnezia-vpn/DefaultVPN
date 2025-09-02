@@ -239,6 +239,7 @@
         <file>ui/qml/Pages2/PageSettingsApiDevices.qml</file>
         <file>images/controls/monitor.svg</file>
         <file>ui/qml/DefaultVpn/Controls/DropDownType.qml</file>
+        <file>ui/qml/DefaultVpn/Controls/ContextMenuType.qml</file>
         <file>ui/qml/DefaultVpn/main.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageHome.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageSettings.qml</file>
