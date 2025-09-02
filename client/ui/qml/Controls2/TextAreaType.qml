@@ -21,15 +21,6 @@ Rectangle {
     border.color: getBorderColor(borderNormalColor)
     radius: 16
 
-    property FlickableType parentFlickable: null
-    onFocusChanged: {
-        if (root.activeFocus) {
-            if (root.parentFlickable) {
-                root.parentFlickable.ensureVisible(root)
-            }
-        }
-    }
-
     MouseArea {
         id: parentMouse
         anchors.fill: parent
@@ -54,6 +45,32 @@ Rectangle {
                 anchors.topMargin: 16
                 anchors.bottomMargin: 16
 
+                property bool isFocusable: true
+
+                Keys.onTabPressed: {
+                    FocusController.nextKeyTabItem()
+                }
+
+                Keys.onBacktabPressed: {
+                    FocusController.previousKeyTabItem()
+                }
+
+                Keys.onUpPressed: {
+                    FocusController.nextKeyUpItem()
+                }
+                
+                Keys.onDownPressed: {
+                    FocusController.nextKeyDownItem()
+                }
+                
+                Keys.onLeftPressed: {
+                    FocusController.nextKeyLeftItem()
+                }
+
+                Keys.onRightPressed: {
+                    FocusController.nextKeyRightItem()
+                }
+
                 color: AmneziaStyle.color.paleGray
                 selectionColor:  AmneziaStyle.color.richBrown
                 selectedTextColor: AmneziaStyle.color.paleGray
@@ -76,12 +93,24 @@ Rectangle {
 
                 wrapMode: Text.Wrap
 
-                ContextMenu.menu: ContextMenuType {
-                    textObj: textArea
+                MouseArea {
+                    id: textAreaMouse
+                    anchors.fill: parent
+                    acceptedButtons: Qt.RightButton
+                    hoverEnabled: true
+                    onClicked: {
+                        fl.interactive = true
+                        contextMenu.open()
+                    }
                 }
 
                 onFocusChanged: {
                     root.border.color = getBorderColor(borderNormalColor)
+                }
+
+                ContextMenuType {
+                    id: contextMenu
+                    textObj: textArea
                 }
             }
         }
