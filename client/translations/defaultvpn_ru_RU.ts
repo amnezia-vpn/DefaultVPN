@@ -89,17 +89,17 @@
 <context>
     <name>ApiConfigsController</name>
     <message>
-        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="392"/>
+        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="391"/>
         <source>%1 installed successfully.</source>
         <translation>%1 успешно установлен.</translation>
     </message>
     <message>
-        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="447"/>
+        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="446"/>
         <source>API config reloaded</source>
         <translation>Конфигурация API перезагружена</translation>
     </message>
     <message>
-        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="451"/>
+        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="450"/>
         <source>Successfully changed the country of connection to %1</source>
         <translation>Страна подключения изменена на %1</translation>
     </message>
@@ -2123,13 +2123,13 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="173"/>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="80"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="111"/>
         <source>Use VLESS protocol</source>
         <translation>Используйте протокол VLESS</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="177"/>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="84"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="115"/>
         <source>Cannot change protocol during active connection</source>
         <translation>Невозможно изменить протокол во время активного соединения</translation>
     </message>
@@ -2189,13 +2189,13 @@ Thank you for staying with us!</source>
         <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="326"/>
         <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="364"/>
         <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="401"/>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="139"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="170"/>
         <source>Cancel</source>
         <translation>Отменить</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="330"/>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="102"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="133"/>
         <source>Cannot reload API config during active connection</source>
         <translation>Невозможно перзагрузить API конфигурацию при активном соединении</translation>
     </message>
@@ -2231,62 +2231,57 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="405"/>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="120"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="151"/>
         <source>Cannot remove server during active connection</source>
         <translation>Невозможно удалить сервер во время активного соединения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="50"/>
-        <source>Amnezia Premium settings</source>
-        <translation>Настройки Amnezia Premium</translation>
-    </message>
-    <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="60"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="89"/>
         <source>Subscription expires on</source>
         <translation>Подписка истекает</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="98"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="129"/>
         <source>Reload API configuration</source>
         <translation>Перезагрузить конфигурацию API</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="113"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="144"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="136"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="167"/>
         <source>Reset API configuration?</source>
         <translation>Перезагрузить конфигурацию API?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="137"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="168"/>
         <source>This will reload the API configuration from the server</source>
         <translation>Это перезагрузит конфигурацию API с сервера</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="138"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="169"/>
         <source>Reset</source>
         <translation>Перезагрузить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="150"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="181"/>
         <source>Are you sure you want to remove the server from the app?</source>
         <translation>Вы уверены что хотите удалить сервер из приложения?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="151"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="182"/>
         <source>You won&apos;t be able to connect to it</source>
         <translation>Вы не сможете к нему подключиться</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="152"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="183"/>
         <source>Yes, delete anyway</source>
         <translation>Да, удалить в любом случае</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="153"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="184"/>
         <source>No, keep it</source>
         <translation>Нет, оставить</translation>
     </message>
@@ -2764,7 +2759,7 @@ Thank you for staying with us!</source>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsKillSwitch.qml" line="118"/>
         <source>DNS servers listed here will remain accessible when KillSwitch is active.</source>
-        <translation type="unfinished"></translation>
+        <translation>Перечисленные здесь DNS сервера останутся доступны при включенном KillSwitch</translation>
     </message>
 </context>
 <context>
@@ -2777,7 +2772,7 @@ Thank you for staying with us!</source>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsKillSwitchExceptions.qml" line="46"/>
         <source>DNS servers listed here will remain accessible when KillSwitch is active</source>
-        <translation type="unfinished"></translation>
+        <translation>Перечисленные здесь DNS сервера останутся доступны при включенном KillSwitch</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsKillSwitchExceptions.qml" line="106"/>
@@ -2897,11 +2892,13 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="83"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="121"/>
         <source>Clear logs?</source>
         <translation>Очистить логи?</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="84"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="122"/>
         <source>Continue</source>
         <translation>Продолжить</translation>
     </message>
@@ -2912,6 +2909,7 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="91"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="129"/>
         <source>Logs have been cleaned up</source>
         <translation>Логи очищены</translation>
     </message>
@@ -2947,6 +2945,7 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="78"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="108"/>
         <source>Clear logs</source>
         <translation>Очистить логи</translation>
     </message>
@@ -2961,9 +2960,9 @@ Thank you for staying with us!</source>
         <translation>Сохранить логи в файл</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="108"/>
-        <source>Open logs</source>
-        <translation>Открыть логи</translation>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="123"/>
+        <source>No, keep it</source>
+        <translation>Нет, оставить</translation>
     </message>
 </context>
 <context>
@@ -3114,26 +3113,51 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="94"/>
+        <source>Reset API Configuration</source>
+        <translation>Перезагрузить конфигурацию API</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="108"/>
         <source>Delete server</source>
         <translation>Удалить сервер</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="109"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="123"/>
+        <source>Do you want to reset API config?</source>
+        <translation>Вы хотите сбросить конфигурацию API?</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="124"/>
+        <source>Continue</source>
+        <translation>Продолжить</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="125"/>
+        <source>Cancel</source>
+        <translation>Отменить</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="129"/>
+        <source>Cannot reset API config during active connection</source>
+        <translation>Невозможно сбросить конфигурацию API во время активного соединения</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="140"/>
         <source>Are you sure you want to remove the server from the app?</source>
         <translation>Вы уверены что хотите удалить сервер из приложения?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="110"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="141"/>
         <source>You won&apos;t be able to connect to it</source>
         <translation>Вы не сможете к нему подключиться</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="111"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="142"/>
         <source>Yes, delete anyway</source>
         <translation>Да, удалить в любом случае</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="112"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="143"/>
         <source>No, keep it</source>
         <translation>Нет, оставить</translation>
     </message>
@@ -3501,6 +3525,7 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSetupWizardConfigSource.qml" line="335"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSetupWizardConfigSource.qml" line="135"/>
         <source>Open config file</source>
         <translation>Открыть файл с конфигурацией</translation>
     </message>
@@ -3538,6 +3563,11 @@ Thank you for staying with us!</source>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSetupWizardConfigSource.qml" line="117"/>
         <source>Unsupported config file</source>
         <translation>Неподдерживаемый файл конфига</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSetupWizardConfigSource.qml" line="130"/>
+        <source>Import config from file</source>
+        <translation>Импортировать конфиг из файла</translation>
     </message>
 </context>
 <context>
@@ -4644,30 +4674,6 @@ Thank you for staying with us!</source>
         <translation>Создайте на сервере файловое хранилище для безопасного хранения и передачи файлов.</translation>
     </message>
     <message>
-        <location filename="../containers/containers_defs.cpp" line="186"/>
-        <source>AmneziaWG is a modern VPN protocol based on WireGuard, combining simplified architecture with high performance across all devices. It addresses WireGuard&apos;s main vulnerability (easy detection by DPI systems) through advanced obfuscation techniques, making VPN traffic indistinguishable from regular internet traffic.
-
-AmneziaWG is an excellent choice for those seeking a fast, stealthy VPN connection.
-
-Features:
-* Available on all AmneziaVPN platforms
-* Low battery consumption on mobile devices
-* Minimal settings required
-* Undetectable by traffic analysis systems (DPI)
-* Operates over UDP protocol</source>
-        <translation>AmneziaWG — современный VPN-протокол на основе WireGuard, сочетающий простую архитектуру и высокую производительность на всех устройствах. Он устраняет основной недостаток WireGuard (лёгкое обнаружение трафика системами DPI) за счёт эффективного маскирования VPN-трафика под обычный интернет-трафик.
-
-Таким образом, AmneziaWG идеально подойдёт тем, кто ищет быстрое и незаметное VPN-соединение.
-
-Особенности:
-* Доступен во всех версиях AmneziaVPN
-* Низкое энергопотребление на мобильных устройствах
-* Минимум настроек
-* Незаметен для систем анализа трафика (DPI)
-* Работает по протоколу UDP
-		</translation>
-    </message>
-    <message>
         <location filename="../containers/containers_defs.cpp" line="198"/>
         <source>REALITY is an innovative protocol developed by the creators of XRay, designed specifically to combat high levels of internet censorship. REALITY identifies censorship systems during the TLS handshake, redirecting suspicious traffic seamlessly to legitimate websites like google.com while providing genuine TLS certificates. This allows VPN traffic to blend indistinguishably with regular web traffic without special configuration.
 Unlike older protocols such as VMess, VLESS, and XTLS-Vision, REALITY incorporates an advanced built-in &quot;friend-or-foe&quot; detection mechanism, effectively protecting against DPI and other traffic analysis methods.
@@ -4749,112 +4755,6 @@ REALITY распознаёт системы блокировки во время
         <translation></translation>
     </message>
     <message>
-        <location filename="../containers/containers_defs.cpp" line="143"/>
-        <source>OpenVPN is one of the most popular and reliable VPN protocols. It uses SSL/TLS encryption, supports a wide variety of devices and operating systems, and is continuously improved by the community due to its open-source nature. It provides a good balance between speed and security but is easily recognized by DPI systems, making it susceptible to blocking.
-
-Features:
-* Available on all AmneziaVPN platforms
-* Normal battery consumption on mobile devices
-* Flexible customization for various devices and OS
-* Operates over both TCP and UDP protocols</source>
-        <translation>OpenVPN — один из самых популярных и надежных VPN-протоколов. Он использует шифрование SSL/TLS, совместим со множеством устройств и ОС, а благодаря открытому коду постоянно совершенствуется сообществом. Имеет хороший баланс скорости и безопасности, но легко распознаётся системами DPI, что делает его уязвимым к блокировкам.
-
-Особенности:
-* Доступен во всех приложениях AmneziaVPN
-* Нормальное энергопотребление на мобильных устройствах
-* Гибкие настройки под разные устройства и ОС
-* Работает по TCP и UDP</translation>
-    </message>
-    <message>
-        <location filename="../containers/containers_defs.cpp" line="154"/>
-        <source>Shadowsocks is based on the SOCKS5 protocol and encrypts connections using AEAD cipher. Although designed to be discreet, it doesn&apos;t mimic a standard HTTPS connection and can be detected by some DPI systems. Due to limited support in Amnezia, we recommend using the AmneziaWG protocol.
-
-Features:
-* Available in AmneziaVPN only on desktop platforms
-* Customizable encryption protocol
-* Detectable by some DPI systems
-* Operates over TCP protocol
-</source>
-        <translation>Shadowsocks основан на протоколе SOCKS5 и шифрует соединение алгоритмом AEAD. Он разработан так, чтобы быть малозаметным, однако не идентичен HTTPS, поэтому может распознаваться некоторыми системами DPI. В связи с ограниченной поддержкой в Amnezia, рекомендуем использовать протокол AmneziaWG.
-
-Особенности:
-* Доступен только на ПК в AmneziaVPN
-* Настраиваемое шифрование
-* Может обнаруживаться некоторыми DPI-системами
-* Работает по протоколу TCP</translation>
-    </message>
-    <message>
-        <location filename="../containers/containers_defs.cpp" line="163"/>
-        <source>This combination includes the OpenVPN protocol and the Cloak plugin, specifically designed to protect against blocking.
-
-OpenVPN securely encrypts all internet traffic between your device and the server.
-
-The Cloak plugin further protects the connection from DPI detection. It modifies traffic metadata to disguise VPN traffic as regular web traffic and prevents detection through active probing. If an incoming connection fails authentication, Cloak serves a fake website, making your VPN invisible to traffic analysis systems.
-
-In regions with heavy internet censorship, we strongly recommend using OpenVPN with Cloak from your first connection.
-
-Features:
-* Available on all AmneziaVPN platforms
-* High power consumption on mobile devices
-* Flexible configuration options
-* Undetectable by DPI systems
-* Operates over TCP protocol on port 443</source>
-        <translation>Эта комбинация состоит из протокола OpenVPN и плагина Cloak, специально разработанных для защиты от блокировок.
-
-OpenVPN надёжно шифрует весь интернет-трафик между вами и сервером.
-
-Плагин Cloak дополнительно защищает соединение от распознавания системами DPI. Он изменяет метаданные трафика, маскируя VPN-подключение под обычный веб-трафик, и предотвращает обнаружение с помощью активного зондирования. Если попытка подключения не прошла аутентификацию, Cloak выдаёт поддельный веб-сайт, делая VPN невидимым для анализирующих систем.
-
-Если в вашем регионе сильная интернет-цензура, мы рекомендуем сразу использовать OpenVPN с плагином Cloak.
-
-Особенности:
-* Доступен на всех платформах AmneziaVPN
-* Высокое энергопотребление на мобильных устройствах
-* Гибкие настройки
-* Незаметен для систем DPI-анализа
-* Использует протокол TCP на порту 443</translation>
-    </message>
-    <message>
-        <location filename="../containers/containers_defs.cpp" line="176"/>
-        <source>WireGuard is a modern, streamlined VPN protocol offering stable connectivity and excellent performance across all devices. It uses fixed encryption settings, delivering lower latency and higher data transfer speeds compared to OpenVPN. However, WireGuard is easily identifiable by DPI systems due to its distinctive packet signatures, making it susceptible to blocking.
-
-Features:
-* Available on all AmneziaVPN platforms
-* Low power consumption on mobile devices
-* Minimal configuration required
-* Easily detected by DPI systems (susceptible to blocking)
-* Operates over UDP protocol</source>
-        <translation>WireGuard — современный и простой VPN-протокол, который обеспечивает стабильное соединение и высокую скорость передачи данных на любых устройствах. Он использует фиксированные настройки шифрования, имеет меньшую задержку и выше пропускную способность по сравнению с OpenVPN.
-
-Однако WireGuard легко распознаётся системами DPI из-за характерных сигнатур трафика, что делает его уязвимым к блокировкам.
-
-Особенности:
-* Доступен на всех платформах AmneziaVPN
-* Низкое энергопотребление на мобильных устройствах
-* Минимум настроек
-* Легко определяется DPI-системами (подвержен блокировкам)
-* Работает по протоколу UDP</translation>
-    </message>
-    <message>
-        <location filename="../containers/containers_defs.cpp" line="211"/>
-        <source>IKEv2, combined with IPSec encryption, is a modern and reliable VPN protocol. It reconnects quickly when switching networks or devices, making it ideal for dynamic network environments. While it provides good security and speed, it&apos;s easily recognized by DPI systems and susceptible to blocking.
-
-Features:
-* Available in AmneziaVPN only on Windows
-* Low battery consumption on mobile devices
-* Minimal configuration required
-* Detectable by DPI analysis systems(easily blocked)
-* Operates over UDP protocol(ports 500 and 4500)</source>
-        <translation>IKEv2 — современный и стабильный VPN-протокол, работающий совместно с шифрованием IPSec. Он обеспечивает быстрое переподключение при смене сети или устройства, отлично подходит для динамичных сетевых условий. Несмотря на хорошую скорость и безопасность, легко распознаётся системами DPI и подвержен блокировкам.
-
-Особенности:
-* Доступен в AmneziaVPN только на Windows
-* Низкое энергопотребление на мобильных устройствах
-* Минимум настроек
-* Распознаётся DPI-системами (легко блокируется)
-* Работает по UDP (порты 500 и 4500)</translation>
-    </message>
-    <message>
         <source>
 			AmneziaWG is a modern VPN protocol based on WireGuard, combining simplified architecture with high performance across all devices. It addresses WireGuard’s main vulnerability (easy detection by DPI systems) through advanced obfuscation techniques, making VPN traffic indistinguishable from regular internet traffic.
 
@@ -4888,6 +4788,135 @@ Features:
         <location filename="../containers/containers_defs.cpp" line="132"/>
         <source>Replace the current DNS server with your own. This will increase your privacy level.</source>
         <translation>Замените текущий DNS-сервер на свой собственный. Это повысит уровень вашей конфиденциальности.</translation>
+    </message>
+    <message>
+        <location filename="../containers/containers_defs.cpp" line="143"/>
+        <source>OpenVPN is one of the most popular and reliable VPN protocols. It uses SSL/TLS encryption, supports a wide variety of devices and operating systems, and is continuously improved by the community due to its open-source nature. It provides a good balance between speed and security but is easily recognized by DPI systems, making it susceptible to blocking.
+
+Features:
+* Available on all DefaultVPN platforms
+* Normal battery consumption on mobile devices
+* Flexible customization for various devices and OS
+* Operates over both TCP and UDP protocols</source>
+        <translation>OpenVPN — один из самых популярных и надежных VPN-протоколов. Он использует шифрование SSL/TLS, совместим со множеством устройств и ОС, а благодаря открытому коду постоянно совершенствуется сообществом. Имеет хороший баланс скорости и безопасности, но легко распознаётся системами DPI, что делает его уязвимым к блокировкам.
+
+Особенности:
+* Доступен во всех приложениях AmneziaVPN
+* Нормальное энергопотребление на мобильных устройствах
+* Гибкие настройки под разные устройства и ОС
+* Работает по TCP и UDP</translation>
+    </message>
+    <message>
+        <location filename="../containers/containers_defs.cpp" line="154"/>
+        <source>Shadowsocks is based on the SOCKS5 protocol and encrypts connections using AEAD cipher. Although designed to be discreet, it doesn&apos;t mimic a standard HTTPS connection and can be detected by some DPI systems. Due to limited support in Amnezia, we recommend using the AmneziaWG protocol.
+
+Features:
+* Available in DefaultVPN only on desktop platforms
+* Customizable encryption protocol
+* Detectable by some DPI systems
+* Operates over TCP protocol
+</source>
+        <translation>Shadowsocks основан на протоколе SOCKS5 и шифрует соединение алгоритмом AEAD. Он разработан так, чтобы быть малозаметным, однако не идентичен HTTPS, поэтому может распознаваться некоторыми системами DPI. В связи с ограниченной поддержкой в Amnezia, рекомендуем использовать протокол AmneziaWG.
+
+Особенности:
+* Доступен только на ПК в AmneziaVPN
+* Настраиваемое шифрование
+* Может обнаруживаться некоторыми DPI-системами
+* Работает по протоколу TCP</translation>
+    </message>
+    <message>
+        <location filename="../containers/containers_defs.cpp" line="163"/>
+        <source>This combination includes the OpenVPN protocol and the Cloak plugin, specifically designed to protect against blocking.
+
+OpenVPN securely encrypts all internet traffic between your device and the server.
+
+The Cloak plugin further protects the connection from DPI detection. It modifies traffic metadata to disguise VPN traffic as regular web traffic and prevents detection through active probing. If an incoming connection fails authentication, Cloak serves a fake website, making your VPN invisible to traffic analysis systems.
+
+In regions with heavy internet censorship, we strongly recommend using OpenVPN with Cloak from your first connection.
+
+Features:
+* Available on all DefaultVPN platforms
+* High power consumption on mobile devices
+* Flexible configuration options
+* Undetectable by DPI systems
+* Operates over TCP protocol on port 443</source>
+        <translation>Эта комбинация состоит из протокола OpenVPN и плагина Cloak, специально разработанных для защиты от блокировок.
+
+OpenVPN надёжно шифрует весь интернет-трафик между вами и сервером.
+
+Плагин Cloak дополнительно защищает соединение от распознавания системами DPI. Он изменяет метаданные трафика, маскируя VPN-подключение под обычный веб-трафик, и предотвращает обнаружение с помощью активного зондирования. Если попытка подключения не прошла аутентификацию, Cloak выдаёт поддельный веб-сайт, делая VPN невидимым для анализирующих систем.
+
+Если в вашем регионе сильная интернет-цензура, мы рекомендуем сразу использовать OpenVPN с плагином Cloak.
+
+Особенности:
+* Доступен на всех платформах AmneziaVPN
+* Высокое энергопотребление на мобильных устройствах
+* Гибкие настройки
+* Незаметен для систем DPI-анализа
+* Использует протокол TCP на порту 443</translation>
+    </message>
+    <message>
+        <location filename="../containers/containers_defs.cpp" line="176"/>
+        <source>WireGuard is a modern, streamlined VPN protocol offering stable connectivity and excellent performance across all devices. It uses fixed encryption settings, delivering lower latency and higher data transfer speeds compared to OpenVPN. However, WireGuard is easily identifiable by DPI systems due to its distinctive packet signatures, making it susceptible to blocking.
+
+Features:
+* Available on all DefaultVPN platforms
+* Low power consumption on mobile devices
+* Minimal configuration required
+* Easily detected by DPI systems (susceptible to blocking)
+* Operates over UDP protocol</source>
+        <translation>WireGuard — современный и простой VPN-протокол, который обеспечивает стабильное соединение и высокую скорость передачи данных на любых устройствах. Он использует фиксированные настройки шифрования, имеет меньшую задержку и выше пропускную способность по сравнению с OpenVPN.
+
+Однако WireGuard легко распознаётся системами DPI из-за характерных сигнатур трафика, что делает его уязвимым к блокировкам.
+
+Особенности:
+* Доступен на всех платформах AmneziaVPN
+* Низкое энергопотребление на мобильных устройствах
+* Минимум настроек
+* Легко определяется DPI-системами (подвержен блокировкам)
+* Работает по протоколу UDP</translation>
+    </message>
+    <message>
+        <location filename="../containers/containers_defs.cpp" line="186"/>
+        <source>AmneziaWG is a modern VPN protocol based on WireGuard, combining simplified architecture with high performance across all devices. It addresses WireGuard&apos;s main vulnerability (easy detection by DPI systems) through advanced obfuscation techniques, making VPN traffic indistinguishable from regular internet traffic.
+
+AmneziaWG is an excellent choice for those seeking a fast, stealthy VPN connection.
+
+Features:
+* Available on all DefaultVPN platforms
+* Low battery consumption on mobile devices
+* Minimal settings required
+* Undetectable by traffic analysis systems (DPI)
+* Operates over UDP protocol</source>
+        <translation>AmneziaWG — современный VPN-протокол на основе WireGuard, сочетающий простую архитектуру и высокую производительность на всех устройствах. Он устраняет основной недостаток WireGuard (лёгкое обнаружение трафика системами DPI) за счёт эффективного маскирования VPN-трафика под обычный интернет-трафик.
+
+Таким образом, AmneziaWG идеально подойдёт тем, кто ищет быстрое и незаметное VPN-соединение.
+
+Особенности:
+* Доступен во всех версиях AmneziaVPN
+* Низкое энергопотребление на мобильных устройствах
+* Минимум настроек
+* Незаметен для систем анализа трафика (DPI)
+* Работает по протоколу UDP</translation>
+    </message>
+    <message>
+        <location filename="../containers/containers_defs.cpp" line="211"/>
+        <source>IKEv2, combined with IPSec encryption, is a modern and reliable VPN protocol. It reconnects quickly when switching networks or devices, making it ideal for dynamic network environments. While it provides good security and speed, it&apos;s easily recognized by DPI systems and susceptible to blocking.
+
+Features:
+* Available in DefaultVPN only on Windows
+* Low battery consumption on mobile devices
+* Minimal configuration required
+* Detectable by DPI analysis systems(easily blocked)
+* Operates over UDP protocol(ports 500 and 4500)</source>
+        <translation>IKEv2 — современный и стабильный VPN-протокол, работающий совместно с шифрованием IPSec. Он обеспечивает быстрое переподключение при смене сети или устройства, отлично подходит для динамичных сетевых условий. Несмотря на хорошую скорость и безопасность, легко распознаётся системами DPI и подвержен блокировкам.
+
+Особенности:
+* Доступен в AmneziaVPN только на Windows
+* Низкое энергопотребление на мобильных устройствах
+* Минимум настроек
+* Распознаётся DPI-системами (легко блокируется)
+* Работает по UDP (порты 500 и 4500)</translation>
     </message>
     <message>
         <location filename="../containers/containers_defs.cpp" line="224"/>
@@ -5296,7 +5325,7 @@ For more detailed information, you can
 <context>
     <name>VpnConnection</name>
     <message>
-        <location filename="../vpnconnection.cpp" line="444"/>
+        <location filename="../vpnconnection.cpp" line="443"/>
         <source>Mbps</source>
         <translation>Мбит/с</translation>
     </message>
