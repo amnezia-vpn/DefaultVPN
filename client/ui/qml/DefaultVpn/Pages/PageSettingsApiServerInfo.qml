@@ -143,81 +143,18 @@ Page {
         }
     }
 
-    Popup {
+    TextInputPopup {
         id: renameServerPopup
-
-        property string serverName: ServersModel.getProcessedServerData("name")
-
-        modal: true
-        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-
-        anchors.centerIn: parent
-        width: parent.width - 30
-        padding: 24
-
-        background: Rectangle {
-            color: Style.color.white
-            radius: 20
-            border.width: 1
-            border.color: Style.color.gray2
-        }
-
-        contentItem: ColumnLayout {
-            spacing: 24
-
-            ColumnLayout {
-                Layout.fillWidth: true
-                spacing: 16
-
-                Header3TextType {
-                    Layout.fillWidth: true
-                    text: qsTr("Server name")
-                    horizontalAlignment: Text.AlignVCenter
-                }
-
-                InputType {
-                    id: serverNameInput
-                    Layout.fillWidth: true
-                    text: renameServerPopup.serverName
-                    placeholderText: qsTr("Enter server name")
-                    onAccepted: {
-                        if (serverNameInput.text.trim() !== "") {
-                            ServersModel.setProcessedServerData("name", serverNameInput.text.trim())
-                            PageController.showNotificationMessage(qsTr("Server renamed successfully"))
-                            header.text = serverNameInput.text.trim() + " " + qsTr("Amnezia Premium settings")
-                        }
-                        renameServerPopup.close()
-                    }
-                }
-            }
-
-            BlueButtonNoBorder {
-                Layout.fillWidth: true
-                text: qsTr("Save")
-                onClicked: {
-                    if (serverNameInput.text.trim() !== "") {
-                        ServersModel.setProcessedServerData("name", serverNameInput.text.trim())
-                        PageController.showNotificationMessage(qsTr("Server renamed successfully"))
-                        header.text = serverNameInput.text.trim() + " " + qsTr("Amnezia Premium settings")
-                    }
-                    renameServerPopup.close()
-                }
-            }
-        }
-
-        Overlay.modal: Item {
-            anchors.fill: parent
-
-            ShaderEffectSource {
-                id: blurSource
-                anchors.fill: parent
-                sourceItem: renameServerPopup.parent
-            }
-
-            Rectangle {
-                anchors.fill: parent
-                color: Style.color.transparentWhite
-            }
+        titleText: qsTr("Server name")
+        placeholderText: qsTr("Enter server name")
+        confirmButtonText: qsTr("Save")
+        textValue: ServersModel.getProcessedServerData("name")
+        maximumLength: 30
+        requireNonEmpty: true
+        onConfirm: function(newName) {
+            ServersModel.setProcessedServerData("name", newName)
+            PageController.showNotificationMessage(qsTr("Server renamed successfully"))
+            header.text = newName + " " + qsTr("Amnezia Premium settings")
         }
     }
 

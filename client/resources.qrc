@@ -260,6 +260,7 @@
         <file>ui/qml/DefaultVpn/Pages/PageSetupWizardConfigSource.qml</file>
         <file>ui/qml/DefaultVpn/Components/BlueButtonNoBorder.qml</file>
         <file>ui/qml/DefaultVpn/Components/ConfirmationDialog.qml</file>
+        <file>ui/qml/DefaultVpn/Components/TextInputPopup.qml</file>
         <file>ui/qml/DefaultVpn/Controls/InputType.qml</file>
         <file>ui/qml/DefaultVpn/Controls/PopupType.qml</file>
         <file>ui/qml/DefaultVpn/Controls/SwitcherType.qml</file>
@@ -272,7 +273,7 @@
         <file>ui/qml/Components/ApiPremV1MigrationDrawer.qml</file>
         <file>ui/qml/Components/ApiPremV1SubListDrawer.qml</file>
         <file>ui/qml/Components/OtpCodeDrawer.qml</file>
-        <file>ui/qml/Components/AwgTextField.qml</file>
+        <file>ui/qml/Components/AwgTextField.qml</file>        
     </qresource>
     <qresource prefix="/countriesFlags">
         <file>images/flagKit/ZW.svg</file>
