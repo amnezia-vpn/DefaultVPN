@@ -84,7 +84,7 @@ jobs:
     runs-on: windows-latest
 
     env:
-      QT_VERSION: 6.6.2
+      QT_VERSION: 6.9.0
       QIF_VERSION: 4.7
       BUILD_ARCH: 64
       PROD_AGW_PUBLIC_KEY: ${{ secrets.PROD_AGW_PUBLIC_KEY }}
