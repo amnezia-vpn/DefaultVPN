@@ -12,16 +12,14 @@ import "../Controls/TextTypes"
 Popup {
     id: root
 
-    // Универсальные входные параметры
     property string titleText: qsTr("Title")
     property string placeholderText: ""
     property string confirmButtonText: qsTr("Save")
     property string textValue: ""
-    property int maximumLength: 0            // 0 = без ограничения
+    property int maximumLength: 0
     property bool requireNonEmpty: true
 
-    // Колбэк сохранения
-    property var onConfirm // function(newValue: string)
+    property var onConfirm
 
     modal: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
