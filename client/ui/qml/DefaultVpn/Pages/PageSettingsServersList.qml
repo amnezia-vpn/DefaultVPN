@@ -162,6 +162,10 @@ Page {
                     }
 
                     onClicked: function() {
+                        if (ConnectionController.isConnected) {
+                            PageController.showNotificationMessage(qsTr("Unable change server location while there is an active connection"))
+                            return
+                        }
                         ServersModel.defaultIndex = index
                     }
 
