@@ -146,7 +146,7 @@ QMap<DockerContainer, QString> ContainerProps::containerDetailedDescriptions()
                       "It provides a good balance between speed and security but is easily recognized by DPI systems, "
                       "making it susceptible to blocking.\n"
                       "\nFeatures:\n"
-                      "* Available on all AmneziaVPN platforms\n"
+                      "* Available on all DefaultVPN platforms\n"
                       "* Normal battery consumption on mobile devices\n"
                       "* Flexible customization for various devices and OS\n"
                       "* Operates over both TCP and UDP protocols") },
@@ -155,7 +155,7 @@ QMap<DockerContainer, QString> ContainerProps::containerDetailedDescriptions()
                       "Although designed to be discreet, it doesn't mimic a standard HTTPS connection and can be detected by some DPI systems. "
                       "Due to limited support in Amnezia, we recommend using the AmneziaWG protocol.\n"
                       "\nFeatures:\n"
-                      "* Available in AmneziaVPN only on desktop platforms\n"
+                      "* Available in DefaultVPN only on desktop platforms\n"
                       "* Customizable encryption protocol\n"
                       "* Detectable by some DPI systems\n"
                       "* Operates over TCP protocol\n") },
@@ -167,7 +167,7 @@ QMap<DockerContainer, QString> ContainerProps::containerDetailedDescriptions()
                       "If an incoming connection fails authentication, Cloak serves a fake website, making your VPN invisible to traffic analysis systems.\n"
                       "\nIn regions with heavy internet censorship, we strongly recommend using OpenVPN with Cloak from your first connection.\n"
                       "\nFeatures:\n"
-                      "* Available on all AmneziaVPN platforms\n"
+                      "* Available on all DefaultVPN platforms\n"
                       "* High power consumption on mobile devices\n"
                       "* Flexible configuration options\n"
                       "* Undetectable by DPI systems\n"
@@ -177,7 +177,7 @@ QMap<DockerContainer, QString> ContainerProps::containerDetailedDescriptions()
                       "It uses fixed encryption settings, delivering lower latency and higher data transfer speeds compared to OpenVPN. "
                       "However, WireGuard is easily identifiable by DPI systems due to its distinctive packet signatures, making it susceptible to blocking.\n"
                       "\nFeatures:\n"
-                      "* Available on all AmneziaVPN platforms\n"
+                      "* Available on all DefaultVPN platforms\n"
                       "* Low power consumption on mobile devices\n"
                       "* Minimal configuration required\n"
                       "* Easily detected by DPI systems (susceptible to blocking)\n"
@@ -189,7 +189,7 @@ QMap<DockerContainer, QString> ContainerProps::containerDetailedDescriptions()
                       "making VPN traffic indistinguishable from regular internet traffic.\n"
                       "\nAmneziaWG is an excellent choice for those seeking a fast, stealthy VPN connection.\n"
                       "\nFeatures:\n"
-                      "* Available on all AmneziaVPN platforms\n"
+                      "* Available on all DefaultVPN platforms\n"
                       "* Low battery consumption on mobile devices\n"
                       "* Minimal settings required\n"
                       "* Undetectable by traffic analysis systems (DPI)\n"
@@ -212,7 +212,7 @@ QMap<DockerContainer, QString> ContainerProps::containerDetailedDescriptions()
                       "It reconnects quickly when switching networks or devices, making it ideal for dynamic network environments. "
                       "While it provides good security and speed, it's easily recognized by DPI systems and susceptible to blocking.\n"
                       "\nFeatures:\n"
-                      "* Available in AmneziaVPN only on Windows\n"
+                      "* Available in DefaultVPN only on Windows\n"
                       "* Low battery consumption on mobile devices\n"
                       "* Minimal configuration required\n"
                       "* Detectable by DPI analysis systems(easily blocked)\n"
@@ -261,6 +261,7 @@ bool ContainerProps::isSupportedByCurrentPlatform(DockerContainer c)
     return true;
 
 #elif defined(Q_OS_IOS)
+    // Standard iOS build (without Network Extension limitations)
     switch (c) {
     case DockerContainer::WireGuard: return true;
     case DockerContainer::OpenVpn: return true;
@@ -269,7 +270,23 @@ bool ContainerProps::isSupportedByCurrentPlatform(DockerContainer c)
     case DockerContainer::Cloak: return true;
     case DockerContainer::SSXray: return true;
         //    case DockerContainer::ShadowSocks: return true;
-    default: return false;
+    default:
+        return false;
+    }
+
+#elif defined(MACOS_NE)
+    // macOS build using Network Extension – hide OpenVPN-based containers
+    switch (c) {
+    case DockerContainer::WireGuard: return true;
+    case DockerContainer::Awg: return true;
+    case DockerContainer::Xray: return true;
+    case DockerContainer::SSXray: return true;
+    case DockerContainer::OpenVpn:
+    case DockerContainer::Cloak:
+    case DockerContainer::ShadowSocks:
+        return false;
+    default:
+        return false;
     }
 #elif defined(Q_OS_MAC)
     switch (c) {

@@ -19,7 +19,7 @@
 #ifdef Q_OS_ANDROID
     #include "platforms/android/android_controller.h"
 #endif
-#ifdef Q_OS_IOS
+#if defined(Q_OS_IOS) || defined(MACOS_NE)
     #include <CoreFoundation/CoreFoundation.h>
 #endif
 
@@ -274,7 +274,7 @@ void ImportController::processNativeWireGuardConfig()
         auto serverProtocolConfig = container.value(ContainerProps::containerTypeToString(DockerContainer::WireGuard)).toObject();
         auto clientProtocolConfig = QJsonDocument::fromJson(serverProtocolConfig.value(config_key::last_config).toString().toUtf8()).object();
 
-        QString junkPacketCount = QString::number(QRandomGenerator::global()->bounded(2, 5));
+        QString junkPacketCount = QString::number(QRandomGenerator::global()->bounded(4, 7));
         QString junkPacketMinSize = QString::number(10);
         QString junkPacketMaxSize = QString::number(50);
         clientProtocolConfig[config_key::junkPacketCount] = junkPacketCount;
@@ -595,7 +595,7 @@ void ImportController::startDecodingQr()
     m_totalQrCodeChunksCount = 0;
     m_receivedQrCodeChunksCount = 0;
 
-    #if defined Q_OS_IOS
+    #if defined(Q_OS_IOS) || defined(MACOS_NE)
     m_isQrCodeProcessed = true;
     #endif
     #if defined Q_OS_ANDROID

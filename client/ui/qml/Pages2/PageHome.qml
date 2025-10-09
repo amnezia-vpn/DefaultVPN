@@ -101,11 +101,39 @@ PageType {
                 visible: isLoggingEnabled ? true : false
                 text: qsTr("Logging enabled")
 
-                Keys.onEnterPressed: loggingButton.clicked()
-                Keys.onReturnPressed: loggingButton.clicked()
+                Keys.onEnterPressed: this.clicked()
+                Keys.onReturnPressed: this.clicked()
 
                 onClicked: {
                     PageController.goToPage(PageEnum.PageSettingsLogging)
+                }
+            }
+
+            BasicButtonType {
+                id: devGatewayButton
+                objectName: "devGatewayButton"
+
+                property bool isDevGatewayEnabled: SettingsController.isDevGatewayEnv
+
+                Layout.alignment: Qt.AlignHCenter
+
+                implicitHeight: 36
+
+                defaultColor: AmneziaStyle.color.transparent
+                hoveredColor: AmneziaStyle.color.translucentWhite
+                pressedColor: AmneziaStyle.color.sheerWhite
+                disabledColor: AmneziaStyle.color.mutedGray
+                textColor: AmneziaStyle.color.mutedGray
+                borderWidth: 0
+
+                visible: SettingsController.isDevModeEnabled && isDevGatewayEnabled
+                text: qsTr("Dev gateway enabled")
+
+                Keys.onEnterPressed: this.clicked()
+                Keys.onReturnPressed: this.clicked()
+
+                onClicked: {
+                    PageController.goToPage(PageEnum.PageDevMenu)
                 }
             }
 
@@ -147,8 +175,8 @@ PageType {
                 leftImageColor: ""
                 rightImageSource: "qrc:/images/controls/chevron-down.svg"
 
-                Keys.onEnterPressed: splitTunnelingButton.clicked()
-                Keys.onReturnPressed: splitTunnelingButton.clicked()
+                Keys.onEnterPressed: this.clicked()
+                Keys.onReturnPressed: this.clicked()
 
                 onClicked: {
                     homeSplitTunnelingDrawer.openTriggered()
@@ -276,8 +304,8 @@ PageType {
                         topPadding: 4
                         bottomPadding: 3
 
-                        Keys.onEnterPressed: collapsedButtonChevron.clicked()
-                        Keys.onReturnPressed: collapsedButtonChevron.clicked()
+                        Keys.onEnterPressed: this.clicked()
+                        Keys.onReturnPressed: this.clicked()
 
                         onClicked: {
                             if (drawer.isCollapsedStateActive()) {
@@ -319,6 +347,9 @@ PageType {
                         changeLeftImageSize: false
 
                         rightImageSource: hoverEnabled ? "qrc:/images/controls/chevron-down.svg" : ""
+
+                        Keys.onEnterPressed: this.clicked()
+                        Keys.onReturnPressed: this.clicked()
 
                         onClicked: {
                             ServersModel.processedIndex = ServersModel.defaultIndex

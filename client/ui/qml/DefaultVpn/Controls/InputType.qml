@@ -35,6 +35,10 @@ TextField {
         radius: 6
     }
 
+    ContextMenu.menu: ContextMenuType {
+        textObj: root
+    }
+
     topPadding: 12
     bottomPadding: 12
     leftPadding: 16

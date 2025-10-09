@@ -25,6 +25,10 @@ Page {
             }
             PageController.showNotificationMessage(finishedMessage)
         }
+
+        function onApiConfigRemoved(message) {
+            PageController.showNotificationMessage(message)
+        }
     }
 
     ColumnLayout {
@@ -104,6 +108,26 @@ Page {
             Layout.rightMargin: 16
             Layout.topMargin: 12
             Layout.fillWidth: true
+            
+            text: qsTr("Reset API Configuration")
+            defaultTextColor: Style.color.error
+            hoveredTextColor: Style.color.error
+            pressedTextColor: Style.color.error
+
+            onClicked: {
+                if (ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected) {
+                    PageController.showNotificationMessage(qsTr("Cannot reset API config during active connection"))
+                } else {
+                    resetConfirmationDialog.open()
+                }
+            }
+        }
+
+        WhiteButtonWithBorder {
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
+            Layout.topMargin: 24
+            Layout.fillWidth: true
 
             text: qsTr("Delete server")
             defaultTextColor: Style.color.error
@@ -130,6 +154,19 @@ Page {
             ServersModel.setProcessedServerData("name", newName)
             PageController.showNotificationMessage(qsTr("Server renamed successfully"))
             header.text = newName + " " + qsTr("Server settings")
+        }
+    }
+
+    ConfirmationDialog {
+        id: resetConfirmationDialog
+        title: qsTr("Do you want to reset API config?")
+        confirmButtonText: qsTr("Continue")
+        cancelButtonText: qsTr("Cancel")
+        
+        onConfirm: function() {
+            PageController.showBusyIndicator(true)
+            InstallController.removeApiConfig(ServersModel.processedIndex)
+            PageController.showBusyIndicator(false)
         }
     }
 

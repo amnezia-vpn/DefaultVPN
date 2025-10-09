@@ -7,12 +7,49 @@ import QtQuick.Layouts
 import PageEnum 1.0
 import Config 1.0
 
+import SortFilterProxyModel 0.2
+
 import "../Components"
 import "../Controls"
 import "../Controls/TextTypes"
 
 Page {
     id: root
+
+    property var processedServer
+
+    Connections {
+        target: ServersModel
+
+        function onProcessedServerChanged() {
+            root.processedServer = proxyServersModel.get(0)
+        }
+    }
+
+    Connections {
+        target: ApiConfigsController
+    
+        function onReloadServerFromApiFinished(message) {
+            PageController.showNotificationMessage(message)
+        }
+    }
+
+    SortFilterProxyModel {
+        id: proxyServersModel
+        objectName: "proxyServersModel"
+
+        sourceModel: ServersModel
+        filters: [
+            ValueFilter {
+                roleName: "isCurrentlyProcessed"
+                value: true
+            }
+        ]
+
+        Component.onCompleted: {
+            root.processedServer = proxyServersModel.get(0)
+        }
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -47,7 +84,7 @@ Page {
 
                 Layout.fillWidth: true
 
-                text: ServersModel.getProcessedServerData("name") + " " + qsTr("Amnezia Premium settings")
+                text: root.processedServer.name
 
                 horizontalAlignment: Qt.AlignLeft
                 verticalAlignment: Qt.AlignVCenter
@@ -70,6 +107,8 @@ Page {
             }
 
             SwitcherType {
+                id: switcher
+
                 readonly property bool isVlessProtocol: ApiConfigsController.isVlessProtocol()
 
                 Layout.fillWidth: true

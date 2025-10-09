@@ -29,6 +29,7 @@ namespace
         constexpr char uuid[] = "installation_uuid";
         constexpr char osVersion[] = "os_version";
         constexpr char appVersion[] = "app_version";
+        constexpr char appLanguage[] = "app_language";
 
         constexpr char userCountryCode[] = "user_country_code";
         constexpr char serverCountryCode[] = "server_country_code";
@@ -43,6 +44,11 @@ namespace
         constexpr char authData[] = "auth_data";
 
         constexpr char config[] = "config";
+
+        constexpr char subscription[] = "subscription";
+        constexpr char endDate[] = "end_date";
+
+        constexpr char isConnectEvent[] = "is_connect_event";
     }
 
     struct ProtocolData
@@ -168,7 +174,7 @@ namespace
             auto clientProtocolConfig =
                     QJsonDocument::fromJson(serverProtocolConfig.value(config_key::last_config).toString().toUtf8()).object();
 
-            //TODO looks like this block can be removed after v1 configs EOL
+            // TODO looks like this block can be removed after v1 configs EOL
 
             serverProtocolConfig[config_key::junkPacketCount] = clientProtocolConfig.value(config_key::junkPacketCount);
             serverProtocolConfig[config_key::junkPacketMinSize] = clientProtocolConfig.value(config_key::junkPacketMinSize);
@@ -228,6 +234,19 @@ namespace
 
         return ErrorCode::NoError;
     }
+
+    bool isSubscriptionExpired(const QJsonObject &apiConfig)
+    {
+        auto subscription = apiConfig.value(configKey::subscription).toObject();
+        if (subscription.isEmpty()) {
+            return false;
+        }
+        auto subscriptionEndDate = subscription.value(configKey::endDate).toString();
+        if (apiUtils::isSubscriptionExpired(subscriptionEndDate)) {
+            return true;
+        }
+        return false;
+    }
 }
 
 ApiConfigsController::ApiConfigsController(const QSharedPointer<ServersModel> &serversModel,
@@ -235,6 +254,23 @@ ApiConfigsController::ApiConfigsController(const QSharedPointer<ServersModel> &s
                                            const std::shared_ptr<Settings> &settings, QObject *parent)
     : QObject(parent), m_serversModel(serversModel), m_apiServicesModel(apiServicesModel), m_settings(settings)
 {
+}
+
+bool ApiConfigsController::exportVpnKey(const QString &fileName)
+{
+    if (fileName.isEmpty()) {
+        emit errorOccurred(ErrorCode::PermissionsError);
+        return false;
+    }
+
+    prepareVpnKeyExport();
+    if (m_vpnKey.isEmpty()) {
+        emit errorOccurred(ErrorCode::ApiConfigEmptyError);
+        return false;
+    }
+
+    SystemController::saveFile(fileName, m_vpnKey);
+    return true;
 }
 
 bool ApiConfigsController::exportNativeConfig(const QString &serverCountryCode, const QString &fileName)
@@ -247,16 +283,21 @@ bool ApiConfigsController::exportNativeConfig(const QString &serverCountryCode, 
     auto serverConfigObject = m_serversModel->getServerConfig(m_serversModel->getProcessedServerIndex());
     auto apiConfigObject = serverConfigObject.value(configKey::apiConfig).toObject();
 
+    if (isSubscriptionExpired(apiConfigObject)) {
+        emit errorOccurred(ErrorCode::ApiSubscriptionExpiredError);
+        return false;
+    }
+
     GatewayRequestData gatewayRequestData { QSysInfo::productType(),
                                             QString(APP_VERSION),
                                             m_settings->getInstallationUuid(true),
                                             apiConfigObject.value(configKey::userCountryCode).toString(),
                                             serverCountryCode,
                                             apiConfigObject.value(configKey::serviceType).toString(),
-                                            m_apiServicesModel->getSelectedServiceProtocol(),
+                                            configKey::awg, // apiConfigObject.value(configKey::serviceProtocol).toString(),
                                             serverConfigObject.value(configKey::authData).toObject() };
 
-    QString protocol = apiConfigObject.value(configKey::serviceProtocol).toString();
+    QString protocol = gatewayRequestData.serviceProtocol;
     ProtocolData protocolData = generateProtocolData(protocol);
 
     QJsonObject apiPayload = gatewayRequestData.toJsonObject();
@@ -282,15 +323,19 @@ bool ApiConfigsController::revokeNativeConfig(const QString &serverCountryCode)
     auto serverConfigObject = m_serversModel->getServerConfig(m_serversModel->getProcessedServerIndex());
     auto apiConfigObject = serverConfigObject.value(configKey::apiConfig).toObject();
 
+    if (isSubscriptionExpired(apiConfigObject)) {
+        emit errorOccurred(ErrorCode::ApiSubscriptionExpiredError);
+        return false;
+    }
+
     GatewayRequestData gatewayRequestData { QSysInfo::productType(),
                                             QString(APP_VERSION),
                                             m_settings->getInstallationUuid(true),
                                             apiConfigObject.value(configKey::userCountryCode).toString(),
                                             serverCountryCode,
                                             apiConfigObject.value(configKey::serviceType).toString(),
-                                            m_apiServicesModel->getSelectedServiceProtocol(),
-                                            serverConfigObject.value(configKey::authData).toObject(),
-                                            QString(APPLICATION_NAME) };
+                                            configKey::awg, // apiConfigObject.value(configKey::serviceProtocol).toString(),
+                                            serverConfigObject.value(configKey::authData).toObject() };
 
     QJsonObject apiPayload = gatewayRequestData.toJsonObject();
 
@@ -309,6 +354,13 @@ void ApiConfigsController::prepareVpnKeyExport()
     auto apiConfigObject = serverConfigObject.value(configKey::apiConfig).toObject();
 
     auto vpnKey = apiConfigObject.value(apiDefs::key::vpnKey).toString();
+    if (vpnKey.isEmpty()) {
+        vpnKey = apiUtils::getPremiumV2VpnKey(serverConfigObject);
+        apiConfigObject.insert(apiDefs::key::vpnKey, vpnKey);
+        serverConfigObject.insert(configKey::apiConfig, apiConfigObject);
+        m_serversModel->editServer(serverConfigObject, m_serversModel->getProcessedServerIndex());
+    }
+
     m_vpnKey = vpnKey;
 
     vpnKey.replace("vpn://", "");
@@ -328,6 +380,7 @@ bool ApiConfigsController::fillAvailableServices()
 {
     QJsonObject apiPayload;
     apiPayload[configKey::osVersion] = QSysInfo::productType();
+    apiPayload[configKey::appLanguage] = m_settings->getAppLanguage().name().split("_").first();
 
     QByteArray responseBody;
     ErrorCode errorCode = executeRequest(QString("%1v1/services"), apiPayload, responseBody);
@@ -403,6 +456,11 @@ bool ApiConfigsController::updateServiceFromGateway(const int serverIndex, const
     auto serverConfig = m_serversModel->getServerConfig(serverIndex);
     auto apiConfig = serverConfig.value(configKey::apiConfig).toObject();
 
+    if (isSubscriptionExpired(apiConfig)) {
+        emit errorOccurred(ErrorCode::ApiSubscriptionExpiredError);
+        return false;
+    }
+
     GatewayRequestData gatewayRequestData { QSysInfo::productType(),
                                             QString(APP_VERSION),
                                             m_settings->getInstallationUuid(true),
@@ -417,6 +475,10 @@ bool ApiConfigsController::updateServiceFromGateway(const int serverIndex, const
 
     QJsonObject apiPayload = gatewayRequestData.toJsonObject();
     appendProtocolDataToApiPayload(gatewayRequestData.serviceProtocol, protocolData, apiPayload);
+
+    if (newCountryCode.isEmpty() && newCountryName.isEmpty() && !reloadServiceConfig) {
+        apiPayload.insert(configKey::isConnectEvent, true);
+    }
 
     QByteArray responseBody;
     ErrorCode errorCode = executeRequest(QString("%1v1/config"), apiPayload, responseBody);
@@ -437,6 +499,7 @@ bool ApiConfigsController::updateServiceFromGateway(const int serverIndex, const
 
         newServerConfig.insert(configKey::apiConfig, newApiConfig);
         newServerConfig.insert(configKey::authData, gatewayRequestData.authData);
+        newServerConfig.insert(config_key::crc, serverConfig.value(config_key::crc));
 
         if (serverConfig.value(config_key::nameOverriddenByUser).toBool()) {
             newServerConfig.insert(config_key::name, serverConfig.value(config_key::name));
@@ -500,7 +563,7 @@ bool ApiConfigsController::updateServiceFromTelegram(const int serverIndex)
     }
 }
 
-bool ApiConfigsController::deactivateDevice()
+bool ApiConfigsController::deactivateDevice(const bool isRemoveEvent)
 {
     auto serverIndex = m_serversModel->getProcessedServerIndex();
     auto serverConfigObject = m_serversModel->getServerConfig(serverIndex);
@@ -508,6 +571,15 @@ bool ApiConfigsController::deactivateDevice()
 
     if (!apiUtils::isPremiumServer(serverConfigObject)) {
         return true;
+    }
+
+    if (isSubscriptionExpired(apiConfigObject)) {
+        if (isRemoveEvent) {
+            return true;
+        } else {
+            emit errorOccurred(ErrorCode::ApiSubscriptionExpiredError);
+            return false;
+        }
     }
 
     GatewayRequestData gatewayRequestData { QSysInfo::productType(),
@@ -543,6 +615,11 @@ bool ApiConfigsController::deactivateExternalDevice(const QString &uuid, const Q
 
     if (!apiUtils::isPremiumServer(serverConfigObject)) {
         return true;
+    }
+
+    if (isSubscriptionExpired(apiConfigObject)) {
+        emit errorOccurred(ErrorCode::ApiSubscriptionExpiredError);
+        return false;
     }
 
     GatewayRequestData gatewayRequestData { QSysInfo::productType(),

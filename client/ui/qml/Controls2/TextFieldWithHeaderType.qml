@@ -37,17 +37,20 @@ Item {
     implicitWidth: content.implicitWidth
     implicitHeight: content.implicitHeight
 
-    property FlickableType parentFlickable
+    Keys.onTabPressed: {
+        FocusController.nextKeyTabItem()
+    }
 
-    Connections {
-        target: textField
-        function onFocusChanged() {
-            if (textField.activeFocus) {
-                if (root.parentFlickable) {
-                    root.parentFlickable.ensureVisible(root)
-                }
-            }
-        }
+    Keys.onBacktabPressed: {
+        FocusController.previousKeyTabItem()
+    }
+
+    Keys.onUpPressed: {
+        FocusController.nextKeyUpItem()
+    }
+    
+    Keys.onDownPressed: {
+        FocusController.nextKeyDownItem()
     }
 
     ColumnLayout {
@@ -131,7 +134,15 @@ Item {
                             }
                         }
 
-                        ContextMenu.menu: ContextMenuType {
+                        MouseArea {
+                            anchors.fill: parent
+                            acceptedButtons: Qt.RightButton
+                            onClicked: contextMenu.open()
+                            enabled: true
+                        }
+
+                        ContextMenuType {
+                            id: contextMenu
                             textObj: textField
                         }
 
