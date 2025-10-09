@@ -29,18 +29,13 @@ PageType {
         Xray
     }
 
-    signal revokeConfig(int index)
-    onRevokeConfig: function(index) {
-        PageController.showBusyIndicator(true)
-        ExportController.revokeConfig(index,
-                                      ContainersModel.getProcessedContainerIndex(),
-                                      ServersModel.getProcessedServerCredentials())
-        PageController.showBusyIndicator(false)
-        PageController.showNotificationMessage(qsTr("Config revoked"))
-    }
-
     Connections {
         target: ExportController
+
+        function onRevokeConfigCompleted() {
+            PageController.showBusyIndicator(false)
+            PageController.showNotificationMessage(qsTr("Config revoked"))
+        }
 
         function onGenerateConfig(type) {
             PageController.showBusyIndicator(true)
@@ -608,12 +603,14 @@ PageType {
                 visible: accessTypeSelector.currentIndex === 1
 
                 property bool isFocusable: true
+                property bool freezeFilter: false
 
                 model: SortFilterProxyModel {
                     id: proxyClientManagementModel
                     sourceModel: ClientManagementModel
                     filters: RegExpFilter {
                         roleName: "clientName"
+                        enabled: !clientsListView.freezeFilter
                         pattern: ".*" + searchTextField.textField.text + ".*"
                         caseSensitivity: Qt.CaseInsensitive
                     }
@@ -796,12 +793,14 @@ PageType {
                                                     }
 
                                                     if (clientNameEditor.textField.text !== clientName) {
+                                                        clientsListView.freezeFilter = true
                                                         PageController.showBusyIndicator(true)
-                                                        ExportController.renameClient(index,
+                                                        ExportController.renameClient(proxyClientManagementModel.mapToSource(index),
                                                                                       clientNameEditor.textField.text,
                                                                                       ContainersModel.getProcessedContainerIndex(),
                                                                                       ServersModel.getProcessedServerCredentials())
                                                         PageController.showBusyIndicator(false)
+                                                        Qt.callLater(function(){ clientsListView.freezeFilter = false })
                                                         clientNameEditDrawer.closeTriggered()
                                                     }
                                                 }
@@ -832,7 +831,10 @@ PageType {
 
                                         var yesButtonFunction = function() {
                                             clientInfoDrawer.closeTriggered()
-                                            root.revokeConfig(index)
+                                            PageController.showBusyIndicator(true)
+                                            ExportController.revokeConfig(proxyClientManagementModel.mapToSource(index),
+                                                                          ContainersModel.getProcessedContainerIndex(),
+                                                                          ServersModel.getProcessedServerCredentials())
                                         }
                                         var noButtonFunction = function() {
                                         }

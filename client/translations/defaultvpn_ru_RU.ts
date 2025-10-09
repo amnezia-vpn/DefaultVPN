@@ -123,8 +123,8 @@
     </message>
     <message>
         <location filename="../ui/qml/Components/ApiPremV1MigrationDrawer.qml" line="76"/>
-        <source>&lt;li&gt;13 locations (with more coming soon)&lt;/li&gt;</source>
-        <translation>&lt;li&gt;13 локаций (их число будет расти)&lt;/li&gt;</translation>
+        <source>&lt;li&gt;20 locations (with more coming soon)&lt;/li&gt;</source>
+        <translation>&lt;li&gt;20 локаций (их число будет расти)&lt;/li&gt;</translation>
     </message>
     <message>
         <location filename="../ui/qml/Components/ApiPremV1MigrationDrawer.qml" line="77"/>
@@ -2067,7 +2067,7 @@ Thank you for staying with us!</source>
         <translation>Сетевые адреса одного или нескольких серверов были обновлены. Пожалуйста, удалите старые конфигурацию и загрузите новые файлы</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="238"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="235"/>
         <source>Manage configuration files</source>
         <translation>Управление файлами конфигурации</translation>
     </message>
@@ -2104,44 +2104,44 @@ Thank you for staying with us!</source>
         <translation>Ключ для подключения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="236"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="233"/>
         <source>Configuration Files</source>
         <translation>Файлы конфигурации</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="256"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="253"/>
         <source>Active Devices</source>
         <translation>Активные устройства</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="258"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="255"/>
         <source>Manage currently connected devices</source>
         <translation>Управление подключенными устройствами</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="275"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="272"/>
         <source>Support</source>
         <translation>Поддержка</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="290"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="287"/>
         <source>How to connect on another device</source>
         <translation>Как подключить другие устройства</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="315"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="312"/>
         <source>Reload API config</source>
         <translation>Перезагрузить конфигурацию API</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="318"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="315"/>
         <source>Reload API config?</source>
         <translation>Перезагрузить конфигурацию API?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="319"/>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="357"/>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="394"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="316"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="354"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="391"/>
         <source>Continue</source>
         <translation>Продолжить</translation>
     </message>
@@ -2160,32 +2160,32 @@ Thank you for staying with us!</source>
         <translation>Невозможно перзагрузить API конфигурацию при активном соединении</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="352"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="349"/>
         <source>Unlink this device</source>
         <translation>Отвязать это устройство</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="355"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="352"/>
         <source>Are you sure you want to unlink this device?</source>
         <translation>Вы уверены, что хотите отвязать это устройство?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="356"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="353"/>
         <source>This will unlink the device from your subscription. You can reconnect it anytime by pressing&#xa0;&quot;Reload API config&quot; in subscription settings on device.</source>
         <translation>Это отключит устройство от вашей подписки. Вы можете повторно подключить его в любое время, нажав &quot;Перезагрузить конфигурацию API&quot; в настройках подписки на устройстве.</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="362"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="359"/>
         <source>Cannot unlink device during active connection</source>
         <translation>Невозможно отвязать устройство во время активного соединения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="390"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="387"/>
         <source>Remove from application</source>
         <translation>Удалить из приложения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="393"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="390"/>
         <source>Remove from application?</source>
         <translation>Удалить из приложения?</translation>
     </message>
@@ -2321,32 +2321,37 @@ Thank you for staying with us!</source>
         <translation>Режим</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="185"/>
+        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="155"/>
+        <source>Only &quot;Apps from the list should not have access via VPN&quot; mode is available on Windows</source>
+        <translation>На Windows доступен только режим &quot;Приложения из списка не должны работать через VPN&quot;</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="199"/>
         <source>Remove </source>
         <translation>Удалить </translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="186"/>
+        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="200"/>
         <source>Continue</source>
         <translation>Продолжить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="187"/>
+        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="201"/>
         <source>Cancel</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="228"/>
+        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="242"/>
         <source>application name</source>
         <translation>название приложения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="238"/>
+        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="252"/>
         <source>Open executable file</source>
         <translation>Открыть исполняемый файл</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="239"/>
+        <location filename="../ui/qml/Pages2/PageSettingsAppSplitTunneling.qml" line="253"/>
         <source>Executable files (*.*)</source>
         <translation>Исполняемые файлы (*.*)</translation>
     </message>
@@ -3233,19 +3238,19 @@ Thank you for staying with us!</source>
         <translation>Режим</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="207"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="209"/>
         <source>Remove </source>
         <translation>Удалить </translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="208"/>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="356"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="210"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="358"/>
         <source>Continue</source>
         <translation>Продолжить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="209"/>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="357"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="211"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="359"/>
         <source>Cancel</source>
         <translation>Отменить</translation>
     </message>
@@ -3260,70 +3265,70 @@ Thank you for staying with us!</source>
         <translation>Невозможно изменить настройки раздельного туннелирования во время активного соединения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="257"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="259"/>
         <source>website or IP</source>
         <translation>веб-сайт или IP</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="302"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="304"/>
         <source>Additional options</source>
         <translation>Дополнительные настройки</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="309"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="311"/>
         <source>Import</source>
         <translation>Импорт</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="322"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="324"/>
         <source>Save site list</source>
         <translation>Сохранить список сайтов</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="329"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="331"/>
         <source>Save sites</source>
         <translation>Сохранить сайты</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="330"/>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="457"/>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="470"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="332"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="459"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="472"/>
         <source>Sites files (*.json)</source>
         <translation>Файлы сайтов (*.json)</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="350"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="352"/>
         <source>Clear site list</source>
         <translation>Очистить список сайтов</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="354"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="356"/>
         <source>Clear site list?</source>
         <translation>Очистить список сайтов?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="355"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="357"/>
         <source>All sites will be removed from list.</source>
         <translation>Все сайты будут удалены из списка.</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="419"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="421"/>
         <source>Import a list of sites</source>
         <translation>Импортировать список с сайтами</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="454"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="456"/>
         <source>Replace site list</source>
         <translation>Заменить список с сайтами</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="456"/>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="469"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="458"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="471"/>
         <source>Open sites file</source>
         <translation>Открыть список с сайтами</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="467"/>
+        <location filename="../ui/qml/Pages2/PageSettingsSplitTunneling.qml" line="469"/>
         <source>Add imported sites to existing ones</source>
         <translation>Добавить импортированные сайты к существующим</translation>
     </message>
@@ -3331,32 +3336,32 @@ Thank you for staying with us!</source>
 <context>
     <name>PageSetupWizardApiServiceInfo</name>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="137"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="139"/>
         <source>For the region</source>
         <translation>Для региона</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="146"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="148"/>
         <source>Price</source>
         <translation>Цена</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="155"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="157"/>
         <source>Work period</source>
         <translation>Период работы</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="164"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="166"/>
         <source>Speed</source>
         <translation>Скорость</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="173"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="175"/>
         <source>Features</source>
         <translation>Особенности</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="107"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardApiServiceInfo.qml" line="109"/>
         <source>Connect</source>
         <translation>Подключиться</translation>
     </message>
@@ -3364,12 +3369,12 @@ Thank you for staying with us!</source>
 <context>
     <name>PageSetupWizardApiServicesList</name>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardApiServicesList.qml" line="50"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardApiServicesList.qml" line="52"/>
         <source>VPN by Amnezia</source>
         <translation>VPN от Amnezia</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardApiServicesList.qml" line="51"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardApiServicesList.qml" line="53"/>
         <source>Choose a VPN service that suits your needs.</source>
         <translation>Выберите VPN-сервис, который подходит именно вам.</translation>
     </message>
@@ -3646,38 +3651,38 @@ Thank you for staying with us!</source>
 <context>
     <name>PageSetupWizardInstalling</name>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="59"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="63"/>
         <source>The server has already been added to the application</source>
         <translation>Сервер уже был добавлен в приложение</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="65"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="69"/>
         <source>Amnezia has detected that your server is currently </source>
         <translation>Amnezia обнаружила, что ваш сервер в настоящее время </translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="66"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="70"/>
         <source>busy installing other software. Amnezia installation </source>
         <translation>занят установкой других протоколов или сервисов. Установка Amnezia </translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="67"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="71"/>
         <source>will pause until the server finishes installing other software</source>
         <translation>будет приостановлена до тех пор, пока сервер не завершит установку другого ПО</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="106"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="110"/>
         <source>Installing</source>
         <translation>Установка</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="151"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="155"/>
         <source>Cancel installation</source>
         <translation>Отменить установку</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="22"/>
-        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="71"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardInstalling.qml" line="75"/>
         <source>Usually it takes no more than 5 minutes</source>
         <translation>Обычно это занимает не более 5 минут</translation>
     </message>
@@ -3813,28 +3818,28 @@ Thank you for staying with us!</source>
 <context>
     <name>PageShare</name>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="103"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="125"/>
         <source>OpenVPN native format</source>
         <translation>Оригинальный формат OpenVPN</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="108"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="130"/>
         <source>WireGuard native format</source>
         <translation>Оригинальный формат WireGuard</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="233"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="255"/>
         <source>Connection</source>
         <translation>Соединение</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="301"/>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="302"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="323"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="324"/>
         <source>Server</source>
         <translation>Сервер</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="39"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="37"/>
         <source>Config revoked</source>
         <translation>Конфигурация отозвана</translation>
     </message>
@@ -3884,141 +3889,141 @@ Thank you for staying with us!</source>
         <translation>Для приложения DefaultVPN</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="113"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="135"/>
         <source>AmneziaWG native format</source>
         <translation>Оригинальный формат AmneziaWG</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="118"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="140"/>
         <source>Shadowsocks native format</source>
         <translation>Оригинальный формат Shadowsocks</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="123"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="145"/>
         <source>Cloak native format</source>
         <translation>Оригинальный формат Cloak</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="128"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="150"/>
         <source>XRay native format</source>
         <translation>Оригинальный формат XRay</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="156"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="178"/>
         <source>Share VPN Access</source>
         <translation>Поделиться VPN</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="190"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="212"/>
         <source>Share full access to the server and VPN</source>
         <translation>Поделиться полным доступом к серверу и VPN</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="191"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="213"/>
         <source>Use for your own devices, or share with those you trust to manage the server.</source>
         <translation>Используйте для собственных устройств или передайте управление сервером тем, кому вы доверяете.</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="248"/>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="528"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="270"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="550"/>
         <source>Users</source>
         <translation>Пользователи</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="282"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="304"/>
         <source>User name</source>
         <translation>Имя пользователя</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="544"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="566"/>
         <source>Search</source>
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="667"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="691"/>
         <source>Creation date: %1</source>
         <translation>Дата создания: %1</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="679"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="703"/>
         <source>Latest handshake: %1</source>
         <translation>Последнее рукопожатие: %1</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="691"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="715"/>
         <source>Data received: %1</source>
         <translation>Получено данных: %1</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="703"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="727"/>
         <source>Data sent: %1</source>
         <translation>Отправлено данных: %1</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="713"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="737"/>
         <source>Allowed IPs: %1</source>
         <translation>Разрешенные подсети: %1</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="728"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="752"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="753"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="777"/>
         <source>Client name</source>
         <translation>Имя клиента</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="764"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="788"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="798"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="824"/>
         <source>Revoke</source>
         <translation>Отозвать</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="801"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="827"/>
         <source>Revoke the config for a user - %1?</source>
         <translation>Отозвать конфигурацию для пользователя - %1?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="802"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="828"/>
         <source>The user will no longer be able to connect to your server.</source>
         <translation>Пользователь больше не сможет подключаться к вашему серверу.</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="803"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="829"/>
         <source>Continue</source>
         <translation>Продолжить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="804"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="830"/>
         <source>Cancel</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="271"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="293"/>
         <source>Share VPN access without the ability to manage the server</source>
         <translation>Поделиться доступом к VPN без возможности управления сервером</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="362"/>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="363"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="384"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="385"/>
         <source>Protocol</source>
         <translation>Протокол</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="469"/>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="470"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="491"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="492"/>
         <source>Connection format</source>
         <translation>Формат подключения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="198"/>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="510"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="220"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="532"/>
         <source>Share</source>
         <translation>Поделиться</translation>
     </message>
@@ -4026,51 +4031,38 @@ Thank you for staying with us!</source>
 <context>
     <name>PageShareConnection</name>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="27"/>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="46"/>
-        <source>Connection to </source>
-        <translation>Подключение к </translation>
-    </message>
-    <message>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="28"/>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="47"/>
-        <source>File with connection settings to </source>
-        <translation>Файл с настройками подключения к </translation>
-    </message>
-    <message>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="31"/>
+        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="25"/>
         <source>Share</source>
         <translation>Поделиться</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="32"/>
+        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="26"/>
         <source>Copy</source>
         <translation>Скопировать</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="36"/>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="41"/>
+        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="30"/>
         <source>Save AmneziaVPN config</source>
         <translation>Сохранить конфигурацию AmneziaVPN</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="156"/>
+        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="150"/>
         <source>Copy config string</source>
         <translation>Скопировать строку конфигурации</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="174"/>
+        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="168"/>
         <source>Show connection settings</source>
         <translation>Показать настройки подключения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="195"/>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="205"/>
+        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="189"/>
+        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="199"/>
         <source>Copied</source>
         <translation>Скопировано</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="325"/>
+        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="323"/>
         <source>To read the QR code in the Amnezia app, select &quot;Add server&quot; → &quot;I have data to connect&quot; → &quot;QR code, key or settings file&quot;</source>
         <translation>Для считывания QR-кода в приложении Amnezia выберите &quot;Добавить сервер&quot; → &quot;У меня есть данные для подключения&quot; → &quot;Открыть файл конфигурации, ключ или QR-код&quot;</translation>
     </message>
@@ -4078,45 +4070,45 @@ Thank you for staying with us!</source>
 <context>
     <name>PageShareFullAccess</name>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="54"/>
+        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="57"/>
         <source>Full access to the server and VPN</source>
         <translation>Полный доступ к серверу и VPN</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="64"/>
+        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="67"/>
         <source>We recommend that you use full access to the server only for your own additional devices.
 </source>
         <translation>Мы рекомендуем использовать полный доступ к серверу только для собственных устройств.
 </translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="65"/>
+        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="68"/>
         <source>If you share full access with other people, they can remove and add protocols and services to the server, which will cause the VPN to work incorrectly for all users. </source>
         <translation>Если вы поделитесь полным доступом с другими людьми, то они смогут удалять и добавлять протоколы и сервисы на сервер, что приведет к некорректной работе VPN для всех пользователей. </translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="84"/>
-        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="85"/>
+        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="87"/>
+        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="88"/>
         <source>Server</source>
         <translation>Сервер</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="111"/>
+        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="115"/>
         <source>Accessing </source>
         <translation>Доступ </translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="112"/>
+        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="116"/>
         <source>File with accessing settings to </source>
         <translation>Файл с настройками доступа к </translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="143"/>
+        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="147"/>
         <source>Share</source>
         <translation>Поделиться</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="151"/>
+        <location filename="../ui/qml/Pages2/PageShareFullAccess.qml" line="155"/>
         <source>Access error!</source>
         <translation>Ошибка доступа!</translation>
     </message>
@@ -4124,17 +4116,17 @@ Thank you for staying with us!</source>
 <context>
     <name>PageStart</name>
     <message>
-        <location filename="../ui/qml/Pages2/PageStart.qml" line="187"/>
+        <location filename="../ui/qml/Pages2/PageStart.qml" line="200"/>
         <source>Logging was disabled after 14 days, log files were deleted</source>
         <translation>Логирование было отключено по прошествии 14 дней, файлы логов были удалены.</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageStart.qml" line="191"/>
+        <location filename="../ui/qml/Pages2/PageStart.qml" line="204"/>
         <source>Settings restored from backup file</source>
         <translation>Настройки восстановлены из бэкап файла</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageStart.qml" line="197"/>
+        <location filename="../ui/qml/Pages2/PageStart.qml" line="210"/>
         <source>Logging is enabled. Note that logs will be automaticallydisabled after 14 days, and all log files will be deleted.</source>
         <translation>Логирование включено. Обратите внимание, что через 14 дней оно будет автоматически отключено, а все файлы логов будут удалены.</translation>
     </message>
@@ -5264,12 +5256,12 @@ For more detailed information, you can
 <context>
     <name>SettingsController</name>
     <message>
-        <location filename="../ui/controllers/settingsController.cpp" line="242"/>
+        <location filename="../ui/controllers/settingsController.cpp" line="250"/>
         <source>All settings have been reset to default values</source>
         <translation>Все настройки сброшены до значений по умолчанию</translation>
     </message>
     <message>
-        <location filename="../ui/controllers/settingsController.cpp" line="219"/>
+        <location filename="../ui/controllers/settingsController.cpp" line="227"/>
         <source>Backup file is corrupted</source>
         <translation>Файл резервной копии поврежден</translation>
     </message>
@@ -5398,7 +5390,7 @@ For more detailed information, you can
 <context>
     <name>TextFieldWithHeaderType</name>
     <message>
-        <location filename="../ui/qml/Controls2/TextFieldWithHeaderType.qml" line="117"/>
+        <location filename="../ui/qml/Controls2/TextFieldWithHeaderType.qml" line="133"/>
         <source>The field can&apos;t be empty</source>
         <translation>Поле не может быть пустым</translation>
     </message>
