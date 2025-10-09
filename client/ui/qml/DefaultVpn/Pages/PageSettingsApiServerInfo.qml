@@ -146,7 +146,19 @@ Page {
             }
 
             WhiteButtonWithBorder {
-                Layout.topMargin: 56
+                Layout.topMargin: 24
+                Layout.fillWidth: true
+
+                text: qsTr("Rename server")
+                defaultTextColor: Style.color.black
+                hoveredTextColor: Style.color.black
+                pressedTextColor: Style.color.black
+
+                onClicked: renameServerPopup.open()
+            }
+
+            WhiteButtonWithBorder {
+                Layout.topMargin: 12
                 Layout.fillWidth: true
                 
                 text: qsTr("Delete")
@@ -167,6 +179,21 @@ Page {
         Item {
             Layout.fillHeight: true
             Layout.fillWidth: true
+        }
+    }
+
+    TextInputPopup {
+        id: renameServerPopup
+        titleText: qsTr("Server name")
+        placeholderText: qsTr("Enter server name")
+        confirmButtonText: qsTr("Save")
+        textValue: ServersModel.getProcessedServerData("name")
+        maximumLength: 30
+        requireNonEmpty: true
+        onConfirm: function(newName) {
+            ServersModel.setProcessedServerData("name", newName)
+            PageController.showNotificationMessage(qsTr("Server renamed successfully"))
+            header.text = newName + " " + qsTr("Amnezia Premium settings")
         }
     }
 

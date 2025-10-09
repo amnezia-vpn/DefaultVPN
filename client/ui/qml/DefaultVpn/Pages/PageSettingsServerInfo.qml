@@ -62,7 +62,7 @@ Page {
             Layout.bottomMargin: 24
             Layout.fillWidth: true
 
-            text: qsTr("Server settings")
+            text: ServersModel.getProcessedServerData("name") + " " + qsTr("Server settings")
 
             horizontalAlignment: Qt.AlignLeft
             verticalAlignment: Qt.AlignVCenter
@@ -95,6 +95,20 @@ Page {
             Layout.topMargin: 24
             Layout.fillWidth: true
 
+            text: qsTr("Rename server")
+            defaultTextColor: Style.color.black
+            hoveredTextColor: Style.color.black
+            pressedTextColor: Style.color.black
+
+            onClicked: renameServerPopup.open()
+        }
+
+        WhiteButtonWithBorder {
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
+            Layout.topMargin: 12
+            Layout.fillWidth: true
+            
             text: qsTr("Reset API Configuration")
             defaultTextColor: Style.color.error
             hoveredTextColor: Style.color.error
@@ -125,6 +139,21 @@ Page {
 
         Item {
             Layout.fillHeight: true
+        }
+    }
+
+    TextInputPopup {
+        id: renameServerPopup
+        titleText: qsTr("Server name")
+        placeholderText: qsTr("Enter server name")
+        confirmButtonText: qsTr("Save")
+        textValue: ServersModel.getProcessedServerData("name")
+        maximumLength: 30
+        requireNonEmpty: true
+        onConfirm: function(newName) {
+            ServersModel.setProcessedServerData("name", newName)
+            PageController.showNotificationMessage(qsTr("Server renamed successfully"))
+            header.text = newName + " " + qsTr("Server settings")
         }
     }
 
