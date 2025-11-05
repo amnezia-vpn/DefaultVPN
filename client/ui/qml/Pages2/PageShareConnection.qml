@@ -32,7 +32,7 @@ PageType {
 
     // onVisibleChanged: {
     //     configExtension = ".vpn"
-    //     configCaption = qsTr("Save AmneziaVPN config")
+    //     configCaption = qsTr("Save DefaultVPN config")
     //     configFileName = "amnezia_config"
         
     //     if (visible) {

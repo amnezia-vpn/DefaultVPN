@@ -206,7 +206,7 @@ open class DefaultVpnService : VpnService() {
      */
     override fun onCreate() {
         super.onCreate()
-        Log.d(TAG, "Create Amnezia VPN service")
+        Log.d(TAG, "Create Default VPN service")
         mainScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
         connectionScope = CoroutineScope(SupervisorJob() + Dispatchers.IO + connectionExceptionHandler)
         loadServerData()

@@ -52,7 +52,7 @@ namespace {
 // Writable location that does NOT live inside the signed bundle.  Using a
 // constant path under /Library/Application Support keeps the signature intact
 // and is accessible to the root helper.
-#define DaemonDataDir QStringLiteral("/Library/Application Support/AmneziaVPN/pf")
+#define DaemonDataDir QStringLiteral("/Library/Application Support/DefaultVPN/pf")
 
 #include <QProcess>
 
