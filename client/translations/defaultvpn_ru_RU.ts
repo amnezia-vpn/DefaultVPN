@@ -61,7 +61,7 @@
     <name>ApiAccountInfoModel</name>
     <message>
         <location filename="../ui/models/api/apiAccountInfoModel.cpp" line="31"/>
-        <location filename="../ui/models/api/apiAccountInfoModel.cpp" line="34"/>
+		<location filename="../ui/models/api/apiAccountInfoModel.cpp" line="34"/>
         <source>Active</source>
         <translation>Активна</translation>
     </message>
