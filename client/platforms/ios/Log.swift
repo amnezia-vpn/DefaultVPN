@@ -2,7 +2,7 @@ import Foundation
 import os.log
 
 struct Log {
-  private static let subsystemIdentifier = Bundle.main.bundleIdentifier ?? "org.amnezia.AmneziaVPN"
+  private static let subsystemIdentifier = Bundle.main.bundleIdentifier ?? "org.amnezia.DefaultVPN"
   static let osLog = Logger(subsystem: subsystemIdentifier, category: "App")
 
   private static let IsLoggingEnabledKey = "IsLoggingEnabled"

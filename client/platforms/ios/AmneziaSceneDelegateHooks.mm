@@ -56,10 +56,10 @@ static void amnezia_scene_openURLContexts(id self, SEL _cmd, UIScene *scene, NSS
     }
 }
 
-@interface AmneziaSceneDelegateHooks : NSObject
+@interface DefaultSceneDelegateHooks : NSObject
 @end
 
-@implementation AmneziaSceneDelegateHooks
+@implementation DefaultSceneDelegateHooks
 
 + (void)load
 {

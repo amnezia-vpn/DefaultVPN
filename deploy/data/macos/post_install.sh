@@ -30,7 +30,7 @@ mkdir -p $LOG_FOLDER
 echo "`date` Script started" > $LOG_FILE
 
 echo "Requesting ${APP_NAME} to quit gracefully" >> "$LOG_FILE"
-osascript -e 'tell application "AmneziaVPN" to quit'
+osascript -e 'tell application "DefaultVPN" to quit'
 
 PLIST_SOURCE="$APP_PATH/Contents/Resources/$PLIST_NAME"
 if [ -f "$PLIST_SOURCE" ]; then

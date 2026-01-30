@@ -34,7 +34,7 @@
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
 	<key>com.wireguard.ios.app_group_id</key>
-	<string>group.org.amnezia.AmneziaVPN</string>
+	<string>group.org.amnezia.DefaultVPN</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Amnezia VPN needs access to the camera for reading QR-codes.</string>
 	<key>NSAppTransportSecurity</key>
@@ -58,7 +58,7 @@
 			<key>UTTypeIconFiles</key>
 			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>org.amnezia.AmneziaVPN.amnezia-config</string>
+			<string>org.amnezia.DefaultVPN.amnezia-config</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -81,7 +81,7 @@
                         <key>UTTypeIconFiles</key>
                         <array/>
                         <key>UTTypeIdentifier</key>
-                        <string>org.amnezia.AmneziaVPN.wireguard-config</string>
+                        <string>org.amnezia.DefaultVPN.wireguard-config</string>
                         <key>UTTypeTagSpecification</key>
                         <dict>
                                 <key>public.filename-extension</key>
@@ -105,7 +105,7 @@
                         <key>UTTypeIconFiles</key>
                         <array/>
                         <key>UTTypeIdentifier</key>
-                        <string>org.amnezia.AmneziaVPN.openvpn-config</string>
+                        <string>org.amnezia.DefaultVPN.openvpn-config</string>
                         <key>UTTypeTagSpecification</key>
                         <dict>
                                 <key>public.filename-extension</key>
@@ -124,11 +124,11 @@
                                 <string>public.data</string>
                         </array>
                         <key>UTTypeDescription</key>
-                        <string>AmneziaVPN backup file</string>
+                        <string>DefaultVPN backup file</string>
                         <key>UTTypeIconFiles</key>
                         <array/>
                         <key>UTTypeIdentifier</key>
-                        <string>org.amnezia.AmneziaVPN.backup-config</string>
+                        <string>org.amnezia.DefaultVPN.backup-config</string>
                         <key>UTTypeTagSpecification</key>
                         <dict>
                                 <key>public.filename-extension</key>
@@ -151,10 +151,10 @@
                         <string>Alternate</string>
                         <key>LSItemContentTypes</key>
                         <array>
-                                <string>org.amnezia.AmneziaVPN.amnezia-config</string>
-                                <string>org.amnezia.AmneziaVPN.wireguard-config</string>
-                                <string>org.amnezia.AmneziaVPN.openvpn-config</string>
-                                <string>org.amnezia.AmneziaVPN.backup-config</string>
+                                <string>org.amnezia.DefaultVPN.amnezia-config</string>
+                                <string>org.amnezia.DefaultVPN.wireguard-config</string>
+                                <string>org.amnezia.DefaultVPN.openvpn-config</string>
+                                <string>org.amnezia.DefaultVPN.backup-config</string>
                         </array>
                 </dict>
         </array>
