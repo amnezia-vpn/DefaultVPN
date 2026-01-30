@@ -70,6 +70,11 @@
         <file>server_scripts/awg/run_container.sh</file>
         <file>server_scripts/awg/start.sh</file>
         <file>server_scripts/awg/template.conf</file>
+        <file>server_scripts/awg_legacy/configure_container.sh</file>
+        <file>server_scripts/awg_legacy/Dockerfile</file>
+        <file>server_scripts/awg_legacy/run_container.sh</file>
+        <file>server_scripts/awg_legacy/start.sh</file>
+        <file>server_scripts/awg_legacy/template.conf</file>
         <file>server_scripts/build_container.sh</file>
         <file>server_scripts/check_connection.sh</file>
         <file>server_scripts/check_server_is_busy.sh</file>
@@ -133,7 +138,6 @@
         <file>ui/qml/Components/SelectLanguageDrawer.qml</file>
         <file>ui/qml/Components/ServersListView.qml</file>
         <file>ui/qml/Components/SettingsContainersListView.qml</file>
-
         <file>ui/qml/Components/TransportProtoSelector.qml</file>
         <file>ui/qml/Components/AddSitePanel.qml</file>
         <file>ui/qml/Config/GlobalConfig.qml</file>
@@ -284,6 +288,7 @@
         <file>ui/qml/Components/AwgTextField.qml</file>
         <file>ui/qml/DefaultVpn/Components/BlackButtonWithBorder.qml</file>
         <file>ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml</file>
+        <file>ui/qml/Components/SmartScroll.qml</file>
     </qresource>
     <qresource prefix="/countriesFlags">
         <file>images/flagKit/ZW.svg</file>
