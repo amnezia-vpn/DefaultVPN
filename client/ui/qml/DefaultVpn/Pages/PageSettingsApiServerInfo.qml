@@ -91,6 +91,8 @@ Page {
             }
 
             XSmallTextType {
+                visible: ApiAccountInfoModel.data("endDate").isEmpty()
+
                 Layout.topMargin: 24
                 Layout.fillWidth: true
 
