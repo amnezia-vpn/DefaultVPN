@@ -91,7 +91,7 @@ Page {
             }
 
             XSmallTextType {
-                visible: ApiAccountInfoModel.data("endDate").isEmpty()
+                visible: !ApiAccountInfoModel.data("endDate").isEmpty()
 
                 Layout.topMargin: 24
                 Layout.fillWidth: true
@@ -222,7 +222,7 @@ Page {
         
         onConfirm: function() {
             PageController.showBusyIndicator(true)
-            if (ApiConfigsController.deactivateDevice()) {
+            if (ApiConfigsController.deactivateDevice(true)) {
                 InstallController.removeProcessedServer()
                 PageController.closePage()
             }
