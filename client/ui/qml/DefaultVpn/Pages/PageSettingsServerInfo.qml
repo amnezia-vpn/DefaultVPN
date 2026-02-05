@@ -159,13 +159,13 @@ Page {
 
     ConfirmationDialog {
         id: resetConfirmationDialog
-        title: qsTr("Do you want to reset API config?")
+        title: qsTr("Do you want to reboot the server?")
         confirmButtonText: qsTr("Continue")
         cancelButtonText: qsTr("Cancel")
         
         onConfirm: function() {
             PageController.showBusyIndicator(true)
-            InstallController.removeApiConfig(ServersModel.processedIndex)
+            InstallController.rebootProcessedServer()
             PageController.showBusyIndicator(false)
         }
     }
