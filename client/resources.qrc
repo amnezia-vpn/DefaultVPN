@@ -282,9 +282,6 @@
         <file>fonts/VelaSans-GX.ttf</file>
         <file>ui/qml/DefaultVpn/Pages/PageSettingsLanguage.qml</file>
         <file>ui/qml/DefaultVpn/Components/SettingsButtonNoBorder.qml</file>
-        <file>ui/qml/Components/ApiPremV1MigrationDrawer.qml</file>
-        <file>ui/qml/Components/ApiPremV1SubListDrawer.qml</file>
-        <file>ui/qml/Components/OtpCodeDrawer.qml</file>
         <file>ui/qml/Components/AwgTextField.qml</file>
         <file>ui/qml/DefaultVpn/Components/BlackButtonWithBorder.qml</file>
         <file>ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml</file>
