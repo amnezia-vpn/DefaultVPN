@@ -109,7 +109,7 @@ Page {
             Layout.topMargin: 12
             Layout.fillWidth: true
             
-            text: qsTr("Reset API Configuration")
+            text: qsTr("Reboot server")
             defaultTextColor: Style.color.error
             hoveredTextColor: Style.color.error
             pressedTextColor: Style.color.error
