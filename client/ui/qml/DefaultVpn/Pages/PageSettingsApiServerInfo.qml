@@ -91,7 +91,7 @@ Page {
             }
 
             XSmallTextType {
-                visible: !ApiAccountInfoModel.data("endDate").isEmpty()
+                visible: ApiAccountInfoModel.data("isProtocolSelectionSupported")
 
                 Layout.topMargin: 24
                 Layout.fillWidth: true
@@ -207,9 +207,13 @@ Page {
         cancelButtonText: qsTr("Cancel")
         
         onConfirm: function() {
-            PageController.showBusyIndicator(true)
-            ApiConfigsController.updateServiceFromGateway(ServersModel.processedIndex, "", "", true)
-            PageController.showBusyIndicator(false)
+            if (ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected) {
+                PageController.showNotificationMessage(qsTr("Cannot reload API config during active connection"))
+            } else {
+                PageController.showBusyIndicator(true)
+                ApiConfigsController.updateServiceFromGateway(ServersModel.processedIndex, "", "", true)
+                PageController.showBusyIndicator(false)
+            }
         }
     }
 
@@ -221,12 +225,16 @@ Page {
         cancelButtonText: qsTr("No, keep it")
         
         onConfirm: function() {
-            PageController.showBusyIndicator(true)
-            if (ApiConfigsController.deactivateDevice(true)) {
-                InstallController.removeProcessedServer()
-                PageController.closePage()
+            if (ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected) {
+                PageController.showNotificationMessage(qsTr("Cannot remove server during active connection"))
+            } else {
+                PageController.showBusyIndicator(true)
+                if (ApiConfigsController.deactivateDevice(true)) {
+                    InstallController.removeProcessedServer()
+                    PageController.closePage()
+                }
+                PageController.showBusyIndicator(false)
             }
-            PageController.showBusyIndicator(false)
         }
     }
 } 
