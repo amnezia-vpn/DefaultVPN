@@ -104,28 +104,6 @@ Page {
         }
 
         WhiteButtonWithBorder {
-            visible: ServersModel.isProcessedServerHasWriteAccess()
-
-            Layout.leftMargin: 16
-            Layout.rightMargin: 16
-            Layout.topMargin: 12
-            Layout.fillWidth: true
-            
-            text: qsTr("Reboot server")
-            defaultTextColor: Style.color.error
-            hoveredTextColor: Style.color.error
-            pressedTextColor: Style.color.error
-
-            onClicked: {
-                if (ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected) {
-                    PageController.showNotificationMessage(qsTr("Cannot reboot server during active connection"))
-                } else {
-                    rebootConfirmationDialog.open()
-                }
-            }
-        }
-
-        WhiteButtonWithBorder {
             visible: ServersModel.getProcessedServerData("isServerFromTelegramApi")
 
             Layout.leftMargin: 16
@@ -178,19 +156,6 @@ Page {
             ServersModel.setProcessedServerData("name", newName)
             PageController.showNotificationMessage(qsTr("Server renamed successfully"))
             header.text = newName + " " + qsTr("Server settings")
-        }
-    }
-
-    ConfirmationDialog {
-        id: rebootConfirmationDialog
-        title: qsTr("Do you want to reboot the server?")
-        confirmButtonText: qsTr("Continue")
-        cancelButtonText: qsTr("Cancel")
-        
-        onConfirm: function() {
-            PageController.showBusyIndicator(true)
-            InstallController.rebootProcessedServer()
-            PageController.showBusyIndicator(false)
         }
     }
 
