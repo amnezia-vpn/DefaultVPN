@@ -104,12 +104,14 @@ Page {
         }
 
         WhiteButtonWithBorder {
+            visible: ServersModel.getProcessedServerData("isServerFromTelegramApi")
+
             Layout.leftMargin: 16
             Layout.rightMargin: 16
             Layout.topMargin: 12
             Layout.fillWidth: true
             
-            text: qsTr("Reset API Configuration")
+            text: qsTr("Reset API configuration")
             defaultTextColor: Style.color.error
             hoveredTextColor: Style.color.error
             pressedTextColor: Style.color.error
