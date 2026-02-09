@@ -195,7 +195,7 @@ Page {
         onConfirm: function(newName) {
             ServersModel.setProcessedServerData("name", newName)
             PageController.showNotificationMessage(qsTr("Server renamed successfully"))
-            header.text = newName + " " + qsTr("Amnezia Premium settings")
+            header.text = newName
         }
     }
 
