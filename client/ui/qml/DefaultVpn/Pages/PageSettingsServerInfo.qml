@@ -155,7 +155,7 @@ Page {
         onConfirm: function(newName) {
             ServersModel.setProcessedServerData("name", newName)
             PageController.showNotificationMessage(qsTr("Server renamed successfully"))
-            header.text = newName + " " + qsTr("Server settings")
+            header.text = newName
         }
     }
 
@@ -166,9 +166,13 @@ Page {
         cancelButtonText: qsTr("Cancel")
         
         onConfirm: function() {
-            PageController.showBusyIndicator(true)
-            InstallController.removeApiConfig(ServersModel.processedIndex)
-            PageController.showBusyIndicator(false)
+            if (ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected) {
+                PageController.showNotificationMessage(qsTr("Cannot reload API config during active connection"))
+            } else {
+                PageController.showBusyIndicator(true)
+                InstallController.removeApiConfig(ServersModel.processedIndex)
+                PageController.showBusyIndicator(false)
+            }
         }
     }
 
@@ -180,9 +184,13 @@ Page {
         cancelButtonText: qsTr("No, keep it")
         
         onConfirm: function() {
-            PageController.showBusyIndicator(true)
-            InstallController.removeProcessedServer()
-            PageController.showBusyIndicator(false)
+            if (ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected) {
+                PageController.showNotificationMessage(qsTr("Cannot remove server during active connection"))
+            } else {
+                PageController.showBusyIndicator(true)
+                InstallController.removeProcessedServer()
+                PageController.showBusyIndicator(false)
+            }
         }
     }
 }
