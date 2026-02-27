@@ -14,8 +14,6 @@ sc stop DefaultVPN-service
 sc delete DefaultVPN-service
 sc stop AmneziaWGTunnel$DefaultVPN
 sc delete AmneziaWGTunnel$DefaultVPN
-sc stop DefaultVPNSplitTunnel
-sc delete DefaultVPNSplitTunnel
 taskkill /IM "DefaultVPN-service.exe" /F
 taskkill /IM "DefaultVPN.exe" /F
 

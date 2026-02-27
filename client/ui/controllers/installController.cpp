@@ -83,8 +83,8 @@ void InstallController::install(DockerContainer container, int port, TransportPr
 
                 int s1 = QRandomGenerator::global()->bounded(15, 150);
                 int s2 = QRandomGenerator::global()->bounded(15, 150);
-                int s3 = QRandomGenerator::global()->bounded(0, 64);
-                int s4 = QRandomGenerator::global()->bounded(0, 20);
+                int s3 = QRandomGenerator::global()->bounded(1, 64);
+                int s4 = QRandomGenerator::global()->bounded(1, 20);
 
                 // Ensure all values are unique and don't create equal packet sizes
                 QSet<int> usedValues;
@@ -97,12 +97,12 @@ void InstallController::install(DockerContainer container, int port, TransportPr
 
                 while (usedValues.contains(s3) || s1 + AwgConstant::messageInitiationSize == s3 + AwgConstant::messageCookieReplySize
                        || s2 + AwgConstant::messageResponseSize == s3 + AwgConstant::messageCookieReplySize) {
-                    s3 = QRandomGenerator::global()->bounded(0, 64);
+                    s3 = QRandomGenerator::global()->bounded(1, 64);
                 }
                 usedValues.insert(s3);
 
                 while (usedValues.contains(s4)) {
-                    s4 = QRandomGenerator::global()->bounded(0, 20);
+                    s4 = QRandomGenerator::global()->bounded(1, 20);
                 }
 
                 QString initPacketJunkSize = QString::number(s1);
@@ -1070,7 +1070,7 @@ bool InstallController::isUpdateDockerContainerRequired(const DockerContainer co
     const QJsonObject &oldProtoConfig = oldConfig.value(ProtocolProps::protoToString(mainProto)).toObject();
     const QJsonObject &newProtoConfig = newConfig.value(ProtocolProps::protoToString(mainProto)).toObject();
 
-    if (container == DockerContainer::Awg2) {
+    if (ContainerProps::isAwgContainer(container)) {
         const AwgConfig oldConfig(oldProtoConfig);
         const AwgConfig newConfig(newProtoConfig);
 
