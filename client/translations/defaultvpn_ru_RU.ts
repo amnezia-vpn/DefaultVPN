@@ -53,7 +53,7 @@
     <name>ApiAccountInfoModel</name>
     <message>
         <location filename="../ui/models/api/apiAccountInfoModel.cpp" line="31"/>
-		<location filename="../ui/models/api/apiAccountInfoModel.cpp" line="34"/>
+        <location filename="../ui/models/api/apiAccountInfoModel.cpp" line="35"/>
         <source>Active</source>
         <translation>Активна</translation>
     </message>
@@ -68,30 +68,34 @@
         <translation>%1 из %2</translation>
     </message>
     <message>
-        <location filename="../ui/models/api/apiAccountInfoModel.cpp" line="51"/>
         <source>Classic VPN for seamless work, downloading large files, and watching videos. Access all websites and online resources. Speeds up to 200 Mbps</source>
-        <translation>Классический VPN для комфортной работы, загрузки больших файлов и просмотра видео. Доступ ко всем сайтам и онлайн-ресурсам. Скорость — до 200 Мбит/с</translation>
+        <translation type="vanished">Классический VPN для комфортной работы, загрузки больших файлов и просмотра видео. Доступ ко всем сайтам и онлайн-ресурсам. Скорость — до 200 Мбит/с</translation>
     </message>
     <message>
-        <location filename="../ui/models/api/apiAccountInfoModel.cpp" line="55"/>
         <source>Free unlimited access to a basic set of websites such as Facebook, Instagram, Twitter (X), Discord, Telegram and more. YouTube is not included in the free plan.</source>
-        <translation>Бесплатный неограниченный доступ к базовому набору сайтов и приложений, таким как Facebook, Instagram, Twitter (X), Discord, Telegram и другим. YouTube не включен в бесплатный тариф.</translation>
+        <translation type="vanished">Бесплатный неограниченный доступ к базовому набору сайтов и приложений, таким как Facebook, Instagram, Twitter (X), Discord, Telegram и другим. YouTube не включен в бесплатный тариф.</translation>
     </message>
 </context>
 <context>
     <name>ApiConfigsController</name>
     <message>
-        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="391"/>
+        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="519"/>
+        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="696"/>
         <source>%1 installed successfully.</source>
         <translation>%1 успешно установлен.</translation>
     </message>
     <message>
-        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="446"/>
+        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="642"/>
+        <source>Subscription restored successfully.</source>
+        <translation>Подписка успешно восстановлена.</translation>
+    </message>
+    <message>
+        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="758"/>
         <source>API config reloaded</source>
         <translation>Конфигурация API перезагружена</translation>
     </message>
     <message>
-        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="450"/>
+        <location filename="../ui/controllers/api/apiConfigsController.cpp" line="762"/>
         <source>Successfully changed the country of connection to %1</source>
         <translation>Страна подключения изменена на %1</translation>
     </message>
@@ -323,24 +327,25 @@
     <name>ContextMenuType</name>
     <message>
         <location filename="../ui/qml/Controls2/ContextMenuType.qml" line="10"/>
-        <location filename="../ui/qml/Controls2/ContextMenuType.qml" line="10"/>
+        <location filename="../ui/qml/DefaultVpn/Controls/ContextMenuType.qml" line="10"/>
         <source>C&amp;ut</source>
         <translation>Вырезать</translation>
     </message>
     <message>
         <location filename="../ui/qml/Controls2/ContextMenuType.qml" line="15"/>
+        <location filename="../ui/qml/DefaultVpn/Controls/ContextMenuType.qml" line="15"/>
         <source>&amp;Copy</source>
         <translation>Копировать</translation>
     </message>
     <message>
         <location filename="../ui/qml/Controls2/ContextMenuType.qml" line="20"/>
-        <location filename="../ui/qml/Controls2/ContextMenuType.qml" line="20"/>
+        <location filename="../ui/qml/DefaultVpn/Controls/ContextMenuType.qml" line="20"/>
         <source>&amp;Paste</source>
         <translation>Вставить</translation>
     </message>
     <message>
         <location filename="../ui/qml/Controls2/ContextMenuType.qml" line="27"/>
-        <location filename="../ui/qml/Controls2/ContextMenuType.qml" line="27"/>
+        <location filename="../ui/qml/DefaultVpn/Controls/ContextMenuType.qml" line="27"/>
         <source>&amp;SelectAll</source>
         <translation>Выбрать всё</translation>
     </message>
@@ -530,8 +535,8 @@ Already installed containers were found on the server. All installed containers 
 <context>
     <name>NotificationHandler</name>
     <message>
-        <location filename="../ui/notificationhandler.cpp" line="63"/>
-        <location filename="../ui/notificationhandler.cpp" line="70"/>
+        <location filename="../ui/notificationhandler.cpp" line="57"/>
+        <location filename="../ui/notificationhandler.cpp" line="64"/>
         <source>DefaultVPN</source>
         <translation>DefaultVPN</translation>
     </message>
@@ -546,7 +551,7 @@ Already installed containers were found on the server. All installed containers 
         <translation>VPN выключен</translation>
     </message>
     <message>
-        <location filename="../ui/notificationhandler.cpp" line="94"/>
+        <location filename="../ui/notificationhandler.cpp" line="88"/>
         <source>DefaultVPN notification</source>
         <translation>Уведомдение DefaultVPN</translation>
     </message>
@@ -568,7 +573,7 @@ Already installed containers were found on the server. All installed containers 
     </message>
     <message>
         <source>Continue</source>
-        <translation>Продолжить</translation>
+        <translation type="vanished">Продолжить</translation>
     </message>
 </context>
 <context>
@@ -1636,7 +1641,7 @@ Thank you for staying with us!</source>
 <context>
     <name>PageSettings</name>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettings.qml" line="39"/>
+        <location filename="../ui/qml/Pages2/PageSettings.qml" line="48"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettings.qml" line="38"/>
         <source>Settings</source>
         <translation>Настройки</translation>
@@ -1667,7 +1672,7 @@ Thank you for staying with us!</source>
         <translation>Резервное копирование</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettings.qml" line="107"/>
+        <location filename="../ui/qml/Pages2/PageSettings.qml" line="177"/>
         <source>About DefaultVPN</source>
         <translation>Об DefaultVPN</translation>
     </message>
@@ -1824,6 +1829,11 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiAvailableCountries.qml" line="123"/>
+        <source>Unable change server location while trying to make an active connection</source>
+        <translation>Невозможно изменить локацию сервера при попытке установить активное соединение</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsApiAvailableCountries.qml" line="127"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiAvailableCountries.qml" line="121"/>
         <source>Unable change server location while there is an active connection</source>
         <translation>Невозможно изменить локацию во время активного соединения</translation>
@@ -2086,14 +2096,14 @@ Thank you for staying with us!</source>
         <translation>Активные соединения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="173"/>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="111"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="166"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="121"/>
         <source>Use VLESS protocol</source>
         <translation>Используйте протокол VLESS</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="177"/>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="115"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="170"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="125"/>
         <source>Cannot change protocol during active connection</source>
         <translation>Невозможно изменить протокол во время активного соединения</translation>
     </message>
@@ -2145,16 +2155,17 @@ Thank you for staying with us!</source>
         <translation>Продолжить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="326"/>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="364"/>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="401"/>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="170"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="317"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="355"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="392"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="207"/>
         <source>Cancel</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="330"/>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="133"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="321"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="143"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="211"/>
         <source>Cannot reload API config during active connection</source>
         <translation>Невозможно перзагрузить API конфигурацию при активном соединении</translation>
     </message>
@@ -2189,64 +2200,128 @@ Thank you for staying with us!</source>
         <translation>Удалить из приложения?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="405"/>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="151"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApiServerInfo.qml" line="396"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="173"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="229"/>
         <source>Cannot remove server during active connection</source>
         <translation>Невозможно удалить сервер во время активного соединения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="89"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="99"/>
         <source>Subscription expires on</source>
         <translation>Подписка истекает</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="129"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="139"/>
         <source>Reload API configuration</source>
         <translation>Перезагрузить конфигурацию API</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="144"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="154"/>
+        <source>Rename server</source>
+        <translation>Переименовать сервер</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="166"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="167"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="189"/>
+        <source>Server name</source>
+        <translation>Имя сервера</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="190"/>
+        <source>Enter server name</source>
+        <translation>Введите имя сервера</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="191"/>
+        <source>Save</source>
+        <translation>Сохранить</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="197"/>
+        <source>Server renamed successfully</source>
+        <translation>Сервер успешно переименован</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="204"/>
         <source>Reset API configuration?</source>
         <translation>Перезагрузить конфигурацию API?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="168"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="205"/>
         <source>This will reload the API configuration from the server</source>
         <translation>Это перезагрузит конфигурацию API с сервера</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="169"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="206"/>
         <source>Reset</source>
         <translation>Перезагрузить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="181"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="222"/>
         <source>Are you sure you want to remove the server from the app?</source>
         <translation>Вы уверены что хотите удалить сервер из приложения?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="182"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="223"/>
         <source>You won&apos;t be able to connect to it</source>
         <translation>Вы не сможете к нему подключиться</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="183"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="224"/>
         <source>Yes, delete anyway</source>
         <translation>Да, удалить в любом случае</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="184"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml" line="225"/>
         <source>No, keep it</source>
         <translation>Нет, оставить</translation>
     </message>
     <message>
         <source>Close</source>
         <translation type="obsolete">Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>PageSettingsApiSubscriptionKey</name>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml" line="85"/>
+        <source>Copy key</source>
+        <translation>Копировать ключ</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml" line="90"/>
+        <source>Copied</source>
+        <translation>Скопировано</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml" line="106"/>
+        <source>Save key as a file</source>
+        <translation>Сохранить ключ в файл</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml" line="113"/>
+        <source>Save DefaultVPN config</source>
+        <translation>Сохранить конфиг DefaultVPN</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml" line="114"/>
+        <source>Config files (*.vpn)</source>
+        <translation>Файлы конфигурации (*.vpn)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml" line="139"/>
+        <source>Show key text</source>
+        <translation>Показать текст ключа</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml" line="180"/>
+        <source>To read the QR code in the Amnezia app, tap + in the main menu → &apos;QR code&apos;</source>
+        <translation>Чтобы прочитать QR-код в приложении Amnezia, нажмите + в главном меню → «QR-код»</translation>
     </message>
 </context>
 <context>
@@ -2398,12 +2473,12 @@ Thank you for staying with us!</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApplication.qml" line="212"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApplication.qml" line="243"/>
         <source>All settings will be reset to default. All installed DefaultVPN services will still remain on the server.</source>
         <translation>Все настройки будут сброшены до значений по умолчанию. Все установленные сервисы и протоколы DefaultVPN останутся на сервере.</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsApplication.qml" line="79"/>
+        <location filename="../ui/qml/Pages2/PageSettingsApplication.qml" line="87"/>
         <source>Enable notifications</source>
         <translation>Включить уведомления</translation>
     </message>
@@ -2486,7 +2561,7 @@ Thank you for staying with us!</source>
         <translation>Вы можете сохранить настройки в файл резервной копии, чтобы восстановить их при следующей установке приложения.</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsBackup.qml" line="74"/>
+        <location filename="../ui/qml/Pages2/PageSettingsBackup.qml" line="90"/>
         <source>The backup will contain your passwords and private keys for all servers added to DefaultVPN. Keep this information in a secure place.</source>
         <translation>Резервная копия будет содержать ваши пароли и закрытые ключи для всех серверов, добавленных в DefaultVPN. Храните эту информацию в надежном месте.</translation>
     </message>
@@ -2686,7 +2761,7 @@ Thank you for staying with us!</source>
         <translation>Soft killSwitch</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsKillSwitch.qml" line="89"/>
+        <location filename="../ui/qml/Pages2/PageSettingsKillSwitch.qml" line="92"/>
         <source>Strict KillSwitch</source>
         <translation>Strict KillSwitch</translation>
     </message>
@@ -2706,12 +2781,12 @@ Thank you for staying with us!</source>
         <translation>Доступ в интернет будет заблокирован при внезапном отключении VPN</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsKillSwitch.qml" line="90"/>
+        <location filename="../ui/qml/Pages2/PageSettingsKillSwitch.qml" line="93"/>
         <source>Internet connection is blocked even when VPN is turned off manually or hasn&apos;t started</source>
         <translation>Интернет-соединение блокируется, даже если VPN отключен вручную или не запущен</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsKillSwitch.qml" line="94"/>
+        <location filename="../ui/qml/Pages2/PageSettingsKillSwitch.qml" line="97"/>
         <source>If the VPN disconnects or drops while Strict KillSwitch is enabled, internet access will be blocked. To restore access, reconnect VPN or disable/change the KillSwitch.</source>
         <translation>Если VPN-соединение прервётся или прервётся при включённом режиме Strict KillSwitch, доступ в интернет будет заблокирован. Чтобы восстановить доступ, переподключите VPN или отключите/измените режим KillSwitch.</translation>
     </message>
@@ -2828,7 +2903,7 @@ Thank you for staying with us!</source>
 <context>
     <name>PageSettingsLogging</name>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="48"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="50"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="45"/>
         <source>Logging</source>
         <translation>Логирование</translation>
@@ -2839,22 +2914,22 @@ Thank you for staying with us!</source>
         <translation>Включение этой функции позволяет сохранять логи на вашем устройстве. По умолчанию она отключена. Включите сохранение логов в случае сбоев в работе приложения.</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="186"/>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="215"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="192"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="218"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="89"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="187"/>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="216"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="193"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="219"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="90"/>
         <source>Logs files (*.log)</source>
         <translation>Файлы логов (*.log)</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="196"/>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="225"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="202"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="227"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="99"/>
         <source>Logs file saved</source>
         <translation>Файл с логами сохранен</translation>
@@ -2865,13 +2940,13 @@ Thank you for staying with us!</source>
         <translation>Включить запись логов</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="83"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="85"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="121"/>
         <source>Clear logs?</source>
         <translation>Очистить логи?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="84"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="86"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="122"/>
         <source>Continue</source>
         <translation>Продолжить</translation>
@@ -2882,7 +2957,7 @@ Thank you for staying with us!</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="91"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="93"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="129"/>
         <source>Logs have been cleaned up</source>
         <translation>Логи очищены</translation>
@@ -2893,7 +2968,7 @@ Thank you for staying with us!</source>
         <translation>Логи приложения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="205"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="211"/>
         <source>DefaultVPN-service logs</source>
         <translation>Логи DefaultVPN-service</translation>
     </message>
@@ -2908,17 +2983,17 @@ Thank you for staying with us!</source>
         <translation>Сохранить логи</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="176"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="182"/>
         <source>DefaultVPN logs</source>
         <translation>Логи DefaultVPN</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="204"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="210"/>
         <source>Service logs</source>
         <translation>Логи службы</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="78"/>
+        <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="80"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="108"/>
         <source>Clear logs</source>
         <translation>Очистить логи</translation>
@@ -2937,6 +3012,14 @@ Thank you for staying with us!</source>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsLogging.qml" line="123"/>
         <source>No, keep it</source>
         <translation>Нет, оставить</translation>
+    </message>
+</context>
+<context>
+    <name>PageSettingsNewsNotifications</name>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsNewsNotifications.qml" line="33"/>
+        <source>News &amp; Notifications</source>
+        <translation>Новости и уведомления</translation>
     </message>
 </context>
 <context>
@@ -3003,19 +3086,33 @@ Thank you for staying with us!</source>
         <translation>Вы уверены, что хотите удалить сервер из приложения?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="153"/>
+        <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="159"/>
         <source>All installed DefaultVPN services will still remain on the server.</source>
         <translation>Все установленные сервисы и протоколы DefaultVPN останутся на сервере.</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="159"/>
+        <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="165"/>
         <source>Cannot remove server during active connection</source>
         <translation>Невозможно удалить сервер во время активного соединения</translation>
     </message>
     <message>
+        <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="184"/>
+        <source>Clear server from DefaultVPN software</source>
+        <translation>Удалить сервер из DefaultVPN</translation>
+    </message>
+    <message>
         <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="188"/>
+        <source>Do you want to clear server from DefaultVPN software?</source>
+        <translation>Вы уверены, что хотите удалить сервер из DefaultVPN?</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="195"/>
+        <source>Cannot clear server from DefaultVPN software during active connection</source>
+        <translation>Невозможно удалить сервер из DefaultVPN во время активного соединения</translation>
+    </message>
+    <message>
         <source>Do you want to clear server from Amnezia software?</source>
-        <translation>Вы хотите очистить сервер от всех сервисов Amnezia?</translation>
+        <translation type="vanished">Вы хотите очистить сервер от всех сервисов Amnezia?</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="189"/>
@@ -3023,9 +3120,8 @@ Thank you for staying with us!</source>
         <translation>Все пользователи, с которыми вы поделились конфигурацией вашего VPN, больше не смогут к нему подключаться.</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="195"/>
         <source>Cannot clear server from Amnezia software during active connection</source>
-        <translation>Невозможно очистить сервер от сервисов Amnezia во время активного соединения</translation>
+        <translation type="vanished">Невозможно очистить сервер от сервисов Amnezia во время активного соединения</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="213"/>
@@ -3052,9 +3148,8 @@ Thank you for staying with us!</source>
         <translation>Удалить сервер из приложения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="184"/>
         <source>Clear server from Amnezia software</source>
-        <translation>Очистить сервер от протоколов и сервисов Amnezia</translation>
+        <translation type="vanished">Очистить сервер от протоколов и сервисов Amnezia</translation>
     </message>
 </context>
 <context>
@@ -3075,64 +3170,103 @@ Thank you for staying with us!</source>
         <translation>Управление</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="61"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="65"/>
         <source>Server settings</source>
         <translation>Настройки сервера</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="75"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="79"/>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="94"/>
         <source>Reset API Configuration</source>
-        <translation>Перезагрузить конфигурацию API</translation>
+        <translation type="vanished">Перезагрузить конфигурацию API</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="108"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="134"/>
         <source>Delete server</source>
         <translation>Удалить сервер</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="123"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="164"/>
         <source>Do you want to reset API config?</source>
         <translation>Вы хотите сбросить конфигурацию API?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="124"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="165"/>
         <source>Continue</source>
         <translation>Продолжить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="125"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="166"/>
         <source>Cancel</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="129"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="121"/>
         <source>Cannot reset API config during active connection</source>
         <translation>Невозможно сбросить конфигурацию API во время активного соединения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="140"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="98"/>
+        <source>Rename server</source>
+        <translation>Переименовать сервер</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="114"/>
+        <source>Reset API configuration</source>
+        <translation>Сбросить конфигурацию API</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="149"/>
+        <source>Server name</source>
+        <translation>Имя сервера</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="150"/>
+        <source>Enter server name</source>
+        <translation>Введите имя сервера</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="151"/>
+        <source>Save</source>
+        <translation>Сохранить</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="157"/>
+        <source>Server renamed successfully</source>
+        <translation>Сервер успешно переименован</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="170"/>
+        <source>Cannot reload API config during active connection</source>
+        <translation>Невозможно перезагрузить конфигурацию API при активном соединении</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="181"/>
         <source>Are you sure you want to remove the server from the app?</source>
         <translation>Вы уверены что хотите удалить сервер из приложения?</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="141"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="182"/>
         <source>You won&apos;t be able to connect to it</source>
         <translation>Вы не сможете к нему подключиться</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="142"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="183"/>
         <source>Yes, delete anyway</source>
         <translation>Да, удалить в любом случае</translation>
     </message>
     <message>
-        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="143"/>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="184"/>
         <source>No, keep it</source>
         <translation>Нет, оставить</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServerInfo.qml" line="188"/>
+        <source>Cannot remove server during active connection</source>
+        <translation>Невозможно удалить сервер во время активного соединения</translation>
     </message>
 </context>
 <context>
@@ -3221,6 +3355,11 @@ Thank you for staying with us!</source>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServersList.qml" line="53"/>
         <source>Connect to</source>
         <translation>Подключиться к</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Pages/PageSettingsServersList.qml" line="166"/>
+        <source>Unable change server location while there is an active connection</source>
+        <translation>Невозможно изменить локацию во время активного соединения</translation>
     </message>
 </context>
 <context>
@@ -3465,7 +3604,7 @@ Thank you for staying with us!</source>
         <translation>Вставьте ключ</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardConfigSource.qml" line="180"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardConfigSource.qml" line="170"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSetupWizardConfigSource.qml" line="97"/>
         <source>Insert</source>
         <translation>Вставить</translation>
@@ -3535,7 +3674,7 @@ Thank you for staying with us!</source>
         <translation>Файлы резервных копий (*.backup)</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardConfigSource.qml" line="335"/>
+        <location filename="../ui/qml/Pages2/PageSetupWizardConfigSource.qml" line="331"/>
         <location filename="../ui/qml/DefaultVpn/Pages/PageSetupWizardConfigSource.qml" line="135"/>
         <source>Open config file</source>
         <translation>Открыть файл с конфигурацией</translation>
@@ -3874,47 +4013,52 @@ Thank you for staying with us!</source>
         <translation>Конфигурация отозвана</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="45"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="101"/>
         <source>Connection to </source>
         <translation>Подключение к </translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="46"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="102"/>
         <source>File with connection settings to </source>
         <translation>Файл с настройками подключения к </translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="58"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="57"/>
         <source>Save OpenVPN config</source>
         <translation>Сохранить конфигурацию OpenVPN</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="65"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="50"/>
+        <source>Save DefaultVPN config</source>
+        <translation>Сохранить конфиг DefaultVPN</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="64"/>
         <source>Save WireGuard config</source>
         <translation>Сохранить конфигурацию WireGuard</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="72"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="71"/>
         <source>Save AmneziaWG config</source>
         <translation>Сохранить конфигурацию AmneziaWG</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="79"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="78"/>
         <source>Save Shadowsocks config</source>
         <translation>Сохранить конфигурацию Shadowsocks</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="86"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="85"/>
         <source>Save Cloak config</source>
         <translation>Сохранить конфигурацию Cloak</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="93"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="92"/>
         <source>Save XRay config</source>
         <translation>Сохранить конфигурацию XRay</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShare.qml" line="119"/>
+        <location filename="../ui/qml/Pages2/PageShare.qml" line="120"/>
         <source>For the DefaultVPN app</source>
         <translation>Для приложения DefaultVPN</translation>
     </message>
@@ -4071,9 +4215,13 @@ Thank you for staying with us!</source>
         <translation>Скопировать</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="30"/>
         <source>Save AmneziaVPN config</source>
-        <translation>Сохранить конфигурацию AmneziaVPN</translation>
+        <translation type="vanished">Сохранить конфигурацию AmneziaVPN</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="30"/>
+        <source>Save DefaultVPN config</source>
+        <translation>Сохранить конфиг DefaultVPN</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="150"/>
@@ -4671,7 +4819,7 @@ Thank you for staying with us!</source>
     <message>
         <location filename="../core/errorstrings.cpp" line="75"/>
         <source>Failed to decrypt response payload</source>
-        <translation></translation>
+        <translation>Не удалось расшифровать данные ответа</translation>
     </message>
     <message>
         <location filename="../core/errorstrings.cpp" line="76"/>
@@ -4734,7 +4882,7 @@ Thank you for staying with us!</source>
         <translation>Создайте на сервере файловое хранилище для безопасного хранения и передачи файлов.</translation>
     </message>
     <message>
-        <location filename="../containers/containers_defs.cpp" line="198"/>
+        <location filename="../containers/containers_defs.cpp" line="210"/>
         <source>REALITY is an innovative protocol developed by the creators of XRay, designed specifically to combat high levels of internet censorship. REALITY identifies censorship systems during the TLS handshake, redirecting suspicious traffic seamlessly to legitimate websites like google.com while providing genuine TLS certificates. This allows VPN traffic to blend indistinguishably with regular web traffic without special configuration.
 Unlike older protocols such as VMess, VLESS, and XTLS-Vision, REALITY incorporates an advanced built-in &quot;friend-or-foe&quot; detection mechanism, effectively protecting against DPI and other traffic analysis methods.
 
@@ -4759,7 +4907,7 @@ REALITY распознаёт системы блокировки во время
 		</translation>
     </message>
     <message>
-        <location filename="../containers/containers_defs.cpp" line="222"/>
+        <location filename="../containers/containers_defs.cpp" line="234"/>
         <source>DNS Service</source>
         <translation>Сервис DNS</translation>
     </message>
@@ -4841,17 +4989,17 @@ REALITY распознаёт системы блокировки во время
 * Работает по протоколу UDP</translation>
     </message>
     <message>
-        <location filename="../containers/containers_defs.cpp" line="130"/>
+        <location filename="../containers/containers_defs.cpp" line="142"/>
         <source>Deploy a WordPress site on the Tor network in two clicks.</source>
         <translation>Разверните сайт на WordPress в сети Tor в два клика.</translation>
     </message>
     <message>
-        <location filename="../containers/containers_defs.cpp" line="132"/>
+        <location filename="../containers/containers_defs.cpp" line="144"/>
         <source>Replace the current DNS server with your own. This will increase your privacy level.</source>
         <translation>Замените текущий DNS-сервер на свой собственный. Это повысит уровень вашей конфиденциальности.</translation>
     </message>
     <message>
-        <location filename="../containers/containers_defs.cpp" line="143"/>
+        <location filename="../containers/containers_defs.cpp" line="155"/>
         <source>OpenVPN is one of the most popular and reliable VPN protocols. It uses SSL/TLS encryption, supports a wide variety of devices and operating systems, and is continuously improved by the community due to its open-source nature. It provides a good balance between speed and security but is easily recognized by DPI systems, making it susceptible to blocking.
 
 Features:
@@ -4938,7 +5086,6 @@ Features:
 * Работает по протоколу UDP</translation>
     </message>
     <message>
-        <location filename="../containers/containers_defs.cpp" line="198"/>
         <source>AmneziaWG is a modern VPN protocol based on WireGuard, combining simplified architecture with high performance across all devices. It addresses WireGuard&apos;s main vulnerability (easy detection by DPI systems) through advanced obfuscation techniques, making VPN traffic indistinguishable from regular internet traffic.
 
 AmneziaWG is an excellent choice for those seeking a fast, stealthy VPN connection.
@@ -4949,7 +5096,7 @@ Features:
 * Minimal settings required
 * Undetectable by traffic analysis systems (DPI)
 * Operates over UDP protocol</source>
-        <translation>AmneziaWG — современный VPN-протокол на основе WireGuard, сочетающий простую архитектуру и высокую производительность на всех устройствах. Он устраняет основной недостаток WireGuard (лёгкое обнаружение трафика системами DPI) за счёт эффективного маскирования VPN-трафика под обычный интернет-трафик.
+        <translation type="vanished">AmneziaWG — современный VPN-протокол на основе WireGuard, сочетающий простую архитектуру и высокую производительность на всех устройствах. Он устраняет основной недостаток WireGuard (лёгкое обнаружение трафика системами DPI) за счёт эффективного маскирования VPN-трафика под обычный интернет-трафик.
 
 Таким образом, AmneziaWG идеально подойдёт тем, кто ищет быстрое и незаметное VPN-соединение.
 
@@ -4961,31 +5108,7 @@ Features:
 * Работает по протоколу UDP</translation>
     </message>
     <message>
-        <location filename="../containers/containers_defs.cpp" line="210"/>
-        <source>REALITY is an innovative protocol developed by the creators of XRay, designed specifically to combat high levels of internet censorship. REALITY identifies censorship systems during the TLS handshake, redirecting suspicious traffic seamlessly to legitimate websites like google.com while providing genuine TLS certificates. This allows VPN traffic to blend indistinguishably with regular web traffic without special configuration.
-Unlike older protocols such as VMess, VLESS, and XTLS-Vision, REALITY incorporates an advanced built-in &quot;friend-or-foe&quot; detection mechanism, effectively protecting against DPI and other traffic analysis methods.
-
-Features:
-* Resistant to active probing and DPI detection
-* No special configuration required to disguise traffic
-* Highly effective in heavily censored regions
-* Minimal battery consumption on devices
-* Operates over TCP protocol</source>
-        <translation>REALITY — это инновационный протокол от разработчиков XRay, специально созданный для эффективного противодействия жесткой интернет-цензуре.
-
-REALITY распознаёт системы блокировки во время TLS-рукопожатия и незаметно перенаправляет подозрительные запросы на реальные сайты, такие как google.com, предъявляя подлинные TLS-сертификаты. Это позволяет маскировать VPN-трафик под обычный веб-трафик без дополнительных настроек.
-
-В отличие от протоколов старого поколения (VMess, VLESS и XTLS-Vision), REALITY использует встроенную технологию распознавания «свой-чужой», надёжно защищая от DPI и других методов сетевого анализа.
-
-Особенности:
-* Устойчив к активному зондированию и DPI-системам
-* Не требует специальной настройки для маскировки трафика
-* Эффективен в регионах с жесткой цензурой
-* Минимальное энергопотребление на устройствах
-* Работает по протоколу TCP</translation>
-    </message>
-    <message>
-        <location filename="../containers/containers_defs.cpp" line="186"/>
+        <location filename="../containers/containers_defs.cpp" line="198"/>
         <source>AmneziaWG is a modern VPN protocol based on WireGuard, combining simplified architecture with high performance across all devices. It addresses WireGuard&apos;s main vulnerability (easy detection by DPI systems) through advanced obfuscation techniques, making VPN traffic indistinguishable from regular internet traffic.
 
 AmneziaWG is an excellent choice for those seeking a fast, stealthy VPN connection.
@@ -5009,7 +5132,7 @@ Features:
 			</translation>
     </message>
     <message>
-        <location filename="../containers/containers_defs.cpp" line="211"/>
+        <location filename="../containers/containers_defs.cpp" line="223"/>
         <source>IKEv2, combined with IPSec encryption, is a modern and reliable VPN protocol. It reconnects quickly when switching networks or devices, making it ideal for dynamic network environments. While it provides good security and speed, it&apos;s easily recognized by DPI systems and susceptible to blocking.
 
 Features:
@@ -5312,12 +5435,17 @@ For more detailed information, you can
 <context>
     <name>SettingsController</name>
     <message>
-        <location filename="../ui/controllers/settingsController.cpp" line="270"/>
+        <location filename="../ui/controllers/settingsController.cpp" line="183"/>
+        <source>Can&apos;t open file: %1</source>
+        <translation>Невозможно открыть файл: %1</translation>
+    </message>
+    <message>
+        <location filename="../ui/controllers/settingsController.cpp" line="269"/>
         <source>All settings have been reset to default values</source>
         <translation>Все настройки сброшены до значений по умолчанию</translation>
     </message>
     <message>
-        <location filename="../ui/controllers/settingsController.cpp" line="247"/>
+        <location filename="../ui/controllers/settingsController.cpp" line="246"/>
         <source>Backup file is corrupted</source>
         <translation>Файл резервной копии поврежден</translation>
     </message>
@@ -5325,41 +5453,32 @@ For more detailed information, you can
 <context>
     <name>ShareConnectionDrawer</name>
     <message>
-        <location filename="../ui/qml/Components/ShareConnectionDrawer.qml" line="25"/>
         <source>Share</source>
-        <translation>Поделиться</translation>
+        <translation type="vanished">Поделиться</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/ShareConnectionDrawer.qml" line="26"/>
         <source>Copy</source>
-        <translation>Скопировать</translation>
+        <translation type="vanished">Скопировать</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/ShareConnectionDrawer.qml" line="30"/>
-        <location filename="../ui/qml/Components/ShareConnectionDrawer.qml" line="37"/>
         <source>Save DefaultVPN config</source>
-        <translation>Сохранить конфиг DefaultVPN</translation>
+        <translation type="vanished">Сохранить конфиг DefaultVPN</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/ShareConnectionDrawer.qml" line="191"/>
-        <location filename="../ui/qml/Components/ShareConnectionDrawer.qml" line="201"/>
         <source>Copied</source>
-        <translation>Скопировано</translation>
+        <translation type="vanished">Скопировано</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/ShareConnectionDrawer.qml" line="142"/>
         <source>Copy config string</source>
-        <translation>Скопировать строку конфигурации</translation>
+        <translation type="vanished">Скопировать строку конфигурации</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/ShareConnectionDrawer.qml" line="165"/>
         <source>Show connection settings</source>
-        <translation>Показать настройки подключения</translation>
+        <translation type="vanished">Показать настройки подключения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/ShareConnectionDrawer.qml" line="370"/>
         <source>To read the QR code in the Amnezia app, select &quot;Add server&quot; → &quot;I have data to connect&quot; → &quot;QR code, key or settings file&quot;</source>
-        <translation>Для считывания QR-кода в приложении Amnezia выберите &quot;Добавить сервер&quot; → &quot;У меня есть данные для подключения&quot; → &quot;Открыть файл конфигурации, ключ или QR-код&quot;</translation>
+        <translation type="vanished">Для считывания QR-кода в приложении Amnezia выберите &quot;Добавить сервер&quot; → &quot;У меня есть данные для подключения&quot; → &quot;Открыть файл конфигурации, ключ или QR-код&quot;</translation>
     </message>
 </context>
 <context>
@@ -5452,9 +5571,22 @@ For more detailed information, you can
     </message>
 </context>
 <context>
+    <name>TextInputPopup</name>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Components/TextInputPopup.qml" line="15"/>
+        <source>Title</source>
+        <translation>Заголовок</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/DefaultVpn/Components/TextInputPopup.qml" line="17"/>
+        <source>Save</source>
+        <translation>Сохранить</translation>
+    </message>
+</context>
+<context>
     <name>VpnConnection</name>
     <message>
-        <location filename="../vpnconnection.cpp" line="443"/>
+        <location filename="../vpnconnection.cpp" line="423"/>
         <source>Mbps</source>
         <translation>Мбит/с</translation>
     </message>
