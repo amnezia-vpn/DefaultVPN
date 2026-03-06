@@ -117,6 +117,7 @@ Page {
                 Layout.topMargin: 16
 
                 visible: ApiAccountInfoModel.data("isProtocolSelectionSupported")
+                enabled: !(ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected)
 
                 text: qsTr("Use VLESS protocol")
                 checked: switcher.isVlessProtocol
