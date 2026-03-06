@@ -83,8 +83,10 @@ Page {
                 id: header
 
                 Layout.fillWidth: true
+                Layout.preferredHeight: contentHeight
 
                 text: root.processedServer.name
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
 
                 horizontalAlignment: Qt.AlignLeft
                 verticalAlignment: Qt.AlignVCenter
