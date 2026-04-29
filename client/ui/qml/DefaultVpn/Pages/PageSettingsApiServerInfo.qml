@@ -83,8 +83,10 @@ Page {
                 id: header
 
                 Layout.fillWidth: true
+                Layout.preferredHeight: contentHeight
 
                 text: root.processedServer.name
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
 
                 horizontalAlignment: Qt.AlignLeft
                 verticalAlignment: Qt.AlignVCenter
@@ -117,6 +119,7 @@ Page {
                 Layout.topMargin: 16
 
                 visible: ApiAccountInfoModel.data("isProtocolSelectionSupported")
+                enabled: !(ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected)
 
                 text: qsTr("Use VLESS protocol")
                 checked: switcher.isVlessProtocol
