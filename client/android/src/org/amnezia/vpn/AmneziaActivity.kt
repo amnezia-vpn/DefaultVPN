@@ -26,6 +26,8 @@ import android.os.ParcelFileDescriptor
 import android.os.SystemClock
 import android.provider.OpenableColumns
 import android.provider.Settings
+import android.view.InputDevice
+import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
@@ -73,6 +75,8 @@ private const val OPEN_FILE_ACTION_CODE = 3
 private const val CHECK_NOTIFICATION_PERMISSION_ACTION_CODE = 4
 
 private const val PREFS_NOTIFICATION_PERMISSION_ASKED = "NOTIFICATION_PERMISSION_ASKED"
+private const val OPEN_FILE_AFTER_RESUME_DELAY_MS = 400L
+private const val KEY_PENDING_OPEN_FILE_URI = "pending_open_file_uri"
 
 class AmneziaActivity : QtActivity() {
 
@@ -88,6 +92,12 @@ class AmneziaActivity : QtActivity() {
 
     private val actionResultHandlers = mutableMapOf<Int, ActivityResultHandler>()
     private val permissionRequestHandlers = mutableMapOf<Int, PermissionRequestHandler>()
+    
+    private var isActivityResumed = false
+    private var hasWindowFocus = false
+    private val resumeHandler = Handler(Looper.getMainLooper())
+    private var pendingOpenFileUri: String? = null
+    private var openFileDeliveryScheduled = false
 
     private val vpnServiceEventHandler: Handler by lazy(NONE) {
         object : Handler(Looper.getMainLooper()) {
@@ -190,9 +200,16 @@ class AmneziaActivity : QtActivity() {
                 doBindService()
             }
         )
+        pendingOpenFileUri = savedInstanceState?.getString(KEY_PENDING_OPEN_FILE_URI)
+        openFileDeliveryScheduled = false
         registerBroadcastReceivers()
         intent?.let(::processIntent)
         runBlocking { vpnProto = proto.await() }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        pendingOpenFileUri?.let { outState.putString(KEY_PENDING_OPEN_FILE_URI, it) }
     }
 
     private fun loadLibs() {
@@ -260,6 +277,11 @@ class AmneziaActivity : QtActivity() {
     }
 
     override fun onStop() {
+        isActivityResumed = false
+        hasWindowFocus = false
+        // Cancel all pending operations when activity stops
+        resumeHandler.removeCallbacksAndMessages(null)
+        openFileDeliveryScheduled = false
         Log.d(TAG, "Stop Amnezia activity")
         doUnbindService()
         mainScope.launch {
@@ -271,35 +293,140 @@ class AmneziaActivity : QtActivity() {
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
+        hasWindowFocus = hasFocus
         Log.d(TAG, "Window focus changed: hasFocus=$hasFocus")
+        
+        // Cancel pending operations if window loses focus
+        if (!hasFocus) {
+            resumeHandler.removeCallbacksAndMessages(null)
+        }
     }
+
+    override fun dispatchKeyEvent(event: KeyEvent): Boolean {
+        val deviceId = event.deviceId
+        val keyCode = event.keyCode
+        val pressed = event.action == KeyEvent.ACTION_DOWN
+        val source = event.source
+
+        if (deviceId < 0 && pressed) {
+            when (keyCode) {
+                KeyEvent.KEYCODE_BUTTON_A,
+                KeyEvent.KEYCODE_BUTTON_B,
+                KeyEvent.KEYCODE_BUTTON_X,
+                KeyEvent.KEYCODE_BUTTON_Y,
+                KeyEvent.KEYCODE_BUTTON_START,
+                KeyEvent.KEYCODE_BUTTON_SELECT -> {
+                    nativeGamepadKeyEvent(0, keyCode, true)
+                    nativeGamepadKeyEvent(0, keyCode, false)
+                    return true
+                }
+                KeyEvent.KEYCODE_DPAD_CENTER -> {
+                    if (isOnTv()) {
+                        val down = KeyEvent(
+                            event.downTime,
+                            event.eventTime,
+                            KeyEvent.ACTION_DOWN,
+                            KeyEvent.KEYCODE_ENTER,
+                            0,
+                            event.metaState,
+                            0,
+                            event.scanCode,
+                            event.flags,
+                            event.source
+                        )
+                        val up = KeyEvent(
+                            event.downTime,
+                            event.eventTime,
+                            KeyEvent.ACTION_UP,
+                            KeyEvent.KEYCODE_ENTER,
+                            0,
+                            event.metaState,
+                            0,
+                            event.scanCode,
+                            event.flags,
+                            event.source
+                        )
+                        super.dispatchKeyEvent(down)
+                        super.dispatchKeyEvent(up)
+                        return true
+                    }
+                    nativeGamepadKeyEvent(0, keyCode, true)
+                    nativeGamepadKeyEvent(0, keyCode, false)
+                    return true
+                }
+            }
+        }
+
+        // Real gamepad events (deviceId >= 0)
+        if (deviceId >= 0) {
+            val isGamepad = (source and InputDevice.SOURCE_GAMEPAD) == InputDevice.SOURCE_GAMEPAD
+            val isJoystick = (source and InputDevice.SOURCE_JOYSTICK) == InputDevice.SOURCE_JOYSTICK
+            val isDpad = (source and InputDevice.SOURCE_DPAD) == InputDevice.SOURCE_DPAD
+            if (isGamepad || isJoystick || isDpad) {
+                nativeGamepadKeyEvent(deviceId, keyCode, pressed)
+                return true
+            }
+        }
+
+        return super.dispatchKeyEvent(event)
+    }
+
+    private external fun nativeGamepadKeyEvent(deviceId: Int, keyCode: Int, pressed: Boolean)
 
     override fun onPause() {
         super.onPause()
+        isActivityResumed = false
+        // Cancel all pending operations when activity pauses
+        resumeHandler.removeCallbacksAndMessages(null)
+        openFileDeliveryScheduled = false
         Log.d(TAG, "Pause Amnezia activity")
     }
 
     override fun onResume() {
         super.onResume()
-       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+        isActivityResumed = true
+        Log.d(TAG, "Resume Amnezia activity")
+
+        if (pendingOpenFileUri != null && !openFileDeliveryScheduled) {
+            val uri = pendingOpenFileUri!!
+            openFileDeliveryScheduled = true
+            resumeHandler.postDelayed({
+                if (!isFinishing && !isDestroyed) {
+                    pendingOpenFileUri = null
+                    openFileDeliveryScheduled = false
+                    mainScope.launch {
+                        qtInitialized.await()
+                        QtAndroidController.onFileOpened(uri)
+                    }
+                }
+            }, OPEN_FILE_AFTER_RESUME_DELAY_MS)
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             window.decorView.apply {
                 invalidate()
 
-                postDelayed({
-                    sendTouch(1f, 1f)
+                resumeHandler.postDelayed({
+                    // Check if activity is still resumed and has focus before executing
+                    if (isActivityResumed && hasWindowFocus && !isFinishing && !isDestroyed) {
+                        sendTouch(1f, 1f)
+                    }
                 }, 100)
                 
-                postDelayed({
-                    sendTouch(2f, 2f)
+                resumeHandler.postDelayed({
+                    if (isActivityResumed && hasWindowFocus && !isFinishing && !isDestroyed) {
+                        sendTouch(2f, 2f)
+                    }
                 }, 200)
                 
-                postDelayed({
-                    requestLayout()
-                    invalidate()
+                resumeHandler.postDelayed({
+                    if (isActivityResumed && hasWindowFocus && !isFinishing && !isDestroyed) {
+                        requestLayout()
+                        invalidate()
+                    }
                 }, 250)
             }
-        }  */      
-        Log.d(TAG, "Resume Amnezia activity")
+        }
     }
 
     private fun configureWindowForEdgeToEdge() {
@@ -362,6 +489,10 @@ class AmneziaActivity : QtActivity() {
     }
 
     override fun onDestroy() {
+        isActivityResumed = false
+        hasWindowFocus = false
+        // Cancel all pending operations when activity is destroyed
+        resumeHandler.removeCallbacksAndMessages(null)
         Log.d(TAG, "Destroy Amnezia activity")
         unregisterBroadcastReceiver(notificationStateReceiver)
         notificationStateReceiver = null
@@ -687,9 +818,13 @@ class AmneziaActivity : QtActivity() {
                             grantUriPermission(packageName, this, Intent.FLAG_GRANT_READ_URI_PERMISSION)
                         }?.toString() ?: ""
                         Log.v(TAG, "Open file: $uri")
-                        mainScope.launch {
-                            qtInitialized.await()
-                            QtAndroidController.onFileOpened(uri)
+                        if (uri.isNotEmpty()) {
+                            pendingOpenFileUri = uri
+                        } else {
+                            mainScope.launch {
+                                qtInitialized.await()
+                                QtAndroidController.onFileOpened(uri)
+                            }
                         }
                     }
                 ))

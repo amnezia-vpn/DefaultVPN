@@ -7,7 +7,6 @@
 #include <QFileInfo>
 #include <QImage>
 #include <QStandardPaths>
-
 #include "core/controllers/vpnConfigurationController.h"
 #include "core/qrCodeUtils.h"
 #include "core/serialization/serialization.h"
@@ -170,8 +169,7 @@ void ExportController::generateWireGuardConfig(const QString &clientName)
         m_config.append(line + "\n");
     }
 
-    auto qr = qrCodeUtils::generateQrCode(m_config.toUtf8());
-    m_qrCodes << qrCodeUtils::svgToBase64(QString::fromStdString(toSvgString(qr, 1)));
+    m_qrCodes = qrCodeUtils::generateQrCodeImageSeries(m_config.toUtf8());
 
     emit exportConfigChanged();
 }
@@ -191,8 +189,7 @@ void ExportController::generateAwgConfig(const QString &clientName)
         m_config.append(line + "\n");
     }
 
-    auto qr = qrCodeUtils::generateQrCode(m_config.toUtf8());
-    m_qrCodes << qrCodeUtils::svgToBase64(QString::fromStdString(toSvgString(qr, 1)));
+    m_qrCodes = qrCodeUtils::generateQrCodeImageSeries(m_config.toUtf8());
 
     emit exportConfigChanged();
 }
@@ -326,7 +323,7 @@ void ExportController::generateXrayConfig(const QString &clientName)
         vlessServer.spiderX = realitySettings.value("spiderX").toString("");
     }
 
-    m_nativeConfigString = amnezia::serialization::vless::Serialize(vlessServer, "AmneziaVPN");
+    m_nativeConfigString = amnezia::serialization::vless::Serialize(vlessServer, "DefaultVPN");
 
     emit exportConfigChanged();
 }
