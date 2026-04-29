@@ -25,6 +25,7 @@ add_definitions(-DGIT_COMMIT_HASH="${GIT_COMMIT_HASH}")
 
 add_definitions(-DPROD_AGW_PUBLIC_KEY="$ENV{PROD_AGW_PUBLIC_KEY}")
 add_definitions(-DPROD_S3_ENDPOINT="$ENV{PROD_S3_ENDPOINT}")
+add_definitions(-DFALLBACK_S3_ENDPOINT="$ENV{FALLBACK_S3_ENDPOINT}")
 
 add_definitions(-DDEV_AGW_PUBLIC_KEY="$ENV{DEV_AGW_PUBLIC_KEY}")
 add_definitions(-DDEV_AGW_ENDPOINT="$ENV{DEV_AGW_ENDPOINT}")
@@ -163,7 +164,7 @@ if(APPLE)
         set(BUILD_IOS_GROUP_IDENTIFIER group.org.amneziaUnipessoal.DefaultVPN CACHE STRING "iOS Group identifier")
     endif()
     if(NOT BUILD_VPN_DEVELOPMENT_TEAM)
-        set(BUILD_VPN_DEVELOPMENT_TEAM X7UJ388FXK CACHE STRING "Amnezia VPN Development Team")
+        set(BUILD_VPN_DEVELOPMENT_TEAM GBN9N55CGR CACHE STRING "Default VPN Development Team")
     endif()
 
     set(CMAKE_XCODE_GENERATE_SCHEME FALSE)
