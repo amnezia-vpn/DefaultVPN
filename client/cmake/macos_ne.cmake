@@ -114,7 +114,7 @@ set_target_properties(${PROJECT} PROPERTIES
     XCODE_ATTRIBUTE_SWIFT_OBJC_INTEROP_MODE "objcxx"
 )
 set_target_properties(${PROJECT} PROPERTIES
-    XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "X7UJ388FXK"
+    XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "GBN9N55CGR"
 )
 target_include_directories(${PROJECT} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 target_compile_options(${PROJECT} PRIVATE
@@ -131,6 +131,7 @@ target_sources(${PROJECT} PRIVATE
     ${CLIENT_ROOT_DIR}/platforms/ios/LogRecord.swift
     ${CLIENT_ROOT_DIR}/platforms/ios/ScreenProtection.swift
     ${CLIENT_ROOT_DIR}/platforms/ios/VPNCController.swift
+    ${CLIENT_ROOT_DIR}/platforms/ios/StoreKit2Helper.swift
 )
 
 target_sources(${PROJECT} PRIVATE
@@ -163,7 +164,7 @@ add_custom_command(TARGET ${PROJECT} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory
             $<TARGET_BUNDLE_DIR:DefaultVPN>/Contents/Frameworks
     COMMAND /usr/bin/find "$<TARGET_BUNDLE_DIR:DefaultVPN>/Contents/Frameworks/OpenVPNAdapter.framework" -name "*.sha256" -delete
-    COMMAND /usr/bin/codesign --force --sign "Apple Distribution"
+    COMMAND /usr/bin/codesign --force --sign "Apple Distribution: AMNEZIA UNIPESSOAL LDA"
             "$<TARGET_BUNDLE_DIR:DefaultVPN>/Contents/Frameworks/OpenVPNAdapter.framework/Versions/Current/OpenVPNAdapter"
     COMMAND ${QT_BIN_DIR_DETECTED}/macdeployqt $<TARGET_BUNDLE_DIR:DefaultVPN> -appstore-compliant -qmldir=${CMAKE_CURRENT_SOURCE_DIR}
     COMMENT "Signing OpenVPNAdapter framework"
