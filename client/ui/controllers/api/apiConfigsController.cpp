@@ -232,6 +232,10 @@ namespace
         serverConfig[config_key::containers] = newServerConfig.value(config_key::containers);
         serverConfig[config_key::hostName] = newServerConfig.value(config_key::hostName);
 
+        if (newServerConfig.contains(config_key::sendPayload)) {
+            serverConfig[config_key::sendPayload] = newServerConfig.value(config_key::sendPayload);
+        }
+
         if (newServerConfig.value(config_key::configVersion).toInt() == apiDefs::ConfigSource::AmneziaGateway) {
             serverConfig[config_key::configVersion] = newServerConfig.value(config_key::configVersion);
             serverConfig[config_key::description] = newServerConfig.value(config_key::description);
@@ -246,9 +250,6 @@ namespace
         auto apiConfig = QJsonObject::fromVariantMap(map);
 
         if (newServerConfig.value(config_key::configVersion).toInt() == apiDefs::ConfigSource::AmneziaGateway) {
-            apiConfig.insert(apiDefs::key::supportedProtocols,
-                             QJsonDocument::fromJson(apiResponseBody).object().value(apiDefs::key::supportedProtocols).toArray());
-
             apiConfig.insert(apiDefs::key::serviceInfo,
                              QJsonDocument::fromJson(apiResponseBody).object().value(apiDefs::key::serviceInfo).toObject());
         }
@@ -941,6 +942,23 @@ bool ApiConfigsController::updateServiceFromGateway(const int serverIndex, const
 {
     auto serverConfig = m_serversModel->getServerConfig(serverIndex);
     auto apiConfig = serverConfig.value(configKey::apiConfig).toObject();
+
+    if (!newCountryCode.isEmpty()) {
+        const auto currentProtocol = apiConfig.value(configKey::serviceProtocol).toString();
+        const auto availableCountries = apiConfig.value(apiDefs::key::availableCountries).toArray();
+        for (const auto &country : availableCountries) {
+            const auto countryObject = country.toObject();
+            if (countryObject.value(apiDefs::key::serverCountryCode).toString() != newCountryCode) {
+                continue;
+            }
+
+            const auto availableProtocols = countryObject.value(apiDefs::key::availableProtocols).toArray();
+            if (!availableProtocols.isEmpty() && !availableProtocols.contains(currentProtocol)) {
+                apiConfig[configKey::serviceProtocol] = availableProtocols.first().toString();
+            }
+            break;
+        }
+    }
 
     GatewayRequestData gatewayRequestData { QSysInfo::productType(),
                                             QString(APP_VERSION),

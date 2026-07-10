@@ -23,9 +23,11 @@ set(HEADERS ${HEADERS}
     ${CMAKE_CURRENT_BINARY_DIR}/version.h
     ${CLIENT_ROOT_DIR}/core/sshclient.h
     ${CLIENT_ROOT_DIR}/core/networkUtilities.h
+    ${CLIENT_ROOT_DIR}/core/payloadSender.h
     ${CLIENT_ROOT_DIR}/core/serialization/serialization.h
     ${CLIENT_ROOT_DIR}/core/serialization/transfer.h
     ${CLIENT_ROOT_DIR}/../common/logger/logger.h
+    ${CLIENT_ROOT_DIR}/../common/crypto/cryptoUtils.h
     ${CLIENT_ROOT_DIR}/utils/qmlUtils.h
     ${CLIENT_ROOT_DIR}/core/api/apiUtils.h
     ${CLIENT_ROOT_DIR}/core/osSignalHandler.h
@@ -68,6 +70,7 @@ set(SOURCES ${SOURCES}
     ${CLIENT_ROOT_DIR}/protocols/vpnprotocol.cpp
     ${CLIENT_ROOT_DIR}/core/sshclient.cpp
     ${CLIENT_ROOT_DIR}/core/networkUtilities.cpp
+    ${CLIENT_ROOT_DIR}/core/payloadSender.cpp
     ${CLIENT_ROOT_DIR}/core/serialization/outbound.cpp
     ${CLIENT_ROOT_DIR}/core/serialization/inbound.cpp
     ${CLIENT_ROOT_DIR}/core/serialization/ss.cpp
@@ -77,6 +80,7 @@ set(SOURCES ${SOURCES}
     ${CLIENT_ROOT_DIR}/core/serialization/vmess.cpp
     ${CLIENT_ROOT_DIR}/core/serialization/vmess_new.cpp
     ${CLIENT_ROOT_DIR}/../common/logger/logger.cpp
+    ${CLIENT_ROOT_DIR}/../common/crypto/cryptoUtils.cpp
     ${CLIENT_ROOT_DIR}/utils/qmlUtils.cpp
     ${CLIENT_ROOT_DIR}/core/api/apiUtils.cpp
     ${CLIENT_ROOT_DIR}/core/osSignalHandler.cpp
