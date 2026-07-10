@@ -93,7 +93,7 @@ Page {
             }
 
             XSmallTextType {
-                visible: ApiAccountInfoModel.data("isProtocolSelectionSupported")
+                visible: ApiAccountInfoModel.data("endDate") !== ""
 
                 Layout.topMargin: 24
                 Layout.fillWidth: true
@@ -103,6 +103,8 @@ Page {
             }
 
             MediumTextType {
+                visible: ApiAccountInfoModel.data("endDate") !== ""
+
                 Layout.topMargin: 6
                 Layout.fillWidth: true
 
@@ -110,27 +112,26 @@ Page {
                 color: Style.color.black
             }
 
-            SwitcherType {
-                id: switcher
-
-                readonly property bool isVlessProtocol: ApiConfigsController.isVlessProtocol()
-
+            WhiteButtonWithBorder {
+                Layout.topMargin: 24
                 Layout.fillWidth: true
-                Layout.topMargin: 16
 
-                visible: ApiAccountInfoModel.data("isProtocolSelectionSupported")
-                enabled: !(ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected)
+                visible: ApiAccountInfoModel.getTelegramBotLink() !== ""
+                         || ApiAccountInfoModel.getEmailLink() !== ""
+                         || ApiAccountInfoModel.getBillingEmailLink() !== ""
+                         || ApiAccountInfoModel.getFullSiteLink() !== ""
 
-                text: qsTr("Use VLESS protocol")
-                checked: switcher.isVlessProtocol
-                onToggled: function() {
-                    if (ServersModel.isDefaultServerCurrentlyProcessed() && ConnectionController.isConnected) {
-                        PageController.showNotificationMessage(qsTr("Cannot change protocol during active connection"))
-                    } else {
-                        PageController.showBusyIndicator(true)
-                        ApiConfigsController.setCurrentProtocol(switcher.isVlessProtocol ? "awg" : "vless")
-                        ApiConfigsController.updateServiceFromGateway(ServersModel.processedIndex, "", "", true)
-                        PageController.showBusyIndicator(false)
+                text: qsTr("Support")
+                defaultTextColor: Style.color.black
+                hoveredTextColor: Style.color.black
+                pressedTextColor: Style.color.black
+
+                onClicked: {
+                    PageController.showBusyIndicator(true)
+                    let result = ApiSettingsController.getAccountInfo(false)
+                    PageController.showBusyIndicator(false)
+                    if (result) {
+                        PageController.goToPage(PageEnum.PageSettingsApiSupport)
                     }
                 }
             }
