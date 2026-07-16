@@ -9,6 +9,7 @@
         <file>images/controls/app.svg</file>
         <file>images/controls/archive-restore.svg</file>
         <file>images/controls/arrow-left.svg</file>
+        <file>images/controls/arrow-left-right.svg</file>
         <file>images/controls/arrow-right.svg</file>
         <file>images/controls/bug.svg</file>
         <file>images/controls/check.svg</file>
@@ -276,6 +277,7 @@
         <file>ui/qml/DefaultVpn/Pages/PageSettingsServersList.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageSettingsApiAvailableCountries.qml</file>
         <file>ui/qml/DefaultVpn/Pages/PageSettingsApiServerInfo.qml</file>
+        <file>ui/qml/DefaultVpn/Pages/PageSettingsApiSupport.qml</file>
         <file>ui/qml/DefaultVpn/Controls/TextTypes/Header1TextType.qml</file>
         <file>ui/qml/DefaultVpn/Controls/TextTypes/Header3TextType.qml</file>
         <file>ui/qml/DefaultVpn/Config/Style.qml</file>

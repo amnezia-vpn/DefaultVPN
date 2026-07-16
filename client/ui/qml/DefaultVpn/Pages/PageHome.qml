@@ -12,6 +12,85 @@ import "../Controls/TextTypes"
 Page {
     id: root
 
+    property var apiAvailableProtocols: []
+    property string apiCurrentProtocol: ""
+
+    readonly property bool isApiProtocolSelectionVisible: ServersModel.isDefaultServerFromApi && root.apiAvailableProtocols.length > 0
+
+    readonly property string longestProtocolName: {
+        var longest = ""
+        for (var i = 0; i < root.apiAvailableProtocols.length; ++i) {
+            var name = root.protocolDisplayName(root.apiAvailableProtocols[i])
+            if (name.length > longest.length) {
+                longest = name
+            }
+        }
+        return longest
+    }
+
+    function updateApiProtocolState() {
+        if (ServersModel.isDefaultServerFromApi) {
+            root.apiAvailableProtocols = ServersModel.getDefaultServerData("apiAvailableProtocols")
+            root.apiCurrentProtocol = ServersModel.getDefaultServerData("apiServiceProtocol")
+        } else {
+            root.apiAvailableProtocols = []
+            root.apiCurrentProtocol = ""
+        }
+    }
+
+    function protocolDisplayName(protocol) {
+        switch (protocol) {
+        case "awg": return "AWG"
+        case "vless": return "VLESS"
+        default: return protocol
+        }
+    }
+
+    function selectProtocol(protocol) {
+        if (protocol === root.apiCurrentProtocol) {
+            return
+        }
+        if (ConnectionController.isConnectionInProgress) {
+            PageController.showNotificationMessage(qsTr("Unable change protocol while trying to make an active connection"))
+            return
+        }
+        if (ConnectionController.isConnected) {
+            PageController.showNotificationMessage(qsTr("Cannot change protocol during active connection"))
+            return
+        }
+
+        PageController.showBusyIndicator(true)
+        ServersModel.setProcessedServerIndex(ServersModel.defaultIndex)
+        ApiConfigsController.setCurrentProtocol(protocol)
+        if (!ApiConfigsController.updateServiceFromGateway(ServersModel.defaultIndex, "", "", true)) {
+            ApiConfigsController.setCurrentProtocol(root.apiCurrentProtocol)
+        }
+        root.updateApiProtocolState()
+        PageController.showBusyIndicator(false)
+    }
+
+    Component.onCompleted: {
+        root.updateApiProtocolState()
+    }
+
+    Connections {
+        target: ServersModel
+
+        function onDefaultServerDefaultContainerChanged() {
+            root.updateApiProtocolState()
+        }
+    }
+
+    TextMetrics {
+        id: protocolTextMetrics
+
+        font.family: Style.font
+        font.pixelSize: 17
+        font.weight: 400
+
+        text: root.longestProtocolName
+    }
+
     ColumnLayout {
         anchors.fill: parent
         anchors.topMargin: 8
@@ -79,23 +158,138 @@ Page {
             }
         }
 
-        DropDownType {
-            id: countryDropDown
-            Layout.fillWidth: false
+        RowLayout {
+            Layout.fillWidth: true
             Layout.topMargin: 10
-            Layout.preferredWidth: defaultServerDropDown.width
 
-            visible: ServersModel.defaultServerImagePathCollapsed !== ""
+            spacing: 10
 
-            text: ServersModel.defaultServerDescriptionCollapsed
+            visible: ServersModel.defaultServerImagePathCollapsed !== "" || root.isApiProtocolSelectionVisible
 
-            onClicked: function() {
-                if (ConnectionController.isConnected) {
-                    PageController.showNotificationMessage(qsTr("Unable change server location while there is an active connection"))
-                    return
+            DropDownType {
+                id: countryDropDown
+                Layout.fillWidth: true
+
+                visible: ServersModel.defaultServerImagePathCollapsed !== ""
+
+                text: ServersModel.defaultServerDescriptionCollapsed
+
+                onClicked: function() {
+                    if (ConnectionController.isConnected) {
+                        PageController.showNotificationMessage(qsTr("Unable change server location while there is an active connection"))
+                        return
+                    }
+                    ServersModel.setProcessedServerIndex(ServersModel.defaultIndex)
+                    PageController.goToPage(PageEnum.PageSettingsApiAvailableCountries)
                 }
-                ServersModel.setProcessedServerIndex(ServersModel.defaultIndex)
-                PageController.goToPage(PageEnum.PageSettingsApiAvailableCountries)
+            }
+
+            DropDownType {
+                id: protocolDropDown
+                Layout.fillWidth: false
+                Layout.preferredWidth: Math.ceil(protocolTextMetrics.advanceWidth) + 59
+
+                visible: root.isApiProtocolSelectionVisible
+                enabled: root.apiAvailableProtocols.length > 1
+
+                imageSource: enabled ? "qrc:/images/controls/chevron-down.svg" : ""
+
+                text: {
+                    if (root.apiCurrentProtocol.length > 0) {
+                        return root.protocolDisplayName(root.apiCurrentProtocol)
+                    }
+                    if (root.apiAvailableProtocols.length > 0) {
+                        return root.protocolDisplayName(root.apiAvailableProtocols[0])
+                    }
+                    return ""
+                }
+
+                onClicked: function() {
+                    if (ConnectionController.isConnectionInProgress) {
+                        PageController.showNotificationMessage(qsTr("Unable change protocol while trying to make an active connection"))
+                        return
+                    }
+                    if (ConnectionController.isConnected) {
+                        PageController.showNotificationMessage(qsTr("Cannot change protocol during active connection"))
+                        return
+                    }
+                    protocolPopup.open()
+                }
+
+                Popup {
+                    id: protocolPopup
+
+                    y: protocolDropDown.height + 4
+                    width: protocolDropDown.width
+
+                    padding: 1
+
+                    background: Rectangle {
+                        color: Style.color.white
+                        border.color: Style.color.gray3
+                        border.width: 1
+                        radius: 6
+                    }
+
+                    contentItem: ColumnLayout {
+                        spacing: 0
+
+                        Repeater {
+                            model: root.apiAvailableProtocols
+
+                            delegate: Rectangle {
+                                id: protocolItem
+
+                                required property var modelData
+
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: 46
+
+                                readonly property bool isCurrent: protocolItem.modelData === root.apiCurrentProtocol
+
+                                color: protocolMouseArea.containsMouse ? Style.color.gray1 : Style.color.white
+                                radius: 6
+
+                                RowLayout {
+                                    anchors.fill: parent
+                                    anchors.leftMargin: 16
+                                    anchors.rightMargin: 16
+
+                                    MediumTextType {
+                                        Layout.fillWidth: true
+
+                                        text: root.protocolDisplayName(protocolItem.modelData)
+                                        color: Style.color.black
+
+                                        horizontalAlignment: Qt.AlignLeft
+                                        verticalAlignment: Qt.AlignVCenter
+                                    }
+
+                                    Image {
+                                        Layout.preferredHeight: 22
+                                        Layout.preferredWidth: 22
+
+                                        source: "qrc:/images/controls/check.svg"
+                                        visible: protocolItem.isCurrent
+                                    }
+                                }
+
+                                MouseArea {
+                                    id: protocolMouseArea
+
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                    cursorShape: Qt.PointingHandCursor
+
+                                    onClicked: function() {
+                                        protocolPopup.close()
+                                        root.selectProtocol(protocolItem.modelData)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
