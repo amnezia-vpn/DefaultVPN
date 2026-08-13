@@ -7,8 +7,10 @@
 #include <QJsonObject>
 #include <QThread>
 #include <QEventLoop>
+#include <QDateTime>
 
 #include "../protocols/vpnprotocol.h"
+#include "wireguard_liveness.h"
 #import "ios_controller_wrapper.h"
 #import "StoreKitController.h"
 
@@ -95,7 +97,6 @@ Vpn::ConnectionState iosStatusToState(NEVPNStatus status) {
 
 namespace {
 constexpr int kHandshakeTimeoutMs = 12000;
-constexpr uint64_t kHandshakeRxThreshold = 4096;
 bool isWireGuardBasedProto(amnezia::Proto proto) {
     return proto == amnezia::Proto::WireGuard || proto == amnezia::Proto::Awg;
 }
@@ -361,20 +362,32 @@ void IosController::checkStatus()
         const long long last_handshake_time_sec = int64FromResponse(response, @"last_handshake_time_sec");
 
         QMetaObject::invokeMethod(this, [this, txBytes, rxBytes, last_handshake_time_sec]() {
-            if (isWireGuardBasedProto(m_proto) && m_handshakeAwaiting) {
-                const bool hasHandshakeData = (last_handshake_time_sec >= 0);
-                const bool hasFreshHandshake = hasHandshakeData &&
-                        ((last_handshake_time_sec > 0) ||
-                         (rxBytes >= kHandshakeRxThreshold) ||
-                         (txBytes >= kHandshakeRxThreshold));
+            if (isWireGuardBasedProto(m_proto)) {
+                const qint64 nowSec = QDateTime::currentSecsSinceEpoch();
+                const auto liveness = amnezia::ios::evaluateWireGuardLiveness(
+                        m_handshakeConfirmed,
+                        m_handshakeStartedAtSec,
+                        nowSec,
+                        last_handshake_time_sec,
+                        m_rxBytes,
+                        m_txBytes,
+                        rxBytes,
+                        txBytes);
 
-                if (hasFreshHandshake) {
+                if (liveness == amnezia::ios::WireGuardLiveness::Alive) {
                     m_handshakeConfirmed = true;
                     m_handshakeAwaiting = false;
                     m_handshakeTimer.invalidate();
                     qDebug() << "IosController::checkStatus : handshake confirmed";
                     emitConnectionStateIfChanged(Vpn::ConnectionState::Connected);
-                } else if (m_handshakeTimer.isValid() &&
+                } else if (liveness == amnezia::ios::WireGuardLiveness::Stale) {
+                    m_handshakeConfirmed = false;
+                    m_handshakeAwaiting = true;
+                    m_handshakeStartedAtSec = nowSec;
+                    m_handshakeTimer.restart();
+                    qDebug() << "IosController::checkStatus : handshake is stale";
+                    emitConnectionStateIfChanged(Vpn::ConnectionState::Reconnecting);
+                } else if (m_handshakeAwaiting && m_handshakeTimer.isValid() &&
                            m_handshakeTimer.elapsed() > kHandshakeTimeoutMs) {
                     m_handshakeTimer.restart();
                     qDebug() << "IosController::checkStatus : handshake timed out, keeping tunnel alive";
@@ -506,12 +519,14 @@ void IosController::vpnStatusDidChange(void *pNotification)
                 nextState = Vpn::ConnectionState::Connecting;
                 if (!m_handshakeAwaiting) {
                     m_handshakeAwaiting = true;
+                    m_handshakeStartedAtSec = QDateTime::currentSecsSinceEpoch();
                     m_handshakeTimer.restart();
                 }
             }
         } else if (session.status != NEVPNStatusConnected) {
             m_handshakeAwaiting = false;
             m_handshakeConfirmed = false;
+            m_handshakeStartedAtSec = 0;
             m_handshakeTimer.invalidate();
             m_statusRequestInFlight = false;
         }
@@ -908,6 +923,10 @@ void IosController::startTunnel()
 
     m_rxBytes = 0;
     m_txBytes = 0;
+    m_handshakeAwaiting = false;
+    m_handshakeConfirmed = false;
+    m_handshakeStartedAtSec = 0;
+    m_handshakeTimer.invalidate();
 
     NETunnelProviderManager *tunnel = m_currentTunnel;
     [tunnel setEnabled:YES];

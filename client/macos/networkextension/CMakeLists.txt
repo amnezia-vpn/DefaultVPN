@@ -75,6 +75,8 @@ message("CLIENT_ROOT_DIR is: ${CLIENT_ROOT_DIR}")
 
 target_sources(DefaultVPNNetworkExtension PRIVATE
     ${WG_APPLE_SOURCE_DIR}/WireGuardKit/WireGuardAdapter.swift
+    ${WG_APPLE_SOURCE_DIR}/WireGuardKit/NetworkPathRetentionPolicy.swift
+    ${WG_APPLE_SOURCE_DIR}/WireGuardKit/HandshakeFreshnessEvaluator.swift
     ${WG_APPLE_SOURCE_DIR}/WireGuardKit/PacketTunnelSettingsGenerator.swift
     ${WG_APPLE_SOURCE_DIR}/WireGuardKit/DNSResolver.swift
     ${WG_APPLE_SOURCE_DIR}/WireGuardNetworkExtension/ErrorNotifier.swift

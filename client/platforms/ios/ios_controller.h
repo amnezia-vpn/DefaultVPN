@@ -123,6 +123,7 @@ private:
     uint64_t m_rxBytes = 0;
     bool m_handshakeAwaiting = false;
     bool m_handshakeConfirmed = false;
+    qint64 m_handshakeStartedAtSec = 0;
     QElapsedTimer m_handshakeTimer;
     Vpn::ConnectionState m_lastEmittedState = Vpn::ConnectionState::Unknown;
     std::atomic_bool m_statusRequestInFlight { false };

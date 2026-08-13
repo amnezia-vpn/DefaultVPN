@@ -267,6 +267,14 @@ jobs:
     - name: 'Install dependencies'
       run: pip install jsonschema jinja2
 
+    - name: 'Test iOS tunnel liveness policy'
+      run: |
+        c++ -std=c++17 -Wall -Wextra -Werror \
+          client/platforms/ios/wireguard_liveness_test.cpp \
+          -o "${RUNNER_TEMP}/wireguard_liveness_test"
+        "${RUNNER_TEMP}/wireguard_liveness_test"
+        sh client/platforms/ios/wireguard_swift_sources_test.sh
+
     - name: 'Build project'
       run: |
         git submodule update --init --recursive
